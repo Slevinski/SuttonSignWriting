@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sutton SignWriting HTML and CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="written sign language tools for user interface and searching">
+    <meta name="author" content="Stephen E Slevinski Jr">
+    <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../include/common.css" />
+    <script src="../assets/SuttonSignWriting.js"></script>
+    <style>
+      @font-face {
+        font-family: "SuttonSignWriting";
+        src: 
+          local('SuttonSignWriting'),
+          url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf') format('truetype');
+      }
+      @font-face {
+        font-family: "SuttonSignWritingFill";
+        src: 
+          local('SuttonSignWritingFill'),
+          url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf') format('truetype');
+      }
+      textarea {
+        width: 100%;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="../index.html"><img src="../assets/ssw_icon.svg"> Sutton SignWriting</a>
+        </div>
+        <div class="navbar-text navbar-right">
+          <a class="navbar-link" style="padding-left:30px;" href="../guide.html">Guide</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../characters/index.html">Characters</a>
+          <a class="navbar-link active" style="padding-left:30px;" href="index.html">Components</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../draft.html">Internet&nbsp;Draft</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="fonts.html" role="button">Font Technology</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="svg.html" role="button">Scalar Vector Graphics</a>
+          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="html.html" role="button">HTML and CSS</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="js.html" role="button">JavaScript Library</a>
+        </div>
+      </div>
+    </div>
+
+<script>
+  function render(id){
+    var html = document.getElementById(id + "_html").value;
+    var css = document.getElementById(id + "_css").value;
+	document.getElementById("html_" + id).innerHTML = html;
+	document.getElementById("css_" + id).innerHTML = css;
+  }
+</script>
+
+    <div id="examples" class="container">
+      
+    </div>
+
+<script>
+  var ex;
+  var examples = [];
+  var titleObj = {};
+  var descObj = {};
+  var cssObj = {};
+  var htmlObj = {};
+
+  var fsw = "M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468";
+  
+  ex = "centered";
+  examples.push(ex);
+  titleObj[ex] = 'Centered Signs';  
+  descObj[ex] = 'Standard signs that are centered and reduce in size if needed.';  
+  cssObj[ex] = 'div.centered { float: left; position: relative; border: 1px solid black; } \n\
+div.centered-sm { width: 30px; height: 30px; } \n\
+div.centered-md { width: 80px; height: 80px; } \n\
+div.centered-lg { width: 150px; height: 150px; } \n\
+\n\
+div.centered svg { \n\
+  position: absolute; \n\
+  display: block; \n\
+  top:2.5%; \n\
+  bottom: 2.5%; \n\
+  left: 2.5%; \n\
+  right: 2.5%; \n\
+  margin: auto; \n\
+  max-width: 95%; \n\
+  max-height: 95%; \n\
+}';
+  htmlObj[ex] = '<div class="centered centered-sm"> \n\
+  ' + ssw.svg(fsw) + '\n\
+</div> \n\
+<div class="centered centered-md"> \n\
+  ' + ssw.svg(fsw) + '\n\
+</div> \n\
+<div class="centered centered-lg"> \n\
+  ' + ssw.svg(fsw) + '\n\
+</div>';
+
+  ex = "centeredx";
+  examples.push(ex);
+  titleObj[ex] = 'Centered Signs, expanding';  
+  descObj[ex] = 'Signs created with styling string "-Zx" that are centered and fill their container.';  
+  cssObj[ex] = 'div.centeredx { float: left; position: relative; border: 1px solid black; } \n\
+div.centeredx-sm { width: 30px; height: 30px; } \n\
+div.centeredx-md { width: 80px; height: 80px; } \n\
+div.centeredx-lg { width: 150px; height: 150px; } \n\
+\n\
+div.centeredx svg { \n\
+  position: absolute; \n\
+  display: block; \n\
+  top:2.5%; \n\
+  bottom: 2.5%; \n\
+  left: 2.5%; \n\
+  right: 2.5%; \n\
+  margin: auto; \n\
+  max-width: 95%; \n\
+  max-height: 95%; \n\
+}';
+  htmlObj[ex] = '<div class="centeredx centeredx-sm"> \n\
+  ' + ssw.svg(fsw + '-Zx') + '\n\
+</div> \n\
+<div class="centeredx centeredx-md"> \n\
+  ' + ssw.svg(fsw + '-Zx') + '\n\
+</div> \n\
+<div class="centeredx centeredx-lg"> \n\
+  ' + ssw.svg(fsw + '-Zx') + '\n\
+</div>';
+
+
+  ex = "colored";
+  examples.push(ex);
+  titleObj[ex] = 'Coloring Symbols and Signs';  
+  descObj[ex] = 'Signs colored with CSS statements.';
+  cssObj[ex] = 'svg.primary g text.sym-line { fill: #337ab7 !important; } \n\
+svg.success g text.sym-line { fill: #5cb85c !important; } \n\
+svg.info g text.sym-line { fill: #5bc0de !important; } \n\
+svg.warning g text.sym-line { fill: #f0ad4e !important; } \n\
+svg.danger g text.sym-line { fill: #d9534f !important; } \n\
+svg.shadow g text { fill: darkgray !important; } \n\
+svg.inverse { background: black; } \n\
+svg.inverse g text.sym-line { fill: white !important; } \n\
+svg.inverse g text.sym-fill { fill: black !important; }';
+  htmlObj[ex] = '<div class="colored"> \n\
+  ' + ssw.svg(fsw + '---primary!') + '\n\
+  ' + ssw.svg(fsw + '---success!') + '\n\
+  ' + ssw.svg(fsw + '---info!') + '\n\
+  ' + ssw.svg(fsw + '---warning!') + '\n\
+  ' + ssw.svg(fsw + '---danger!') + '\n\
+  ' + ssw.svg(fsw + '---shadow!') + '\n\
+  ' + ssw.svg(fsw + '---inverse!') + '\n\
+</div>';
+
+  ex = "animation";
+  examples.push(ex);
+  titleObj[ex] = 'Other Effects';  
+  descObj[ex] = 'Other CSS rules can be used for other effect.';
+  cssObj[ex] = 'svg.rotate, svg.bigger, svg.skewed, svg.blacken g text.sym-line, svg.whiten g text.sym-line{ \
+-webkit-transition: 1s ease-in-out; -moz-transition: 1s ease-in-out; -o-transition: 1s ease-in-out; transition: 1s ease-in-out; \
+} \n\
+\n\
+svg.rotate:hover { transform: rotate(0.5turn); } \n\
+svg.bigger:hover { transform: scale(2); } \n\
+svg.skewed:hover { transform: skewX(30deg); } \n\
+svg.blacken:hover { text-shadow: 0px -1px 4px white, 0px -2px 10px yellow, 0px -10px 20px #ff8000, 0px -18px 40px red; } \n\
+svg.blacken:hover g text.sym-line { fill: #000000 !important; } \n\
+svg.whiten g text { text-shadow: 0 1px 5px rgba(0,0,0,.8), 0 0 30px rgba(0,0,0,.075); } \n\
+svg.whiten:hover g text.sym-line { fill: #FFFFFF !important; }';
+  htmlObj[ex] = '<div class="animated"> \n\
+  ' + ssw.svg(fsw +'---rotate!') + '\n\
+  ' + ssw.svg(fsw +'---bigger!') + '\n\
+  ' + ssw.svg(fsw +'---skewed!') + '\n\
+  ' + ssw.svg(fsw +'---blacken!') + '\n\
+  ' + ssw.svg(fsw +'---whiten!') + '\n\
+</div>';
+
+  ex = "signtext";
+  examples.push(ex);
+  titleObj[ex] = 'Sentences';  
+  descObj[ex] = 'SignWriting is written vertically using the vertical writing mode of CSS.';
+  cssObj[ex] = 'div.signtext { \n\
+  -webkit-writing-mode: vertical-lr; \n\
+  writing-mode: vertical-lr; \n\
+  font-size: 0%; \n\
+  border-left: 1px solid blue; \n\
+  height: 100%; \n\
+} \n\
+\n\
+span.outside { border-left: 1px solid blue; vertical-align: top; } \n\
+span.middle { vertical-align: bottom; } \n\
+span.inside { border-left: 1px dashed red; } \n\
+\n\
+div.sign { \n\
+  writing-mode: horizontal-tb; \n\
+  display: inline-block; \n\
+  vertical-align: middle; \n\
+  padding: 20px; \n\
+  box-sizing: content-box; \n\
+}';
+  var signtext = 'AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475-CZ2 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 S38800464x496 AS10e00M507x515S10e00492x485 AS15d41S15a36S21100S26505M535x521S15d41464x479S15a36474x503S21100507x491S26505522x508 S38700463x496 AS10020M508x515S10020493x485 AS10011S28108S30a00M540x519S30a00482x482S10011519x489S28108519x461 AS10e00S10e08S20500S27100S2711cS20500S2fc00S30006S30002M544x527S10e08470x497S10e00516x497S30006482x482S20500519x484S20500471x484S27100504x464S2711c451x463S30002482x482S2fc00491x453 S38700463x496 AS10e20M508x515S10e20493x485 AS10011S28108S30a00M540x519S30a00482x482S10011519x489S28108519x461 AS10120S15a3aS26a02S20e00M529x518S15a3a502x506S20e00487x495S10120507x483S26a02471x491 AS10020S2df04S10000M527x516S10000512x486S10020473x486S2df04489x485 AS10012S19205S22a04S20e00M529x525S10012499x477S20e00499x491S19205472x476S22a04499x510 S38800464x496 AS15a21S2a20cS15a01S15a07M538x518S15a21515x483S15a07463x482S15a01466x483S2a20c493x490 AS10011S10019S2eb04S2eb48M523x536S2eb48485x504S10011502x463S2eb04507x497S10019477x472 AS19a00S19a08S22a04S22a14S2fb04M534x521S22a14475x503S19a00506x479S19a08467x479S22a04514x504S2fb04493x515 S38800464x496 AS1eb20S15a37S26507S26507S15a10S15a18S22b04S22b14M530x550S15a37470x456S15a10515x523S15a18481x523S1eb20490x468S22b14479x488S26507504x450S22b04514x489S26507516x460 AS1d117S26505S1d417M539x531S1d117460x468S1d417514x506S26505491x492 M517x522S1000a487x507S10041483x479 S38700463x496 AS20320S22e04M509x519S20320493x481S22e04492x501 S38800464x496 M532x516S1ce20469x485S20320495x500S18620514x486 S38700463x496 M533x538S1f110504x523S34d00482x482 M554x518S1920a481x484S19202501x484S26606524x483S26612446x483S20500496x507 S38700463x496 AS15d02S15d0aS20e00S22f00M522x524S22f00487x477S15d02495x500S15d0a479x505S20e00493x493 AS11500S20308S20e00S26a02S34600M525x562S20308503x547S11500510x515S20e00495x531S26a02478x525S34600482x482 S38700463x496 M551x542S1dc2f448x465S1dc01482x459S26605502x488S26615467x490S1e101526x509S1e12f488x510 AS18040S18048S2eb08S2eb4cS2fb00M532x538S18040501x523S18048467x511S2eb4c477x470S2eb08506x483S2fb00494x462 S38800464x496 M532x516S1ce20469x485S20320495x500S18620514x486 AS19a00S19a08S22a04S22a14S2fb04M534x521S22a14475x503S19a00506x479S19a08467x479S22a04514x504S2fb04493x515 S38700463x496 AS10011S10019S2eb04S2eb48M523x536S2eb48485x504S10011502x463S2eb04507x497S10019477x472 AS1eb20S15a06S29b0bM516x531S15a06484x468S1eb20492x483S29b0b484x496 AS20350S20358S22f04S22f14S30114M528x565S20350508x530S20358477x530S22f04503x551S22f14471x551S30114482x477 S38800464x496';
+  htmlObj[ex] = '<div class="signtext"> \n\
+  ' + ssw.paragraph(signtext).replace(/<div class="sign"/g,'\n    <div class="sign"').replace('</span></span></span>','\n  </span></span></span>') + '\n\
+</div>';
+
+  var div;
+  var html;
+  var style;
+  for (var i = 0; i < examples.length; i++) {
+    div = document.createElement("div");
+    div.class = "row";
+    html= '<div class="row"> \
+        <div class="col-xs-12"> \
+          <h1>' + titleObj[examples[i]] + '</h1> \
+          <p>' + descObj[examples[i]] + '</p> \
+        </div> \
+        <div class="col-md-6 col-xs-12"> \
+          <h3>HTML</h3> \
+          <textarea id="' + examples[i] + '_html" rows="10" oninput="render(\'' + examples[i] + '\');" wrap="off"></textarea> \
+        </div> \
+        <div class="col-md-6 col-xs-12"> \
+          <h3>CSS</h3> \
+          <textarea id="' + examples[i] + '_css" rows="10" oninput="render(\'' + examples[i] + '\');"></textarea> \
+        </div> \
+        <div class="col-xs-12"> \
+          <h3>Rendered</h3> \
+          <div id="html_' + examples[i] + '"></div> \
+        </div> \
+      </div><hr>';
+    div.innerHTML = html;
+    document.getElementById("examples").appendChild(div);
+    style = document.createElement("style");
+    style.id = "css_" + examples[i];
+    document.head.appendChild(style);
+	document.getElementById(examples[i] + "_css").innerHTML = cssObj[examples[i]];
+	document.getElementById(examples[i] + "_html").innerHTML = htmlObj[examples[i]];
+    render(examples[i]);
+  }
+</script>
+
+
+  </body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sutton SignWriting Testing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="testing suite for the Sutton SignWriting JavaScript Library">
+    <meta name="author" content="Stephen E Slevinski Jr">
+    <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/SuttonSignWriting.css" />
+    <link rel="stylesheet" type="text/css" href="../../include/common.css" />
+    <script src="../../assets/SuttonSignWriting.js"></script>
+    <link rel="stylesheet" href="../../include/vendor/mocha.css" />
+
+    <style>
+      #mocha-stats {
+        position: relative;
+        float: right;
+        width: 350px;
+        top: -30px;
+      }
+      #mocha-report {
+        clear: both;
+      }
+      li.progress {
+        height: 40px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="../index.html"><img src="../../assets/ssw_icon.svg"> Sutton SignWriting</a>
+        </div>
+        <div class="navbar-text navbar-right">
+          <a class="navbar-link" style="padding-left:30px;" href="../../guide.html">Guide</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../../characters/index.html">Characters</a>
+          <a class="navbar-link active" style="padding-left:30px;" href="../index.html">Components</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../../draft.html">Internet&nbsp;Draft</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="../fonts.html" role="button">Font Technology</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="../svg.html" role="button">Scalar Vector Graphics</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="../html.html" role="button">HTML and CSS</a>
+          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="../js.html" role="button">JavaScript Library</a>
+          <div class="active col-md-3 col-sm-6 col-xs-12" style="float:right;">
+            <a class="btn btn-default col-xs-6" href="../js.html" role="button">API</a>
+            <a class="active btn btn-default col-xs-6" href="index.html" role="button">Test</a>
+          <div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin:40px">
+      <h1>Testing Suite</h1>
+      <a class="btn btn-primary btn-lg" href="index.html">Main<br>Functions</a>
+      <a class="btn btn-default btn-lg" href="test-size.html">Symbol<br>Sizing</a>
+      <a class="btn btn-default btn-lg" href="test-decimal.html">Decimal<br>Ranges</a>
+      <a class="btn btn-default btn-lg" href="test-hexadecimal.html">Hexadecimal<br>Ranges</a>
+    </div>
+
+
+    <div id="mocha"></div>
+    <div id="messages"></div>
+    <div id="fixtures"></div>
+    <script src="../../include/vendor/chai.js"></script>
+    <script src="../../include/vendor/mocha.js"></script>
+    <script>mocha.setup('tdd')</script>
+    <script src="test.ssw.js"></script>
+    <script>
+      mocha.checkLeaks();
+      mocha.run();
+    </script>
+  </body>
+</html>

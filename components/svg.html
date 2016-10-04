@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sutton SignWriting Scalar Vector Graphics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="written sign language tools for user interface and searching">
+    <meta name="author" content="Stephen E Slevinski Jr">
+    <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/SuttonSignWriting.css" />
+    <link rel="stylesheet" type="text/css" href="../include/common.css" />
+    <script src="../assets/SuttonSignWriting.js"></script>
+    <script>
+    function setFSW(fsw){
+	  document.getElementById("fsw").value = fsw;
+    }
+    function fswChange(){
+      var fsw = ssw.fsw(document.getElementById("fsw").value);
+      
+      if (fsw) {
+        var bbox = ssw.bbox(fsw).split(' ');
+        var w = parseInt(bbox[1]) - parseInt(bbox[0]);
+        var h = parseInt(bbox[3]) - parseInt(bbox[2]);
+        document.getElementById("minx").innerHTML = "Minimum X: " + bbox[0];
+        document.getElementById("maxx").innerHTML = "Maximum X: " + bbox[1];
+        document.getElementById("width").innerHTML = "Width: " + w;
+        document.getElementById("miny").innerHTML = "Minimum Y: " + bbox[2];
+        document.getElementById("maxy").innerHTML = "Maximum Y: " + bbox[3];
+        document.getElementById("height").innerHTML = "Height: " + h;
+        var head = '&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="' + w + '" height="' + h + '" viewBox="' + bbox[0] + ' ' + bbox[2] + ' ' + w + ' ' + h + '">';
+        document.getElementById("svg_head").innerHTML = head;
+        head = '&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="' + bbox[0] + ' ' + bbox[2] + ' ' + w + ' ' + h + '">';
+        document.getElementById("svg_head2").innerHTML = head;
+        var text = '&lt;text style="font-size:0%;">' + fsw + '&lt;/text>';
+        document.getElementById("svg_text").innerHTML = text;
+
+        var rsym = /S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3}/g;
+        var syms = fsw.match(rsym);
+        var symlist ='';
+        var glist = '';
+        var sym,x,y;
+        if (!syms) syms=[];
+        for (i=0; i < syms.length; i+=1) {
+          sym = syms[i].slice(0,6);
+          console.log(sym);
+          x = syms[i].slice(6, 9);
+          y = syms[i].slice(10, 13);
+          symlist += '<li>' + sym + ' ' + '(' + x + ',' + y + ')';
+          glist += '&lt;g transform="translate(' + x + ',' + y + ')">...&lt;/g>\n';
+        }
+        document.getElementById("symlist").innerHTML = symlist;
+        document.getElementById("glist").innerHTML = glist;
+        var svg = ssw.svg(fsw).replace("<text s","\n  <text s").replace(/<g/g,"\n    <g").replace(/<\/g/g,"\n    <\/g").replace(/<text c/g,"\n      <text c").replace(/<\/s/g,"\n<\/s");
+        document.getElementById("svg_font").innerHTML = svg.replace(/</g,'&lt;');
+        document.getElementById("svg_view").innerHTML = svg;
+
+      } else {
+        document.getElementById("minx").innerHTML = "Minimum X: ";
+        document.getElementById("maxx").innerHTML = "Maximum X: ";
+        document.getElementById("width").innerHTML = "Width: ";
+        document.getElementById("miny").innerHTML = "Minimum Y: ";
+        document.getElementById("maxy").innerHTML = "Maximum Y: ";
+        document.getElementById("height").innerHTML = "Height: ";
+        document.getElementById("svg_head").innerHTML = '';
+        document.getElementById("svg_head2").innerHTML = '';
+        document.getElementById("svg_text").innerHTML = '';
+        document.getElementById("symlist").innerHTML = '';
+        document.getElementById("glist").innerHTML = '';
+        document.getElementById("svg_font").innerHTML = '';
+        document.getElementById("svg_view").innerHTML = '';
+      }
+    }
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="../index.html"><img src="../assets/ssw_icon.svg"> Sutton SignWriting</a>
+        </div>
+        <div class="navbar-text navbar-right">
+          <a class="navbar-link" style="padding-left:30px;" href="../guide.html">Guide</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../characters/index.html">Characters</a>
+          <a class="navbar-link active" style="padding-left:30px;" href="index.html">Components</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../draft.html">Internet&nbsp;Draft</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="fonts.html" role="button">Font Technology</a>
+          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="svg.html" role="button">Scalar Vector Graphics</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="html.html" role="button">HTML and CSS</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="js.html" role="button">JavaScript Library</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12">
+          <h1>Scalar Vector Graphics</h1>
+          <p>Sutton SignWriting is a 2-dimensional script.
+          The sign images are composed using Scalar Vector Graphic (SVG).
+              <div>
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label for="fsw" class="col-sm-3 control-label">Formal SignWriting</label>
+                    <div class="col-sm-9">
+                      <input type="fsw" class="form-control" id="fsw" placeholder="enter Formal SignWriting string" oninput="fswChange();">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label">Signs</label>
+                    <div class="col-sm-9">
+                      <button class="btn btn-default" onClick="setFSW('AS14c20S27106M518x529S14c20481x471S27106503x489'); fswChange();return false;">Hello</button>
+                      <button class="btn btn-default" onClick="setFSW('M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468'); fswChange();return false;">World</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div id="svg_view"></div>
+              <hr>
+
+          <h2>SVG Header</h2>
+          <p>The header section contains the SVG definition along with the width, height, and viewbox. 
+          The viewbox is a combination of the minimum X, minimum Y, width, and height. 
+          <div class="row">
+            <div class="col-sm-6">
+              <ul>
+                <li id="minx">Minimum X:
+                <li id="maxx">Maximum X:
+                <li id="width">Width: 
+              </ul>
+            </div>
+            <div class="col-sm-6">
+              <ul>
+                <li id="miny">Minimum Y:
+                <li id="maxy">Maximum Y:
+                <li id="height">Height: 
+              </ul>
+            </div>
+          </div>
+          <pre id="svg_head"></pre>
+          <p>If the width and height properties are not included, then the resulting SVG will automatically expand in size to fill the containing element on the screen.
+          <pre id="svg_head2"></pre>
+
+          <h2>SVG Text</h2>
+          <p>The SVG text section is included to make it possible to copy and paste Formal SignWriting strings. The font-size is set to zero to make the text invisible.
+          <pre id="svg_text"></pre>
+          
+          <h2>Font Based SVG</h2>
+          <p>Each symbol in the signbox is a combination of the symbol key and the positioning coordinate.
+          <ul id="symlist"></ul>
+          <p>Each spatial symbol is written as an SVG group and positioned by the transformation translate.
+          <pre id="glist"></pre>
+          <p>Inside of each group, 2 text elements are written. 
+          The symbol fill is written first using the SuttonSignWritingFill font with a plane 16 character. 
+          The symbol line is written second using the SuttonSignWriting font with a plane 4 character. 
+          <pre id="svg_font"></pre>
+        </div>
+      </div>        
+      
+    </div>
+    <script>setFSW('AS20310S26b02S33100M521x547S33100482x483S20310506x500S26b02503x520');fswChange();</script>
+
+  </body>
+
+</html>

@@ -1,0 +1,61 @@
+@font-face {
+  font-family: "SuttonSignWriting";
+  src: 
+    local('SuttonSignWriting'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SuttonSignWritingFill";
+  src: 
+    local('SuttonSignWritingFill'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf') format('truetype');
+}
+
+svg{
+  overflow: visible !important;
+}
+
+svg.primary g text.sym-line{
+  fill: #337ab7 !important;
+}
+svg.success g text.sym-line{
+  fill: #5cb85c !important;
+}
+svg.info g text.sym-line{
+  fill: #5bc0de !important;
+}
+svg.warning g text.sym-line{
+  fill: #f0ad4e !important;
+}
+svg.danger g text.sym-line{
+  fill: #d9534f !important;
+}
+
+div.signtext {
+  -webkit-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  font-size: 0%;
+  border-left: 1px solid blue;
+  height: 57%;
+}
+
+div.signtext span.outside {
+  border-left: 1px solid blue;
+  vertical-align: top;
+}
+
+div.signtext span.middle {
+  vertical-align: bottom;
+}
+
+div.signtext span.inside {
+  border-left: 1px dashed red;
+}
+
+div.signtext div.sign {
+  writing-mode: horizontal-tb;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 20px;
+  box-sizing: content-box;
+}

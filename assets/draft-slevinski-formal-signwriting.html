@@ -1,0 +1,1933 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Formal SignWriting</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents"/>
+<link href="#rfc.section.1" rel="Chapter" title="1 Sutton SignWriting"/>
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Script"/>
+<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Characters"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 Formal SignWriting"/>
+<link href="#rfc.section.2.1" rel="Chapter" title="2.1 Building Blocks"/>
+<link href="#rfc.section.2.1.1" rel="Chapter" title="2.1.1 Symbol Keys"/>
+<link href="#rfc.section.2.1.2" rel="Chapter" title="2.1.2 Coordinates"/>
+<link href="#rfc.section.2.1.3" rel="Chapter" title="2.1.3 Spatial SignBox"/>
+<link href="#rfc.section.2.1.4" rel="Chapter" title="2.1.4 Temporal Sequence"/>
+<link href="#rfc.section.2.1.5" rel="Chapter" title="2.1.5 Sentences"/>
+<link href="#rfc.section.2.2" rel="Chapter" title="2.2 Styling String"/>
+<link href="#rfc.section.2.2.1" rel="Chapter" title="2.2.1 Entire Sign"/>
+<link href="#rfc.section.2.2.2" rel="Chapter" title="2.2.2 Individual Symbols"/>
+<link href="#rfc.section.2.2.3" rel="Chapter" title="2.2.3 SVG Class Names and ID"/>
+<link href="#rfc.section.2.3" rel="Chapter" title="2.3 Query Language"/>
+<link href="#rfc.section.2.3.1" rel="Chapter" title="2.3.1 Searching the Spatial Signbox"/>
+<link href="#rfc.section.2.3.2" rel="Chapter" title="2.3.2 Searching the Temporal Sequence"/>
+<link href="#rfc.section.2.3.3" rel="Chapter" title="2.3.3 Including the Styling String"/>
+<link href="#rfc.section.2.4" rel="Chapter" title="2.4 Transformations"/>
+<link href="#rfc.section.2.4.1" rel="Chapter" title="2.4.1 Formal SignWriting to Query String"/>
+<link href="#rfc.section.2.4.2" rel="Chapter" title="2.4.2 Query String to Regular Expression"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Browser Integration"/>
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Font Technology"/>
+<link href="#rfc.section.3.1.1" rel="Chapter" title="3.1.1 Installing the TrueType Fonts"/>
+<link href="#rfc.section.3.1.2" rel="Chapter" title="3.1.2 Using the Fonts without Installation"/>
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Scalar Vector Graphics"/>
+<link href="#rfc.section.3.2.1" rel="Chapter" title="3.2.1 Font Based SVG"/>
+<link href="#rfc.section.3.2.2" rel="Chapter" title="3.2.2 Stand Alone SVG"/>
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 HTML and CSS"/>
+<link href="#rfc.section.3.3.1" rel="Chapter" title="3.3.1 Centering and Sizing"/>
+<link href="#rfc.section.3.3.2" rel="Chapter" title="3.3.2 Coloring Symbols and Signs"/>
+<link href="#rfc.section.3.3.3" rel="Chapter" title="3.3.3 Other Effects"/>
+<link href="#rfc.section.3.3.4" rel="Chapter" title="3.3.4 Sentences"/>
+<link href="#rfc.section.3.4" rel="Chapter" title="3.4 JavaScript Library"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Unicode Considerations"/>
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 UTF-8"/>
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 CSMW Proposal for SignWriting Characters"/>
+<link href="#rfc.section.4.2.1" rel="Chapter" title="4.2.1 Symbol Codepoints"/>
+<link href="#rfc.section.4.2.2" rel="Chapter" title="4.2.2 Other Codepoints"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 IANA Considerations"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations"/>
+<link href="#rfc.references" rel="Chapter" title="7 References"/>
+<link href="#rfc.authors" rel="Chapter"/>
+
+
+  <meta name="generator" content="xml2rfc version 2.5.2.dev0 - http://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Slevinski, S." />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-slevinski-formal-signwriting-00" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-10-4" />
+  <meta name="dct.abstract" content="Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
+  <meta name="description" content="Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+  <td class="left">Sutton-Slevinski Collaboration</td>
+  <td class="right">S. Slevinski</td>
+</tr>
+<tr>
+  <td class="left">Internet-Draft</td>
+  <td class="right">Center for Sutton Movement Writing</td>
+</tr>
+<tr>
+  <td class="left">Intended status: Informational</td>
+  <td class="right">October 4, 2016</td>
+</tr>
+<tr>
+  <td class="left">Expires: April 7, 2017</td>
+  <td class="right"></td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Formal SignWriting<br />
+  <span class="filename">draft-slevinski-formal-signwriting-00</span></p>
+  
+  <h1 id="rfc.abstract">
+  <a href="#rfc.abstract">Abstract</a>
+</h1>
+<p>Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  </p>
+<p>Formal SignWriting (FSW) is a faithful character-encoding of Sutton SignWriting based on 2-dimensional mathematics.  FSW defines a formal language for written sign languages where any sign of any sign language can be written as a string of ASCII characters.  The mathematical names are explained with tokens and regular expression patterns.  Symbol keys reference the Sutton SignWriting Characters.  Coordinates are used for 2-dimensional placement.  Signs are written in a spatial SignBox, where each symbol is positioned with a 2-dimension coordinate.  For sorting, each sign can have an optional temporal sequence of symbols that is outside of the SignBox.  To create sentences, signs are written sequentially, interspersed with punctuation symbols.  </p>
+<p>The styling string of Formal SignWriting uses a lite markup to define a variety of styling options.  The entire sign can be customized for padding, coloring, and size.  Individual symbols within a sign can be customized for coloring and size.  For SVG, class names and IDs can be defined.  </p>
+<p>The query language of Formal SignWriting uses a lite markup, similar to FSW, to define a variety of searching possibilities.  The spatial SignBox can be searched for symbols or ranges of symbols.  For each symbol or range, the search can specify if the symbol only needs to be found somewhere in the SignBox, or if the symbol needs to be found near certain coordinates.  The temporal sequence can be searched for starting symbols, written as a sequential list of symbols and ranges of symbols.  When searching the temporal sequence, the search results will be limited to signs that start with a matching temporal sequence.  Each query string is transformed into one or more regular expressions.  The regular expressions are used to quickly search large amounts of data.  </p>
+<p>Formal SignWriting has been specifically designed to integrate with standard browser technology.  Four main components make this integration possible: 1) Font Technology, 2) Scalar Vector Graphics, 3) HTML and CSS, and 4) a JavaScript Library.  </p>
+<p>Formal SignWriting is ASCII based, so it is compatible with and optimized for UTF-8.  A Unicode character design is proposed that is isomorphic to Formal SignWriting.  </p>
+<p>This memo defines a conceptual character encoding map for the Internet community.  It is published for reference, examination, implementation, and evaluation.  Distribution of this memo is unlimited.</p>
+<h1 id="rfc.status">
+  <a href="#rfc.status">Status of This Memo</a>
+</h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on April 7, 2017.</p>
+<h1 id="rfc.copyrightnotice">
+  <a href="#rfc.copyrightnotice">Copyright Notice</a>
+</h1>
+<p>Copyright (c) 2016 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Sutton SignWriting</a></li>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Script</a></li>
+<li>1.2.   <a href="#rfc.section.1.2">Characters</a></li>
+</ul><li>2.   <a href="#rfc.section.2">Formal SignWriting</a></li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Building Blocks</a></li>
+<ul><li>2.1.1.   <a href="#rfc.section.2.1.1">Symbol Keys</a></li>
+<li>2.1.2.   <a href="#rfc.section.2.1.2">Coordinates</a></li>
+<li>2.1.3.   <a href="#rfc.section.2.1.3">Spatial SignBox</a></li>
+<li>2.1.4.   <a href="#rfc.section.2.1.4">Temporal Sequence</a></li>
+<li>2.1.5.   <a href="#rfc.section.2.1.5">Sentences</a></li>
+</ul><li>2.2.   <a href="#rfc.section.2.2">Styling String</a></li>
+<ul><li>2.2.1.   <a href="#rfc.section.2.2.1">Entire Sign</a></li>
+<li>2.2.2.   <a href="#rfc.section.2.2.2">Individual Symbols</a></li>
+<li>2.2.3.   <a href="#rfc.section.2.2.3">SVG Class Names and ID</a></li>
+</ul><li>2.3.   <a href="#rfc.section.2.3">Query Language</a></li>
+<ul><li>2.3.1.   <a href="#rfc.section.2.3.1">Searching the Spatial Signbox</a></li>
+<li>2.3.2.   <a href="#rfc.section.2.3.2">Searching the Temporal Sequence</a></li>
+<li>2.3.3.   <a href="#rfc.section.2.3.3">Including the Styling String</a></li>
+</ul><li>2.4.   <a href="#rfc.section.2.4">Transformations</a></li>
+<ul><li>2.4.1.   <a href="#rfc.section.2.4.1">Formal SignWriting to Query String</a></li>
+<li>2.4.2.   <a href="#rfc.section.2.4.2">Query String to Regular Expression</a></li>
+</ul></ul><li>3.   <a href="#rfc.section.3">Browser Integration</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">Font Technology</a></li>
+<ul><li>3.1.1.   <a href="#rfc.section.3.1.1">Installing the TrueType Fonts</a></li>
+<li>3.1.2.   <a href="#rfc.section.3.1.2">Using the Fonts without Installation</a></li>
+</ul><li>3.2.   <a href="#rfc.section.3.2">Scalar Vector Graphics</a></li>
+<ul><li>3.2.1.   <a href="#rfc.section.3.2.1">Font Based SVG</a></li>
+<li>3.2.2.   <a href="#rfc.section.3.2.2">Stand Alone SVG</a></li>
+</ul><li>3.3.   <a href="#rfc.section.3.3">HTML and CSS</a></li>
+<ul><li>3.3.1.   <a href="#rfc.section.3.3.1">Centering and Sizing</a></li>
+<li>3.3.2.   <a href="#rfc.section.3.3.2">Coloring Symbols and Signs</a></li>
+<li>3.3.3.   <a href="#rfc.section.3.3.3">Other Effects</a></li>
+<li>3.3.4.   <a href="#rfc.section.3.3.4">Sentences</a></li>
+</ul><li>3.4.   <a href="#rfc.section.3.4">JavaScript Library</a></li>
+</ul><li>4.   <a href="#rfc.section.4">Unicode Considerations</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">UTF-8</a></li>
+<li>4.2.   <a href="#rfc.section.4.2">CSMW Proposal for SignWriting Characters</a></li>
+<ul><li>4.2.1.   <a href="#rfc.section.4.2.1">Symbol Codepoints</a></li>
+<li>4.2.2.   <a href="#rfc.section.4.2.2">Other Codepoints</a></li>
+</ul></ul><li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<li>6.   <a href="#rfc.section.6">Security Considerations</a></li>
+<li>7.   <a href="#rfc.references">References</a></li>
+<li><a href="#rfc.authors">Author's Address</a></li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#sutton_signwriting" id="sutton_signwriting">Sutton SignWriting</a></h1>
+<p id="rfc.section.1.p.1">Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign languages including: American Sign Language, Arabian Sign Languages, Australian Sign Language, Bolivian Sign Language, Brazilian Sign Language, British Sign Language, Catalan Sign Language, Colombian Sign Language, Czech Sign Language, Danish Sign Language, Dutch Sign Language, Ethiopian Sign Language, Finnish Sign Language, Flemish Sign Language, French-Belgian Sign Language, French Sign Language, German Sign Language, Greek Sign Language, Irish Sign Language, Italian Sign Language, Japanese Sign Language, Malawi Sign Language, Malaysian Sign Language, Maltese Sign Language, Mexican Sign Language, Nepalese Sign Language, New Zealand Sign Language, Nicaraguan Sign Language, Norwegian Sign Language, Peruvian Sign Language, Philippines Sign Language, Polish Sign Language, Portugese Sign Language, Quebec Sign Language, South African Sign Language, Spanish Sign Language, Swedish Sign Language, Swiss Sign Language, Taiwanese Sign Language, and Tunisian Sign Language.  </p>
+<p id="rfc.section.1.p.2">Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  </p>
+<h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#script" id="script">Script</a></h1>
+<p id="rfc.section.1.1.p.1">Sign language is vastly different than spoken language. Instead of the sequential sounds of the voice, there is a 3 dimensional space with simultaneous action.  Sutton SignWriting creates 2-dimensional writing that is visually icon and full of featural information.  This is true on the symbol level and on the sign level.  A symbol represents phonemic information and is full of featural information to better understand the phonemes of the symbols.  A sign is a 2-dimensional arrangement of symbols and is full of featural information to better understand the morphemes of the signs.  </p>
+<p id="rfc.section.1.1.p.2">Punctuation is represented by a single symbol and separates a series of signs into structured sentences.  Line breaks should not occur before punctuation.  </p>
+<p id="rfc.section.1.1.p.3">When written vertically, SignWriting can use 3 different lanes: left, middle, and right.  The middle lane is the default lane and punctuation is always used in the middle lane.  No matter the lane, the center of a sign is aligned with the center of the lane.  The left and right lanes are used to represent body weight shifts and are represented by a horizontal offset from the middle lane.  Body weight shifts are important to the grammar of sign languages, used for two different grammatical aspects: 1) role shifting during sign language storytelling, and 2) spatial comparisons of two items under discussion.  One "role" or "item" is placed on the right side of the body (right lane), and the other on the left side of the body (left lane), and the weight shifts back and forth between the two, with the narrator in the middle (middle lane).  </p>
+<h1 id="rfc.section.1.2"><a href="#rfc.section.1.2">1.2.</a> <a href="#characters" id="characters">Characters</a></h1>
+<p id="rfc.section.1.2.p.1">The Sutton SignWriting characters are the building blocks of Sutton SignWriting.  The characters are arranged in 2 dimensions to create the sign images.  Each character identifies a symbol of the International SignWriting Alphabet 2010 (ISWA 2010), a symbol set created by Valerie Sutton.  The characters are organized as a 16-bit coded character set.  </p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#formal_signwriting" id="formal_signwriting">Formal SignWriting</a></h1>
+<p id="rfc.section.2.p.1">Formal SignWriting (FSW) is a faithful character-encoding of Sutton SignWriting based on 2-dimensional mathematics.  FSW defines a formal language for written sign languages where any sign of any sign language can be written as a string of ASCII characters.  Each sign is written as a separate word.  </p>
+<h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#building" id="building">Building Blocks</a></h1>
+<p id="rfc.section.2.1.p.1">The mathematical words of Formal SignWriting are plain text strings of characters.  These names are described with regular expressions.  Formal languages and regular expressions are used to solve fundamental problems.  </p>
+<div id="rfc.table.1"/>
+<div id="table_regex"/>
+<p>Regular Expression Basics</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Characters</th>
+      <th class="left">Description</th>
+      <th class="left">Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">*</td>
+      <td class="left">Match a literal 0 or more times </td>
+      <td class="left">ABC* matches AB, ABC, ABCC, ...</td>
+    </tr>
+    <tr>
+      <td class="left">+ </td>
+      <td class="left">Match a literal 1 or more times </td>
+      <td class="left">ABC+ matches ABC, ABCC, ABCCC, ...</td>
+    </tr>
+    <tr>
+      <td class="left">? </td>
+      <td class="left">Match a literal 0 or 1 times </td>
+      <td class="left">ABC? matches AB or ABC</td>
+    </tr>
+    <tr>
+      <td class="left">{#} </td>
+      <td class="left">Match a literal "#" times </td>
+      <td class="left">AB{2} matches ABB</td>
+    </tr>
+    <tr>
+      <td class="left">[ ] </td>
+      <td class="left">Match any single literal from a list </td>
+      <td class="left">[ABC] matches A, B, or C</td>
+    </tr>
+    <tr>
+      <td class="left">[ - ] </td>
+      <td class="left">Match any single literal in a range </td>
+      <td class="left">[A-C] matches A, B, or C</td>
+    </tr>
+    <tr>
+      <td class="left">( ) </td>
+      <td class="left">Creates a group for matching </td>
+      <td class="left">A(BC)+ matches ABC, ABCBC, ABCBCBC, ...</td>
+    </tr>
+    <tr>
+      <td class="left">( | ) </td>
+      <td class="left">Matches one of several alternatives </td>
+      <td class="left">(AB|BC|CD) will match AB, BC, or CD</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.p.2">The Formal SignWriting encoding model makes explicit those features which can be effectively and efficiently processed.  The mathematical names are structured with 11 different tokens.  They can be grouped in 4 layers:  the 5 structural makers (A, B, L, M, R), the 3 base symbol ranges (w, s, P), the 2 modifier indexes (i, o), and the numbers (n).  </p>
+<div id="rfc.table.2"/>
+<div id="table_tokens_structural"/>
+<p>The Tokens of Formal SignWriting</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Token</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">A</td>
+      <td class="left">Sequence Marker</td>
+    </tr>
+    <tr>
+      <td class="left">B</td>
+      <td class="left">SignBox Marker</td>
+    </tr>
+    <tr>
+      <td class="left">L</td>
+      <td class="left">Left Lane Marker</td>
+    </tr>
+    <tr>
+      <td class="left">M</td>
+      <td class="left">Middle Lane Marker</td>
+    </tr>
+    <tr>
+      <td class="left">R</td>
+      <td class="left">Right Lane Marker</td>
+    </tr>
+    <tr>
+      <td class="left">w</td>
+      <td class="left">Writing BaseSymbols</td>
+    </tr>
+    <tr>
+      <td class="left">s</td>
+      <td class="left">Detailed Location BaseSymbols</td>
+    </tr>
+    <tr>
+      <td class="left">P</td>
+      <td class="left">Punctuation BaseSymbols</td>
+    </tr>
+    <tr>
+      <td class="left">i</td>
+      <td class="left">Fill Modifiers</td>
+    </tr>
+    <tr>
+      <td class="left">o</td>
+      <td class="left">Rotation Modifiers</td>
+    </tr>
+    <tr>
+      <td class="left">n</td>
+      <td class="left">Number from 250 to 749</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.p.3">These tokens are used in patterns to form written sign language.  The following token patterns fully describe Formal SignWriting.  </p>
+<h1 id="rfc.section.2.1.1"><a href="#rfc.section.2.1.1">2.1.1.</a> <a href="#symbol_keys" id="symbol_keys">Symbol Keys</a></h1>
+<p id="rfc.section.2.1.1.p.1">Symbol keys can be described with 3 tokens: base symbol, fill modifier, and rotation modifier.</p>
+<div id="rfc.table.3"/>
+<div id="table_tokens_symbol_key"/>
+<p>Symbol Key Tokens</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Token Pattern</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">w</td>
+      <td class="left">Writing BaseSymbols.</td>
+    </tr>
+    <tr>
+      <td class="left">s</td>
+      <td class="left">Detailed Location BaseSymbols.</td>
+    </tr>
+    <tr>
+      <td class="left">P</td>
+      <td class="left">Punctuation BaseSymbols.</td>
+    </tr>
+    <tr>
+      <td class="left">i</td>
+      <td class="left">Fill Modifiers.</td>
+    </tr>
+    <tr>
+      <td class="left">o</td>
+      <td class="left">Rotation Modifiers.</td>
+    </tr>
+    <tr>
+      <td class="left">wio</td>
+      <td class="left">A writing symbol as 3 tokens of writing base, fill modifier and rotation modifier.  Writing symbols can be used in the spatial SignBox or the temporal sequence.</td>
+    </tr>
+    <tr>
+      <td class="left">[ws]io</td>
+      <td class="left">A writing symbol or a detailed location symbol as 3 tokens of base, fill modifier, and rotation modifier.  Writing symbols and detail location symbols can be used in the temporal sequence.</td>
+    </tr>
+    <tr>
+      <td class="left">Pio</td>
+      <td class="left">A punctuation symbol as 3 tokens of punctuation base, fill modifier, and rotation modifier.  Punctuation symbols divide signs into sentences.</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.1.p.2">Symbol keys are 6 characters long.  The first character of a symbol key is always "S".  The next 3 characters identify the symbol base.  The last two characters identify the fill and rotation modifiers respectively.  </p>
+<div id="rfc.table.4"/>
+<div id="table_definition_symbol_key"/>
+<p>Symbol Key Definition</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Regular Expression</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">S</td>
+      <td class="left">Start of symbol key</td>
+    </tr>
+    <tr>
+      <td class="left">[123][0-9a-f]{2}</td>
+      <td class="left">Symbol key base</td>
+    </tr>
+    <tr>
+      <td class="left">[0-5]</td>
+      <td class="left">Fill modifier</td>
+    </tr>
+    <tr>
+      <td class="left">[0-9a-f]</td>
+      <td class="left">Rotation modifier</td>
+    </tr>
+    <tr>
+      <td class="left">S[123][0-9a-f]{2}[0-5][0-9a-f]</td>
+      <td class="left">Symbol key definition</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.1.p.3">Symbol keys can be divided between several types.  Each type has a starting and ending base value.  </p>
+<div id="rfc.table.5"/>
+<div id="table_ranges_symbol_type"/>
+<p>Symbol Key Type and Ranges</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Type</th>
+      <th class="left">Start</th>
+      <th class="left">End</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">all symbols</td>
+      <td class="left">100</td>
+      <td class="left">38b</td>
+      <td class="left">All symbol keys occur in this range.</td>
+    </tr>
+    <tr>
+      <td class="left">writing</td>
+      <td class="left">100</td>
+      <td class="left">37e</td>
+      <td class="left">Symbols that can be used in the spatial SignBox or the temporal sequence.</td>
+    </tr>
+    <tr>
+      <td class="left">hand</td>
+      <td class="left">100</td>
+      <td class="left">204</td>
+      <td class="left">Various handshapes</td>
+    </tr>
+    <tr>
+      <td class="left">movement</td>
+      <td class="left">205</td>
+      <td class="left">2f6</td>
+      <td class="left">Contact symbols, small finger movements, straight arrows, curved arrows and circles.</td>
+    </tr>
+    <tr>
+      <td class="left">dynamic</td>
+      <td class="left">2f7</td>
+      <td class="left">2fe</td>
+      <td class="left">Dynamic symbols are used to give the "feeling" or "tempo" to movement.</td>
+    </tr>
+    <tr>
+      <td class="left">head</td>
+      <td class="left">2ff</td>
+      <td class="left">36c</td>
+      <td class="left">Symbols for the head and face.</td>
+    </tr>
+    <tr>
+      <td class="left">hcenter</td>
+      <td class="left">2ff</td>
+      <td class="left">36c</td>
+      <td class="left">Used to determine the horizontal center of a sign.  Same as the head type.</td>
+    </tr>
+    <tr>
+      <td class="left">vcenter</td>
+      <td class="left">2ff</td>
+      <td class="left">375</td>
+      <td class="left">Use to determine the vertical center of a sign.  Includes the head and trunk types.</td>
+    </tr>
+    <tr>
+      <td class="left">trunk</td>
+      <td class="left">36d</td>
+      <td class="left">375</td>
+      <td class="left">Symbols for torso movement, shoulders, and hips.</td>
+    </tr>
+    <tr>
+      <td class="left">limb</td>
+      <td class="left">376</td>
+      <td class="left">37e</td>
+      <td class="left">Symbols for limbs and fingers.</td>
+    </tr>
+    <tr>
+      <td class="left">location</td>
+      <td class="left">37f</td>
+      <td class="left">386</td>
+      <td class="left">Details location symbols can only be used in the temporal sequence.</td>
+    </tr>
+    <tr>
+      <td class="left">punctuation</td>
+      <td class="left">387</td>
+      <td class="left">38b</td>
+      <td class="left">Punctual symbols are used to divide signs into sentences.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.1.2"><a href="#rfc.section.2.1.2">2.1.2.</a> <a href="#coords" id="coords">Coordinates</a></h1>
+<p id="rfc.section.2.1.2.p.1">Coordinates can be described with 2 tokens: number and number.  These numbers represent the X and Y coordinates respectively.  </p>
+<p id="rfc.section.2.1.2.p.2">The number characters encode the ruler principle with characters.  The ruler principle is built in automatically for scripts written sequentially in one dimension.  The number characters are needed to specify the spatial relationship between symbols.  </p>
+<div id="rfc.table.6"/>
+<div id="table_tokens_coordinates"/>
+<p>Coordinate Tokens</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Token Patterns</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">n</td>
+      <td class="left">Number from 250 to 749</td>
+    </tr>
+    <tr>
+      <td class="left">nn</td>
+      <td class="left">Coordinate with X and Y values as 2 numbers</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.2.p.3">There are 2 definitions for a coordinate.  The more general definition simply defines 3 numbers followed by an "x" followed by 3 more numbers.  The more explicit definition correctly restricts the number range from 250 to 749.  The general coordinate definition is adequate for processing.  </p>
+<p/>
+
+<dl>
+  <dt>General 3 digit number definition:</dt>
+  <dd style="margin-left: 8">[0-9]{3}</dd>
+  <dt>General coordinate definition:</dt>
+  <dd style="margin-left: 8">[0-9]{3}x[0-9]{3}</dd>
+  <dt>Explicit number definition from 250 to 749:</dt>
+  <dd style="margin-left: 8">(2[5-9][0-9]|[3-6][0-9]{2}|7[0-4][0-9])</dd>
+  <dt>Explicit coordinate definition:</dt>
+  <dd style="margin-left: 8">(2[5-9][0-9]|[3-6][0-9]{2}|7[0-4][0-9])x(2[5-9][0-9]|[3-6][0-9]{2}|7[0-4][0-9])</dd>
+</dl>
+<h1 id="rfc.section.2.1.3"><a href="#rfc.section.2.1.3">2.1.3.</a> <a href="#signbox" id="signbox">Spatial SignBox</a></h1>
+<p id="rfc.section.2.1.3.p.1">The visual image of a logographic sign is a 2-dimension arrangement of symbols inside of a signbox.  Each signbox has a defined width, height, and 2-dimensional center that can be calculated from the plain text.  </p>
+<p id="rfc.section.2.1.3.p.2">Each logographic sign exists on its own 2-dimensional signbox.  Each point on the signbox is identified with an X and a Y coordinate.  Each signbox has a defined center.  Formal numbers range from 250 to 749.  Informal number have no limit.  </p>
+<pre>
+           Y Axis
+             | 250
+             | 
+             |
+             |
+             |
+             |
+X Axis       |
+  -----------+------------
+  250        |         749
+             |
+             |
+             |
+             |
+             |
+             | 749
+            </pre>
+<p id="rfc.section.2.1.3.p.3">Symbols are placed on the signbox with coordinates that represent the top-left of the symbol image.  Symbol images may overlap.  </p>
+<p id="rfc.section.2.1.3.p.4">The Spatial SignBox can be described with 8 tokens.  </p>
+<div id="rfc.table.7"/>
+<div id="table_tokens_signbox"/>
+<p>Spatial SignBox Tokens</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Token Pattern</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">B</td>
+      <td class="left">SignBox Marker</td>
+    </tr>
+    <tr>
+      <td class="left">L</td>
+      <td class="left">Left Lane Marker</td>
+    </tr>
+    <tr>
+      <td class="left">M</td>
+      <td class="left">Middle Lane Marker</td>
+    </tr>
+    <tr>
+      <td class="left">R</td>
+      <td class="left">Right Lane Marker</td>
+    </tr>
+    <tr>
+      <td class="left">w</td>
+      <td class="left">Writing BaseSymbols</td>
+    </tr>
+    <tr>
+      <td class="left">i</td>
+      <td class="left">Fill Modifiers</td>
+    </tr>
+    <tr>
+      <td class="left">o</td>
+      <td class="left">Rotation Modifiers</td>
+    </tr>
+    <tr>
+      <td class="left">n</td>
+      <td class="left">Number from 250 to 749</td>
+    </tr>
+    <tr>
+      <td class="left">wio</td>
+      <td class="left">A writing symbol as 3 tokens of writing base, fill modifier and rotation modifier</td>
+    </tr>
+    <tr>
+      <td class="left">nn</td>
+      <td class="left">Coordinate with X and Y values as 2 numbers</td>
+    </tr>
+    <tr>
+      <td class="left">wionn</td>
+      <td class="left">A spatial symbol as 5 tokens, with 3 tokens for a writing symbol and 2 tokens for coordinates of top left placement</td>
+    </tr>
+    <tr>
+      <td class="left">(wionn)*</td>
+      <td class="left">Zero or more spatial symbols</td>
+    </tr>
+    <tr>
+      <td class="left">Bnn(wionn)*</td>
+      <td class="left">A signbox with a preprocessed maximum coordinate and a list of spatial symbols used for horizontal writing</td>
+    </tr>
+    <tr>
+      <td class="left">[LMR]</td>
+      <td class="left">A lane marker: either left, middle or right.</td>
+    </tr>
+    <tr>
+      <td class="left">[LMR]nn(wionn)*</td>
+      <td class="left">A signbox in either the left, middle, or right lane with a preprocessed maximum coordinate and a list of spatial symbols used for vertical writing</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.3.p.5">The Spatial SignBox is assigned to a lane, has a preprocessed maximum coordinate and zero or more writing symbols with X and Y coordinates.  </p>
+<p/>
+
+<dl>
+  <dt>Symbol key definition:</dt>
+  <dd style="margin-left: 8">S[123][0-9a-f]{2}[0-5][0-9a-f]</dd>
+  <dt>Coordinate definition:</dt>
+  <dd style="margin-left: 8">[0-9]{3}x[0-9]{3}</dd>
+  <dt>SignBox definition:</dt>
+  <dd style="margin-left: 8">[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*</dd>
+</dl>
+<p id="rfc.section.2.1.3.p.7">2-dimensional space does not have a normative 1-dimensional order.  When symbols overlap, the relative order of the overlapping symbols is important.  Otherwise, the exact string order of the spatial symbols is unpredictable.  </p>
+<h1 id="rfc.section.2.1.3.1"><a href="#rfc.section.2.1.3.1">2.1.3.1.</a> <a href="#bounding" id="bounding">Bounding Box</a></h1>
+<p id="rfc.section.2.1.3.1.p.1">The symbols do not have a consistent width or height.  The center of a symbol can be safely assumed to be at half-width and half-height.  A bounding box for a symbol is based on the symbol width and height.  Each symbol has a defined width and height in a text file with 37,811 lines.  Alternately, the symbol width and height can be calculated by analyzing the glyphs in a TTF font file, using JavaScript or other language.  </p>
+<p id="rfc.section.2.1.3.1.p.2">The bounding box of a sign is a tight box around the symbols.  The bounding box is used to determine the width and height of a sign.  The center of a bounding box is coordinate 500,500.  </p>
+<p id="rfc.section.2.1.3.1.p.3">The bounding box of a sign consists of four values: Minimum X, Minimum Y, Maximum X and Maximum Y.  The values of the bounding box is taken straight from the coordinates in an Formal SignWriting word.  </p>
+<h1 id="rfc.section.2.1.3.2"><a href="#rfc.section.2.1.3.2">2.1.3.2.</a> <a href="#max_coord" id="max_coord">Maximum Coordinate</a></h1>
+<p id="rfc.section.2.1.3.2.p.1">The maximum coordinate for a signbox is pre-calculated to simplify layout for width, height, and center.  For each symbol, the width of height of that symbol is added to the coordinate position of that symbol.  These new coordinate values represent the bottom-right coordinate of each symbol bounding box.  The maximum X value is joined with the maximum Y value to determine the maximum coordinate.  </p>
+<h1 id="rfc.section.2.1.3.3"><a href="#rfc.section.2.1.3.3">2.1.3.3.</a> <a href="#centering" id="centering">Centering a Sign</a></h1>
+<p id="rfc.section.2.1.3.3.p.1">To simplify layout and improve 2-dimensional searching, every sign has a normalized center based on symbol type, size, and mathematical formula.  The vertical center is based on the center of the bounding box around the head symbols.  The horizontal center is based on the center of the bounding box around the head and trunk symbols.  If a sign doesn't contain head or trunk symbols, then the bounding box of all symbols is used.  For the symbol ranges see <a href="#table_ranges_symbol_type">Table 5</a> </p>
+<p id="rfc.section.2.1.3.3.p.2">Once the center of a sign has been determined, the symbols are moved so that the center is coordinate 500,500.  </p>
+<h1 id="rfc.section.2.1.4"><a href="#rfc.section.2.1.4">2.1.4.</a> <a href="#sequence" id="sequence">Temporal Sequence</a></h1>
+<p id="rfc.section.2.1.4.p.1">Signs are written in 2-dimensional space which does not have a normative 1-dimensional order.  Any 1-dimensional order of 2-dimensional space is subjective.  Some 1-dimensional orders may be canonical according to a particular theory, but there are a variety of theories on setting a 1-dimensional order.  </p>
+<p id="rfc.section.2.1.4.p.2">The temporal sequence describes a 1-dimensional order that is separate from the spatial SignBox, rather than ordering the 2-dimensional space directly.  The temporal sequence is written as an optional prefix to a spatial SignBox.  The temporal sequence will use the same symbols that are used in the spatial SignBox, but it does not need to use all of them and it is not limited to only those symbols.  The temporal sequence is a list of writing symbols and/or detailed location symbols that identify temporal order and additional analysis.  A valid sequence must contain at least one symbol and can not contain punctuation.  </p>
+<p id="rfc.section.2.1.4.p.3">The temporal sequence allows for sorting that is universally supported through binary string comparison.  </p>
+<p id="rfc.section.2.1.4.p.4">There are several theories on the best way to structure a temporal sequence.  The most productive is based on the SignSpelling Sequence theory of Valerie Sutton.  A temporal sequence is structured as a series of starting handshapes followed by optional movements, transitional handshapes, movement, and end handshapes.  Only symbols of type "hand" and "movement" should be used in this first section.  The last section of the temporal sequence should contain symbols of of type "dynamic", "head", "trunk", and "limb".  </p>
+<p id="rfc.section.2.1.4.p.5">Detailed location symbols of type "location" can be used in a temporal sequence, but are rarely (if ever) needed for general writing.  </p>
+<p id="rfc.section.2.1.4.p.6">A temporal sequence can be described with 5 tokens.  </p>
+<div id="rfc.table.8"/>
+<div id="table_tokens_sequence"/>
+<p>Temporal Sequence Tokens</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Token Patterns</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">A</td>
+      <td class="left">Sequence Marker</td>
+    </tr>
+    <tr>
+      <td class="left">w</td>
+      <td class="left">Writing BaseSymbols</td>
+    </tr>
+    <tr>
+      <td class="left">s</td>
+      <td class="left">Detailed Location BaseSymbols</td>
+    </tr>
+    <tr>
+      <td class="left">i</td>
+      <td class="left">Fill Modifiers</td>
+    </tr>
+    <tr>
+      <td class="left">o</td>
+      <td class="left">Rotation Modifiers</td>
+    </tr>
+    <tr>
+      <td class="left">(A([ws]io)+)?</td>
+      <td class="left">An optional temporal sequence to be used as a prefix for a SignBox</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.4.p.7">The temporal prefix starts with a sequence marker and includes an ordered list of writing symbols and detailed locations.  </p>
+<div id="rfc.table.9"/>
+<div id="table_definition_sequence"/>
+<p>Temporal Sequence Definition</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Regular Expression</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?</td>
+      <td class="left">An optional temporal sequence as a sequence marker followed by one or more symbols.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.1.5"><a href="#rfc.section.2.1.5">2.1.5.</a> <a href="#sentences" id="sentences">Sentences</a></h1>
+<p id="rfc.section.2.1.5.p.1">General signs are written as a spatial SignBox of symbols in 2-dimensional space.  Sortable signs include a temporal sequence as a 1-dimensional prefix to the spatial SignBox.  </p>
+<p id="rfc.section.2.1.5.p.2">Signs are mixed with punctuation to form text. Punctuation is a single symbol and separates a series of signs into structured sentences.  A punctuation symbol is always used alone and should not be used in a sign.  Line breaks should not occur before punctuation.  </p>
+<p id="rfc.section.2.1.5.p.3">When written vertically, SignWriting can use 3 different lanes: left, middle, and right. The middle lane is the default lane and punctuation is always used in the middle lane. No matter the lane, the center of a sign is aligned with the center of the lane.  </p>
+<p id="rfc.section.2.1.5.p.4">For body weight shifts to one side or the other, the center of the sign is aligned with a fixed horizontal offset from the middle lane into either the left or right lane.  </p>
+<p id="rfc.section.2.1.5.p.5">The left and right lanes are used to represent body weight shifts and are represented by a horizontal offset from the middle lane. Body weight shifts are important to the grammar of sign languages, used for two different grammatical aspects: 1) role shifting during sign language storytelling, and 2) spatial comparisons of two items under discussion. One "role" or "item" is placed on the right side of the body (right lane), and the other on the left side of the body (left lane), and the weight shifts back and forth between the two, with the narrator in the middle (middle lane).  </p>
+<div id="rfc.table.10"/>
+<div id="table_token_sentences"/>
+<p>Sentence Token Patterns</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Regular Expression</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Pionn</td>
+      <td class="left">a punctuation symbol as a punctuation base symbol with a preprocessed minimum coordinate</td>
+    </tr>
+    <tr>
+      <td class="left">(((A([ws]io)+)?Bnn(wionn)*)|Pionn)+</td>
+      <td class="left">a sign text for horizontal writing as a string of signboxes (with optional prefixes) and punctuation</td>
+    </tr>
+    <tr>
+      <td class="left">(((A([ws]io)+)?[LMR]nn(wionn)*)|Pionn)+</td>
+      <td class="left">a sign text for vertical writing as a string of signboxes in lanes (with optional prefixes) and punctuation </td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.2.1.5.p.6">Sentences mix signs with punctuation to form text.  </p>
+<p/>
+
+<dl>
+  <dt>Punctuation definition:</dt>
+  <dd style="margin-left: 8">S38[7-9ab][0-5][0-9a-f][0-9]{3}x[0-9]{3}</dd>
+  <dt>Formal SignWriting text definition:</dt>
+  <dd style="margin-left: 8">((A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*|S38[7-9ab][0-5][0-9a-f][0-9]{3}x[0-9]{3})( (A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)?[BLMR]([0-9]{3}x[0-9]{3})(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*| S38[7-9ab][0-5][0-9a-f][0-9]{3}x[0-9]{3})*</dd>
+</dl>
+<h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#styling" id="styling">Styling String</a></h1>
+<p id="rfc.section.2.2.p.1">The styling string of Formal SignWriting uses a lite markup to define a variety of styling options.  The entire sign can be customized for padding, coloring, and size.  Individual symbols within a sign can be customized for coloring and size.  For SVG output, class names and IDs can be defined.  A styling string can be added to the end of any Formal SignWriting string to style a particular sign.  </p>
+<p id="rfc.section.2.2.p.2">Colors can be written as CSS color names or as color hex values.  </p>
+
+<dl>
+  <dt>CSS Color Names:</dt>
+  <dd style="margin-left: 8">[a-zA-Z]+</dd>
+  <dt>Color Hex Values:</dt>
+  <dd style="margin-left: 8">[0-9a-fA-F]{3}([0-9a-fA-F]{3})?</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.2.2.p.3">The styling string is divided into 3 sections: one for the entire sign, one for individual symbols, and one for SVG class names and ID.  The styling string starts with a single dash, after which is the section about the entire sign.  A second dash, if present, marks the start of the section about the individual symbols.  A third dash, if present, marks the start of the section about the SVG class names and ID.  The order of the styling options is important.  </p>
+
+<dl>
+  <dt>Styling String:</dt>
+  <dd style="margin-left: 8">-C?(P[0-9]{2})?(G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_)?(D_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)?(Z([0-9]+(\.[0-9]+)?|x))?(-(D[0-9]{2}_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)*(Z[0-9]{2},[0-9]+(\.[0-9]+)?(,[0-9]{3}x[0-9]{3})?)*)?(--?[_a-zA-Z][_a-zA-Z0-9-]{0,100}( -?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*!([a-zA-Z][_a-zA-Z0-9-]{0,100}!)?)?</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2.2.1"><a href="#rfc.section.2.2.1">2.2.1.</a> <a href="#style_sign" id="style_sign">Entire Sign</a></h1>
+<p id="rfc.section.2.2.1.p.1">There are several options for styling an entire sign.  </p>
+
+<dl>
+  <dt>C</dt>
+  <dd style="margin-left: 8">Colorize</dd>
+  <dt>P</dt>
+  <dd style="margin-left: 8">Padding</dd>
+  <dt>G</dt>
+  <dd style="margin-left: 8">Background</dd>
+  <dt>D</dt>
+  <dd style="margin-left: 8">Detail colors</dd>
+  <dt>Z</dt>
+  <dd style="margin-left: 8">Zoom level</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2.2.1.1"><a href="#rfc.section.2.2.1.1">2.2.1.1.</a> <a href="#colorize" id="colorize">Colorize</a></h1>
+<p id="rfc.section.2.2.1.1.p.1">Colorizing a sign will set the color of each symbol based on its classification.  </p>
+
+<dl>
+  <dt>Hand</dt>
+  <dd style="margin-left: 8">0000CC</dd>
+  <dt>Movement</dt>
+  <dd style="margin-left: 8">CC0000</dd>
+  <dt>Dynamic</dt>
+  <dd style="margin-left: 8">FF0099</dd>
+  <dt>Head</dt>
+  <dd style="margin-left: 8">006600</dd>
+  <dt>Body</dt>
+  <dd style="margin-left: 8">000000</dd>
+  <dt>Detailed Location</dt>
+  <dd style="margin-left: 8">884411</dd>
+  <dt>Punctuation</dt>
+  <dd style="margin-left: 8">FF9900</dd>
+</dl>
+
+<p> </p>
+<div id="rfc.table.11"/>
+<div id="table_style_colorize"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">-C</td>
+      <td class="left">Colorize the symbols of the sign</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.2.1.2"><a href="#rfc.section.2.2.1.2">2.2.1.2.</a> <a href="#padding" id="padding">Padding</a></h1>
+<p id="rfc.section.2.2.1.2.p.1">Padding is applied around the entire sign.  A two-digit number is used to set the padding.  </p>
+<div id="rfc.table.12"/>
+<div id="table_style_padding"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">-P01</td>
+      <td class="left">A padding of 1 around the sign</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.2.1.3"><a href="#rfc.section.2.2.1.3">2.2.1.3.</a> <a href="#background" id="background">Background</a></h1>
+<p id="rfc.section.2.2.1.3.p.1">By default, the background of a sign is transparent.  The background color can be set with a CSS color name or with a color hex value.  The color name or value must be surrounded by underscores.  </p>
+<div id="rfc.table.13"/>
+<div id="table_style_background"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">-G_lightblue_</td>
+      <td class="left">Background color of light blue.</td>
+    </tr>
+    <tr>
+      <td class="left">-G_f00_</td>
+      <td class="left">Background color as 3 hex values.</td>
+    </tr>
+    <tr>
+      <td class="left">-G_ff0000_</td>
+      <td class="left">Background color as 6 hex values.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.2.1.4"><a href="#rfc.section.2.2.1.4">2.2.1.4.</a> <a href="#detail_colors" id="detail_colors">Detail Colors</a></h1>
+<p id="rfc.section.2.2.1.4.p.1">By default, each symbol has a line color of black and a fill color of white.  The line color for all of the symbols can be set with a CSS color name or with a color hex value.  The color name or value must be surrounded by underscores.  Setting the fill color is optional.  To set the fill color, put a comma and the fill color after the line color but before the closing underscore.  </p>
+<div id="rfc.table.14"/>
+<div id="table_style_detail"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">-D_red_</td>
+      <td class="left">Line color of red.</td>
+    </tr>
+    <tr>
+      <td class="left">-D_red,yellow_</td>
+      <td class="left">Line color of red with a fill color of yellow.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.2.1.5"><a href="#rfc.section.2.2.1.5">2.2.1.5.</a> <a href="#zoom" id="zoom">Zoom Level</a></h1>
+<p id="rfc.section.2.2.1.5.p.1">By default, a sign is set to zoom level 1.  The zoom level can be set with an integer or a decimal number.  </p>
+<p id="rfc.section.2.2.1.5.p.2">Alternatively, the zoom level can be set to lower-case 'x', for extendable.  The SVG created will not specify the width or height, so that the sign image will fill whatever container it is placed inside.  </p>
+<div id="rfc.table.15"/>
+<div id="table_style_zoom"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">-Z2</td>
+      <td class="left">Zoom level of 2</td>
+    </tr>
+    <tr>
+      <td class="left">-Z15.7</td>
+      <td class="left">Zoom level of 15.7</td>
+    </tr>
+    <tr>
+      <td class="left">-Zx</td>
+      <td class="left">Zoom level of extendable</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.2.2"><a href="#rfc.section.2.2.2">2.2.2.</a> <a href="#style_symbols" id="style_symbols">Individual Symbols</a></h1>
+<p id="rfc.section.2.2.2.p.1">There are two options for styling individual symbols.  Individual symbols are identified by a two-digit number, which identifies the order the symbol appears in the SignBox.  </p>
+
+<dl>
+  <dt>D</dt>
+  <dd style="margin-left: 8">Detail colors</dd>
+  <dt>Z</dt>
+  <dd style="margin-left: 8">Zoom level</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2.2.2.1"><a href="#rfc.section.2.2.2.1">2.2.2.1.</a> <a href="#detail_colors_symbols" id="detail_colors_symbols">Detail Colors</a></h1>
+<p id="rfc.section.2.2.2.1.p.1">By default, each symbol has a line color of black and a fill color of white.  The line color for an individual symbol can be set with a CSS color name or with a color hex value.  The color name or value must be surrounded by underscores.  Setting the fill color is optional.  To set the fill color, put a comma and the fill color after the line color but before the closing underscore.  </p>
+<div id="rfc.table.16"/>
+<div id="table_style_sym_detail"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">--D01_red_</td>
+      <td class="left">First symbol line color of red.</td>
+    </tr>
+    <tr>
+      <td class="left">--D01_red,yellow_</td>
+      <td class="left">First symbol line color of red with a fill color of yellow.</td>
+    </tr>
+    <tr>
+      <td class="left">--D01_red_D02_green_</td>
+      <td class="left">First symbol line color of red and second symbol line color of green.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.2.2.2"><a href="#rfc.section.2.2.2.2">2.2.2.2.</a> <a href="#zoom_symbols" id="zoom_symbols">Zoom Level</a></h1>
+<p id="rfc.section.2.2.2.2.p.1">By default, each symbol is set to zoom level 1.  The zoom level of individual symbols can be set with an integer or a decimal number.  </p>
+<p id="rfc.section.2.2.2.2.p.2">Additionally, an offset coordinate can be specified with an individual symbol's zoom level.  The offset coordinate of 500x500 is considered no offset for either the x or y value.  </p>
+<div id="rfc.table.17"/>
+<div id="table_style_sym_zoom"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">--Z03,2</td>
+      <td class="left">Third symbol zoom level of 2</td>
+    </tr>
+    <tr>
+      <td class="left">--Z04,15.7</td>
+      <td class="left">Fourth symbol zoom level of 15.7</td>
+    </tr>
+    <tr>
+      <td class="left">--Z04,1.5,480x500</td>
+      <td class="left">Fourth symbol zoom level of 1.5 with a -20 offset applied to the X value of the symbol's placement coordinate.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.2.3"><a href="#rfc.section.2.2.3">2.2.3.</a> <a href="#classes_and_id" id="classes_and_id">SVG Class Names and ID</a></h1>
+<p id="rfc.section.2.2.3.p.1">When using SVG, there are two additional styling options of class names and ID.  </p>
+
+<dl>
+  <dt>{class names}!</dt>
+  <dd style="margin-left: 8">SVG Class Names</dd>
+  <dt>{ID}!</dt>
+  <dd style="margin-left: 8">SVG ID</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.2.2.3.p.2">Both class names and ID use a restricted ASCII subset.  </p>
+
+<dl>
+  <dt>class names</dt>
+  <dd style="margin-left: 8">-?[_a-zA-Z][_a-zA-Z0-9-]{0,100}( -?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*</dd>
+  <dt>ID</dt>
+  <dd style="margin-left: 8">[a-zA-Z][_a-zA-Z0-9-]{0,100}</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.2.2.3.p.3">Each SVG can be created with a list of class names separated by spaces, ending in an exclamation (!) mark.  After the class names exclamation mark, an ID can be written followed by another exclamation mark.  </p>
+<div id="rfc.table.18"/>
+<div id="table_style_class_names"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Styling String</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">---glowing!</td>
+      <td class="left">A class name of "glowing"</td>
+    </tr>
+    <tr>
+      <td class="left">---flashing primary!</td>
+      <td class="left">Two class names of "flashing" and "primary".</td>
+    </tr>
+    <tr>
+      <td class="left">---!cursor!</td>
+      <td class="left">SVG created with an ID of "cursor"</td>
+    </tr>
+    <tr>
+      <td class="left">---flashing!cursor!</td>
+      <td class="left">SVG created with a class name of "flashing" and an ID of "cursor"</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#query" id="query">Query Language</a></h1>
+<p id="rfc.section.2.3.p.1">The query language is a lite ASCII markup similar to Formal SignWriting.  Any Formal SignWriting string can easily be converted into several different query string, depending on the search parameters.  </p>
+<p id="rfc.section.2.3.p.2">The query string is a concise representation for a much larger and detailed set of regular expressions.  The regular expressions can be used to quickly and accurately search large files and databases containing Formal SignWriting.  </p>
+<p id="rfc.section.2.3.p.3">A filter and repeat pattern of searching is used as a series of match criteria.  A file, database, or text input is searched using a sequence of steps.  Each step applies a single match criteria.  Matching results are collated and the next search criteria is applied.  The pattern of searching the previous results continues until all regular expressions have been used.  </p>
+<p id="rfc.section.2.3.p.4">There are two main sections of a query string.  The first searches the spatial signbox.  The second searches the temporal sequence.  Both sections use the same definition for a symbol or a range.  The symbol search can match an exact symbol, or a set of related symbols.  For the fill and rotation modifiers, the "u" character is a wildcard.  The "u" stands for unknown and will match all values rather than a specific character.  The range search can match a range of base symbols.  The base symbol range consists of 2 values: the starting base symbol and the ending base symbol.  Every symbol between these 2 base symbols will be matched.  </p>
+
+<dl>
+  <dt>Symbol Search:</dt>
+  <dd style="margin-left: 8">S[123][0-9a-f]{2}[0-5u][0-9a-fu]</dd>
+  <dt>Range Search:</dt>
+  <dd style="margin-left: 8">R[123][0-9a-f]{2}t[123][0-9a-f]{2}</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.2.3.p.5">At the end of the query string is an optional styling string flag represented by a dash (-).  If present, the Formal SignWriting strings will include any styling strings.  If the styling string flag isn't included, the query string will only find plain text Formal SignWriting strings without the styling string.  </p>
+<p id="rfc.section.2.3.p.6">The full query string definition allows for the possibility of searching the temporal sequence and the spatial signbox at the same time.  </p>
+
+<dl>
+  <dt>Query String:</dt>
+  <dd style="margin-left: 8">Q((A(S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})+)?T)?(S[123][0-9a-f]{2}[0-5u][0-9a-fu]([0-9]{3}x[0-9]{3})?|R[123][0-9a-f]{2}t[123][0-9a-f]{2}([0-9]{3}x[0-9]{3})?)*(V[0-9]+)?-?</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2.3.1"><a href="#rfc.section.2.3.1">2.3.1.</a> <a href="#search_signbox" id="search_signbox">Searching the Spatial Signbox</a></h1>
+<p id="rfc.section.2.3.1.p.1">The spatial signbox is a list of symbols with 2-dimensional placement.  The query "Q" will find all signs regardless of the symbols used or their placement.  </p>
+<p id="rfc.section.2.3.1.p.2">It is possible to specify one or more symbols (or ranges of symbols) that must be included in the signbox to indicate a match.  The order of the symbols is not important.  Each symbol (or range) can include an optional coordinate.  The coordinate is a restriction on the match, such that a symbol must be used within a certain variance of the coordinate to qualify as a match.  </p>
+<p id="rfc.section.2.3.1.p.3">The variance is a number value, 0 or greater with a default value of 20.  A variance of 0 will only find symbols used at an exact coordinate.  A variance of 5 will match the symbols used at a coordinate, plus or minus 5 for both X and Y numbers.  </p>
+
+<dl>
+  <dt>Symbol Search with Optional Coordinate:</dt>
+  <dd style="margin-left: 8">S[123][0-9a-f]{2}[0-5u][0-9a-fu]([0-9]{3}x[0-9]{3})?</dd>
+  <dt>Range Search with Optional Coordinate:</dt>
+  <dd style="margin-left: 8">R[123][0-9a-f]{2}t[123][0-9a-f]{2}([0-9]{3}x[0-9]{3})?</dd>
+  <dt>Variance:</dt>
+  <dd style="margin-left: 8">(V[0-9]+)?</dd>
+  <dt>Spatial Signbox Search Query:</dt>
+  <dd style="margin-left: 8">Q(S[123][0-9a-f]{2}[0-5u][0-9a-fu]([0-9]{3}x[0-9]{3})?|R[123][0-9a-f]{2}t[123][0-9a-f]{2}([0-9]{3}x[0-9]{3})?)*(V[0-9]+)?</dd>
+</dl>
+
+<p> </p>
+<div id="rfc.table.19"/>
+<div id="table_signbox_query"/>
+<p>Spatial Signbox Query Examples</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Query</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Q</td>
+      <td class="left">All signs</td>
+    </tr>
+    <tr>
+      <td class="left">QS100uu</td>
+      <td class="left">Signs with the index handshape in the spatial order</td>
+    </tr>
+    <tr>
+      <td class="left">QS100uu480x480</td>
+      <td class="left">Signs with the index handshape in the spatial order used near coordinate (480,480)</td>
+    </tr>
+    <tr>
+      <td class="left">QS100uu480x480V0</td>
+      <td class="left">Signs with the index handshape in the spatial order used at the exact coordinate (480,480)</td>
+    </tr>
+    <tr>
+      <td class="left">QS100uuR2fft36c</td>
+      <td class="left">Signs with the index handshape and a symbol from the head &amp; face range</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.3.2"><a href="#rfc.section.2.3.2">2.3.2.</a> <a href="#search_sequence" id="search_sequence">Searching the Temporal Sequence</a></h1>
+<p id="rfc.section.2.3.2.p.1">The temporal sequence is a list of symbol keys.  The query "QT" will find all signs that include a temporal sequence.  </p>
+<p id="rfc.section.2.3.2.p.2">It is possible to specify the start of the temporal sequence by identifying a series of symbols and/or ranges.  The query will start with an "QA" and end with a "T", such as "QA...T".  Between the "QA" and "T", a series of symbol searches and/or range searches will specify the desired start of the temporal sequence.  The order of the symbols and ranges is important.  </p>
+
+<dl>
+  <dt>Temporal Sequence Search Query:</dt>
+  <dd style="margin-left: 8">Q((A(S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})+)?T)?</dd>
+</dl>
+
+<p> </p>
+<div id="rfc.table.20"/>
+<div id="table_prefix_query"/>
+<p>Temporal Sequence Query Examples</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Query</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">QT</td>
+      <td class="left">All signs that include the temporal sequence</td>
+    </tr>
+    <tr>
+      <td class="left">QAS100uuT</td>
+      <td class="left">Signs with a temporal sequence that starts with the index handshape</td>
+    </tr>
+    <tr>
+      <td class="left">QAS100uuR100t204S20500T</td>
+      <td class="left">Signs with a temporal sequence that starts with the index handshape, followed by any handshape, followed by the single contact</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.3.3"><a href="#rfc.section.2.3.3">2.3.3.</a> <a href="#include_style" id="include_style">Including the Styling String</a></h1>
+<p id="rfc.section.2.3.3.p.1">At the end of the query string is an optional styling string flag represented by a dash (-).  If present, the Formal SignWriting strings will include any styling strings.  If the styling string flag isn't included, the query string will only find plain text Formal SignWriting strings without the styling string.  </p>
+
+<dl>
+  <dt>Styling String Search Query:</dt>
+  <dd style="margin-left: 8">Q-</dd>
+  <dt>Styling String Search Only:</dt>
+  <dd style="margin-left: 8">-</dd>
+</dl>
+
+<p> </p>
+<div id="rfc.table.21"/>
+<div id="table_style_query"/>
+<p>Styling String Query Examples</p>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Query</th>
+      <th class="left">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Q-</td>
+      <td class="left">All signs including the styling strings when present</td>
+    </tr>
+    <tr>
+      <td class="left">-</td>
+      <td class="left">Only find styling string without including the Formal SignWriting</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.2.4"><a href="#rfc.section.2.4">2.4.</a> <a href="#transformation" id="transformation">Transformations</a></h1>
+<p id="rfc.section.2.4.p.1">Formal SignWriting and the surrounding technologies have been created to facilitate easy transformations between the various forms.  </p>
+<h1 id="rfc.section.2.4.1"><a href="#rfc.section.2.4.1">2.4.1.</a> <a href="#fsw2query" id="fsw2query">Formal SignWriting to Query String</a></h1>
+<p id="rfc.section.2.4.1.p.1">Formal SignWriting strings have several natural transformations to query string.  The transformation can use the temporal sequence and/or the spatial signbox.  For each symbol, the query can include the exact symbol key, or the query can use a general symbol key where the fill and rotation modifiers are not explicitly defined.  Consider the Formal SignWriting string "AS14c20S27106M518x529S14c20481x471S27106503x489".  </p>
+
+<dl>
+  <dt>Exact Temporal Sequence Symbols:</dt>
+  <dd style="margin-left: 8">QAS14c20S27106T</dd>
+  <dt>General Temporal Sequence Symbols:</dt>
+  <dd style="margin-left: 8">QAS14cuuS271uuT</dd>
+  <dt>Exact Spatial SignBox Symbols:</dt>
+  <dd style="margin-left: 8">QS14c20S27106</dd>
+  <dt>General Spatial SignBox Symbols:</dt>
+  <dd style="margin-left: 8">QS14cuuS271uu</dd>
+  <dt>Exact Spatial SignBox Symbols with Location:</dt>
+  <dd style="margin-left: 8">QS14c20481x471S27106503x489</dd>
+  <dt>General Spatial SignBox Symbols with Location:</dt>
+  <dd style="margin-left: 8">QS14cuu481x471S271uu503x489</dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2.4.2"><a href="#rfc.section.2.4.2">2.4.2.</a> <a href="#query2regex" id="query2regex">Query String to Regular Expression</a></h1>
+<p id="rfc.section.2.4.2.p.1">The transformation from query string to regular expressions has been fully implemented in the Sutton SignWriting JavaScript Library and the SignWriting Server.  </p>
+<p id="rfc.section.2.4.2.p.2">The query language to regular expressions generator uses the following regular expression structures as building blocks.  </p>
+
+<dl>
+  <dt>Temporal Sequence Prefix:</dt>
+  <dd style="margin-left: 8">(A(S[123][0-9a-f]{2}[0-5][0-9a-f])+)</dd>
+  <dt>SignBox Prefix:</dt>
+  <dd style="margin-left: 8">[BLMR]([0-9]{3}x[0-9]{3})</dd>
+  <dt>Spatial Symbols:</dt>
+  <dd style="margin-left: 8">(S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3})*</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.2.4.2.p.3">The Temporal Sequence Prefix is a structural marker followed by one or more symbols.  For the query string "QT", the prefix is required.  For the general "Q", the prefix is optional so "?" is appended to the Temporal Sequence Prefix regular expression.  </p>
+<p id="rfc.section.2.4.2.p.4">The SignBox Prefix is a combination of structural marker and preprocessed maximum coordinate.  Every constructed regular expression will include the SignBox Prefix.  </p>
+<p id="rfc.section.2.4.2.p.5">The Spatial Symbols is zero or more symbol definitions and associated coordinates.  The Spatial Symbols regular expression is used for every search.  For both "Q" and "QT", it is the only symbol matching used.  When searching for specific symbols and ranges, the general Spatial Symbols definition will sandwich the specific search definitions.  </p>
+<p id="rfc.section.2.4.2.p.6">Searching for number ranges with regular expressions requires a unique technique.  This technique requires five steps.  </p>
+<p id="rfc.section.2.4.2.p.7">Find a number between 122 and 455 </p>
+
+<dl>
+  <dt>1) 10's don't match and the min 1's are not zero ( last number to 9):</dt>
+  <dd style="margin-left: 8">Match 12[2-9]</dd>
+  <dt>2) Bring up the 10's if hundreds are different:</dt>
+  <dd style="margin-left: 8">Match 1[3-9][0-9]</dd>
+  <dt>3) Bring up the 100's if different:</dt>
+  <dd style="margin-left: 8">Match [2-3][0-9][0-9]</dd>
+  <dt>4) Bring up the 10's:</dt>
+  <dd style="margin-left: 8">Match 4[0-4][0-9]</dd>
+  <dt>5) Bring up the 1's:</dt>
+  <dd style="margin-left: 8">Match 45[0-5]</dd>
+</dl>
+
+<p> Final Match (12[1-9]|1[3-9][0-9]|[2-3][0-9][0-9]|4[0-4][0-9]|45[0-5]) </p>
+<p id="rfc.section.2.4.2.p.8">For the styling string regular expression, see <a href="#styling">Section 2.2</a>.  </p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#browser" id="browser">Browser Integration</a></h1>
+<p id="rfc.section.3.p.1">Formal SignWriting has been specifically designed to integrate with standard browser technology.  Four main components make this integration possible: 1) Font Technology, 2) Scalar Vector Graphics, 3) HTML and CSS, and 4) a JavaScript Library.  </p>
+<h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#font" id="font">Font Technology</a></h1>
+<p id="rfc.section.3.1.p.1">The Sutton SignWriting Fonts are available as source SVG and as two TrueType Font files.  </p>
+<pre>
+      Sutton SignWriting Fonts
+      Copyright (c) 1974-2016, Center for Sutton Movement Writing, inc
+      Licensed under the SIL Open Font License v1.1
+          </pre>
+<h1 id="rfc.section.3.1.1"><a href="#rfc.section.3.1.1">3.1.1.</a> <a href="#install_fonts" id="install_fonts">Installing the TrueType Fonts</a></h1>
+<p id="rfc.section.3.1.1.p.1">The Sutton SignWriting TrueType fonts are available for download and installation. The fonts have been tailored for the Sutton SignWriting JavaScript library. Please ignore warning and unusual font previews during installation as these will not affect the fonts utility.  </p>
+<p id="rfc.section.3.1.1.p.2">Installing the fonts using the instructions below is not required, but it will improve the user experience. If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.  </p>
+<h1 id="rfc.section.3.1.1.1"><a href="#rfc.section.3.1.1.1">3.1.1.1.</a> <a href="#font_desktop" id="font_desktop">Windows, Linux, and Mac</a></h1>
+<p id="rfc.section.3.1.1.1.p.1">Installation is straight forward for Windows, Linux and Mac. Simply download the 2 TrueType fonts and install as usual.  </p>
+
+<dl>
+  <dt></dt>
+  <dd style="margin-left: 8"><a href="#SuttonSignWritingFont">Sutton SignWriting TrueType Font</a> <cite title="NONE">[SuttonSignWritingFont]</cite></dd>
+  <dt></dt>
+  <dd style="margin-left: 8"><a href="#SuttonSignWritingFontFill">Sutton SignWriting Fill TrueType Font</a> <cite title="NONE">[SuttonSignWritingFontFill]</cite></dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.3.1.1.2"><a href="#rfc.section.3.1.1.2">3.1.1.2.</a> <a href="#font_ios" id="font_ios">iOS</a></h1>
+<p id="rfc.section.3.1.1.2.p.1">Installation is possible on iOS with a configuration profile that includes the 2 TrueType fonts.  Simply download the configuration profile and install.  </p>
+
+<dl>
+  <dt></dt>
+  <dd style="margin-left: 8"><a href="#SuttonSignWritingProfile">Sutton SignWriting Configuration Profile</a> <cite title="NONE">[SuttonSignWritingProfile]</cite></dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.3.1.1.3"><a href="#rfc.section.3.1.1.3">3.1.1.3.</a> <a href="#font_android" id="font_android">Android</a></h1>
+<p id="rfc.section.3.1.1.3.p.1">Android can not install the fonts directly onto the system.  The CSS declarations below will install the fonts in the browser cache.  </p>
+<h1 id="rfc.section.3.1.2"><a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#css_fonts" id="css_fonts">Using the Fonts without Installation</a></h1>
+<p id="rfc.section.3.1.2.p.1">The TrueType Fonts can be used without installing the fonts on any platform by defining two font-face statements.  Simply include the following CSS in any HTML page to access the fonts.  Make sure to replace the URLs with the fully qualified links for both fonts.  </p>
+<pre>
+@font-face {
+  font-family: "SuttonSignWriting";
+  src: 
+    local('SuttonSignWriting'),
+    url('https://.../SuttonSignWriting.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SuttonSignWritingFill";
+  src: 
+    local('SuttonSignWritingFill'),
+    url('https://.../SuttonSignWritingFill.ttf') format('truetype');
+}
+            </pre>
+<p id="rfc.section.3.1.2.p.2">If the fonts are installed, then the system fonts will be used.  If the fonts are not installed when a SignWriting Font page is opened, the CSS will cause the fonts to be automatically downloaded to the browser's cache on the first visit.  Once the fonts are installed in the browser cache, they will remain there until the browser cache is emptied.  Any webside that uses this CSS can access the browser installed font without requesting a new copy.  The fonts are 10 MB, so the first install make take a few seconds or longer depending on your download speed and processor.  </p>
+<h1 id="rfc.section.3.2"><a href="#rfc.section.3.2">3.2.</a> <a href="#svg" id="svg">Scalar Vector Graphics</a></h1>
+<p id="rfc.section.3.2.p.1">Sutton SignWriting is a 2-dimensional script.  The sign images are composed using Scalar Vector Graphic (SVG).  </p>
+<h1 id="rfc.section.3.2.1"><a href="#rfc.section.3.2.1">3.2.1.</a> <a href="#svg_font" id="svg_font">Font Based SVG</a></h1>
+<p id="rfc.section.3.2.1.p.1">The conversion of Formal SignWriting to Scalar Vector Graphics requires three parts: header, text, and symbols.  Consider the FSW string "M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468".  </p>
+<h1 id="rfc.section.3.2.1.1"><a href="#rfc.section.3.2.1.1">3.2.1.1.</a> <a href="#svg_header" id="svg_header">SVG Header</a></h1>
+<p id="rfc.section.3.2.1.1.p.1">The header section contains the SVG definition along with the width, height, and viewbox.  The viewbox is a combination of the minimum X, minimum Y, width, and height.  </p>
+
+<dl>
+  <dt>Minimum X:</dt>
+  <dd style="margin-left: 8">482</dd>
+  <dt>Maximum X:</dt>
+  <dd style="margin-left: 8">518</dd>
+  <dt>Width:</dt>
+  <dd style="margin-left: 8">36</dd>
+  <dt>Minimum Y:</dt>
+  <dd style="margin-left: 8">468</dd>
+  <dt>Maximum Y:</dt>
+  <dd style="margin-left: 8">533</dd>
+  <dt>Height:</dt>
+  <dd style="margin-left: 8">65</dd>
+</dl>
+
+<p> </p>
+<pre>
+&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg" 
+  width="36" height="65" viewBox="482 468 36 65"&gt;
+                </pre>
+<p id="rfc.section.3.2.1.1.p.2">If the width and height properties are not included, then the resulting SVG will automatically expand in size to fill the containing element on the screen.  </p>
+<pre>
+&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg" 
+  viewBox="482 468 36 65"&gt;
+                </pre>
+<h1 id="rfc.section.3.2.1.2"><a href="#rfc.section.3.2.1.2">3.2.1.2.</a> <a href="#svg_text" id="svg_text">SVG Text</a></h1>
+<p id="rfc.section.3.2.1.2.p.1">The SVG text section is included to make it possible to copy and paste Formal SignWriting strings.  The font-size is set to zero to make the text invisible.  </p>
+<pre>
+&lt;text style="font-size:0%;"&gt;
+M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468
+&lt;/text&gt;
+                </pre>
+<h1 id="rfc.section.3.2.1.3"><a href="#rfc.section.3.2.1.3">3.2.1.3.</a> <a href="#svg_syms" id="svg_syms">SVG Symbols</a></h1>
+<p id="rfc.section.3.2.1.3.p.1">Each symbol in the signbox is a combination of the symbol key and the positioning coordinate.  </p>
+
+<dl>
+  <dt>Symbol 1:</dt>
+  <dd style="margin-left: 8">S1870a 489x515</dd>
+  <dt>Symbol 2:</dt>
+  <dd style="margin-left: 8">S18701 482x490</dd>
+  <dt>Symbol 3:</dt>
+  <dd style="margin-left: 8">S20500 508x496</dd>
+  <dt>Symbol 4:</dt>
+  <dd style="margin-left: 8">S2e734 500x468</dd>
+</dl>
+
+<p> </p>
+<p id="rfc.section.3.2.1.3.p.2">Each spatial symbol is written as an SVG group and positioned by the transformation translate.  </p>
+<pre>
+  &lt;g transform="translate(489,515)"&gt;...&lt;/g&gt;
+  &lt;g transform="translate(482,490)"&gt;...&lt;/g&gt;
+  &lt;g transform="translate(508,496)"&gt;...&lt;/g&gt;
+  &lt;g transform="translate(500,468)"&gt;...&lt;/g&gt;
+                </pre>
+<p id="rfc.section.3.2.1.3.p.3">Inside of each group, 2 text elements are written.  The symbol fill is written first using the SuttonSignWritingFill font with a plane 16 character.  The symbol line is written second using the SuttonSignWriting font with a plane 4 character.  See <a href="#sym_codes">Section 4.2.1</a> for the formula to convert symbol keys to codepoints.  </p>
+<pre>
+&lt;text class="sym-fill" 
+ style="font-family:'SuttonSignWritingFill';font-size:30px;fill:white;"&gt;
+ {plane 16 codepoint}
+&lt;/text&gt;
+&lt;text class="sym-line" 
+ style="font-family:'SuttonSignWriting';font-size:30px;fill:black;"&gt;
+ {plane 4 codepoint}
+&lt;/text&gt;
+                </pre>
+<h1 id="rfc.section.3.2.2"><a href="#rfc.section.3.2.2">3.2.2.</a> <a href="#svg_alone" id="svg_alone">Stand Alone SVG</a></h1>
+<p id="rfc.section.3.2.2.p.1">It is possible to request completed SVG images from the <a href="#SignWritingServer">SignWriting Server</a> <cite title="NONE">[SignWritingServer]</cite>.  The SVG images created by the SignWriting Server are stand-alone graphics that do not use the TrueType Fonts.  The SVG images use path elements to define the symbol lines and curves.  </p>
+<p id="rfc.section.3.2.2.p.2">The SVG header and SVG text for the server-side images are the same as the standard FSW to SVG transformation.  See <a href="#svg_font">Section 3.2.1</a> </p>
+<p id="rfc.section.3.2.2.p.3">The SVG symbols section is structured differently.  Multiple SVG elements are contained within each sign SVG image.  Each sub-SVG element uses X and Y coordinates to place each symbol.  Consider the FSW string "M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468".  </p>
+
+<dl>
+  <dt>Symbol 1:</dt>
+  <dd style="margin-left: 8">S1870a 489x515</dd>
+  <dt>Symbol 2:</dt>
+  <dd style="margin-left: 8">S18701 482x490</dd>
+  <dt>Symbol 3:</dt>
+  <dd style="margin-left: 8">S20500 508x496</dd>
+  <dt>Symbol 4:</dt>
+  <dd style="margin-left: 8">S2e734 500x468</dd>
+</dl>
+
+<p> </p>
+<pre>
+&lt;svg x="489" y="515"&gt;...&lt;/svg&gt;
+&lt;svg x="482" y="490"&gt;...&lt;/svg&gt;
+&lt;svg x="508" y="496"&gt;...&lt;/svg&gt;
+&lt;svg x="500" y="468"&gt;...&lt;/svg&gt;
+            </pre>
+<p id="rfc.section.3.2.2.p.4">Inside of each sub-SVG element is a group (g) element with one or two path elements.  This inside information can only be requested from the SignWriting Server or some other source of the symbol image data.  </p>
+<pre>
+  &lt;g transform="translate(0.146473559361,17.7697467366) ... "&gt;
+    &lt;path class="sym-fill" fill="white" d="M700 1493 ... "/&gt;
+    &lt;path class="sym-line" fill="black" d="M1826 1480 ... "/&gt;
+  &lt;/g&gt;
+            </pre>
+<h1 id="rfc.section.3.3"><a href="#rfc.section.3.3">3.3.</a> <a href="#html" id="html">HTML and CSS</a></h1>
+<p id="rfc.section.3.3.p.1">Basic HTML structures and CSS rules can be used with Sutton SignWriting for customization and layout.  </p>
+<h1 id="rfc.section.3.3.1"><a href="#rfc.section.3.3.1">3.3.1.</a> <a href="#size" id="size">Centering and Sizing</a></h1>
+<p id="rfc.section.3.3.1.p.1">It is possible to center a symbol or sign within a div with a few CSS rules.  The symbol or sign will automatically shrink in size if the containing div is smaller than the SVG image.  Additionally, if the SVG is created with the zoom level of extendable (styling string "-Zx"), the symbol or sign will grow in size to fill as much of the containing div as possible.  </p>
+<pre>
+&lt;div class="centered"&gt; 
+  &lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg" ...
+&lt;/div&gt; 
+           </pre>
+<pre>
+div.centered {
+  position: relative;
+  width: 10%;
+  height: 10%; 
+  border: 1px solid black;
+} 
+
+div.centered svg { 
+  position: absolute; 
+  display: block; 
+  top:2.5%; 
+  bottom: 2.5%; 
+  left: 2.5%; 
+  right: 2.5%; 
+  margin: auto; 
+  max-width: 95%; 
+  max-height: 95%; 
+}
+           </pre>
+<h1 id="rfc.section.3.3.2"><a href="#rfc.section.3.3.2">3.3.2.</a> <a href="#html_color" id="html_color">Coloring Symbols and Signs</a></h1>
+<p id="rfc.section.3.3.2.p.1">Individual signs can be colored with CSS rules.  The individual classes of 'sym-line' and 'sym-fill' can be used to isolate each part of a symbol, both positive and negative spaces, or the classes can be ignored to create the shadow of a symbol that includes both aspects of a symbol.</p>
+<pre>
+&lt;svg class="primary" ...
+&lt;svg class="success" ...
+&lt;svg class="info" ...
+&lt;svg class="warning" ...
+&lt;svg class="danger" ...
+&lt;svg class="shadow" ...
+&lt;svg class="inverse" ...
+            </pre>
+<pre>
+svg.primary g text.sym-line { fill: #337ab7 !important; }
+svg.success g text.sym-line { fill: #5cb85c !important; }
+svg.info g text.sym-line { fill: #5bc0de !important; }
+svg.warning g text.sym-line { fill: #f0ad4e !important; }
+svg.danger g text.sym-line { fill: #d9534f !important; }
+svg.shadow g text { fill: grey !important; }
+svg.inverse g text.sym-line { fill: white !important; } 
+svg.inverse g text.sym-fill { fill: black !important; }
+           </pre>
+<h1 id="rfc.section.3.3.3"><a href="#rfc.section.3.3.3">3.3.3.</a> <a href="#html_other" id="html_other">Other Effects</a></h1>
+<p id="rfc.section.3.3.3.p.1">Other CSS rules can be used for other effect.  Please note that transform property does not effect the document flow and should not be used for general layout.</p>
+<pre>
+svg.shadowed {
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+}
+svg.rotate {
+  transform: rotate(0.5turn);
+}
+svg.bigger {
+  transform: scale(2);
+}
+svg.skewed {
+  transform: skewX(30deg);
+}
+           </pre>
+<h1 id="rfc.section.3.3.4"><a href="#rfc.section.3.3.4">3.3.4.</a> <a href="#html_sentence" id="html_sentence">Sentences</a></h1>
+<p id="rfc.section.3.3.4.p.1">SignWriting is written vertically using the vertical writing mode of CSS.  To create the center lane and to visually divide the columns of text, several span elements are used.  Each sign is contained in a div with a width and height that matches the enclosed sign.  To properly align each sign with the center of its lane, the containing div will either use "margin-right" or "border-left".  With "border-left", the rule must include "solid transparent" after the size.  </p>
+<pre>
+&lt;div class="signtext"&gt; 
+ &lt;span class="outside"&gt;&lt;span class="middle"&gt;&lt;span class="inside"&gt;
+  &lt;div style="width:42px;height:77px;margin-right:2px;"&gt;&lt;svg ...
+  &lt;div style="width:38px;height:48px;margin-right:2px;"&gt;&lt;svg ...
+  &lt;div style="width:25px;height:9px;border-left:7px solid transparent;"&gt;
+
+            </pre>
+<pre>
+div.signtext { 
+  -webkit-writing-mode: vertical-lr; 
+  writing-mode: vertical-lr; 
+  font-size: 0%; 
+  border-left: 1px solid blue; 
+  height: 100%; 
+} 
+
+span.outside { border-left: 1px solid blue; vertical-align: top; } 
+span.middle { vertical-align: bottom; } 
+span.inside { border-left: 1px dashed red; } 
+
+div.signtext div { 
+  writing-mode: horizontal-tb; 
+  display: inline-block; 
+  vertical-align: middle; 
+  padding: 20px; 
+  box-sizing: content-box; 
+}
+           </pre>
+<h1 id="rfc.section.3.4"><a href="#rfc.section.3.4">3.4.</a> <a href="#jslib" id="jslib">JavaScript Library</a></h1>
+<p id="rfc.section.3.4.p.1">The Sutton SignWriting JavaScript Library leverages the Sutton SignWriting Fonts, without additional dependancies.  </p>
+<p id="rfc.section.3.4.p.2">The Sutton SignWriting JavaScript Library is part of the <a href="#SuttonSignWritingProject">Sutton SignWriting Project</a> <cite title="NONE">[SuttonSignWritingProject]</cite> </p>
+<pre>
+          Sutton SignWriting JavaScript Library
+          Copyright (c) 2007-2016, Stephen E Slevinski Jr
+          Licensed under the MIT License
+          </pre>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#unicode" id="unicode">Unicode Considerations</a></h1>
+<p id="rfc.section.4.p.1">In 2015, the symbols of Sutton SignWriting were added to Unicode version 8.  Unfortunately, the official encoding has several issues that make the characters unusable.  These issues have been reported to the Unicode Technical Committee, but the issues are still unresolved.  </p>
+<h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> <a href="#utf8" id="utf8">UTF-8</a></h1>
+<p id="rfc.section.4.1.p.1">Formal SignWriting is based on ASCII, so it can be supported anywhere ASCII is supported.  ASCII is a subset of UTF-8, with a one-to-one character correspondence.  Anywhere UTF-8 is supported, the size of the Formal SignWriting strings is equal to the ASCII encoding of 8 bits per character.  With UTF-32, the size of the string is 4 times that of the ASCII encoding, requiring 32 bits for each character.  </p>
+<h1 id="rfc.section.4.2"><a href="#rfc.section.4.2">4.2.</a> <a href="#proposal" id="proposal">CSMW Proposal for SignWriting Characters</a></h1>
+<p id="rfc.section.4.2.p.1">Alternately, rather than the ASCII encoding of Formal SignWriting, the Center for Sutton Movement Writing has the following proposal for Unicode characters that fully support Sutton SignWriting.  </p>
+<h1 id="rfc.section.4.2.1"><a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#sym_codes" id="sym_codes">Symbol Codepoints</a></h1>
+<p id="rfc.section.4.2.1.p.1">In order to support Sutton SignWriting, you must support all of the Sutton SignWriting Characters.  This set has been designed as a 16-bit coded character set.  These characters are best supported using an entire Unicode plane.  A simple formula transforms a symbol key into a codepoint.  Given a symbol key as variable "key", in JavaScript the function is defined as: </p>
+
+<ul class="empty">
+  <li>var code = ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1; </li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.4.2.2"><a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#other_codes" id="other_codes">Other Codepoints</a></h1>
+<p id="rfc.section.4.2.2.p.1">In addition to the Sutton SignWriting characters, the structural markers and number characters need to be supported.  These other codepoints make it possible to create Unicode strings that are isomorphic to the Formal SignWriting strings.  </p>
+<div id="rfc.table.22"/>
+<div id="table_other_codes"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Description</th>
+      <th class="left">Formal SignWriting</th>
+      <th class="left">x-Character-SignWriting</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Sequence Marker</td>
+      <td class="left">A</td>
+      <td class="left">U+1D800</td>
+    </tr>
+    <tr>
+      <td class="left">SignBox Markers</td>
+      <td class="left">B, L, M, R</td>
+      <td class="left">U+1D801 to U+1D804</td>
+    </tr>
+    <tr>
+      <td class="left">Numbers</td>
+      <td class="left">250 to 749</td>
+      <td class="left">U+1D80C to U+1D9FF</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> IANA Considerations</h1>
+<p id="rfc.section.5.p.1">None.</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> Security Considerations</h1>
+<p id="rfc.section.6.p.1">None.</p>
+<h1 id="rfc.references"><a href="#rfc.references">7.</a> References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="SignWritingServer">[SignWritingServer]</b>
+      </td>
+      <td class="top"><a>Slevinski, S.</a>, "<a href="https://signpuddle.net">SignWriting Server</a>"</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="SuttonSignWritingFont">[SuttonSignWritingFont]</b>
+      </td>
+      <td class="top"><a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf">Sutton SignWriting TypeType Font</a>"</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="SuttonSignWritingFontFill">[SuttonSignWritingFontFill]</b>
+      </td>
+      <td class="top"><a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf">Sutton SignWriting Fill TypeType Font</a>"</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="SuttonSignWritingProfile">[SuttonSignWritingProfile]</b>
+      </td>
+      <td class="top"><a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.mobileconfig">Sutton SignWriting Configuration Profile</a>"</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="SuttonSignWritingProject">[SuttonSignWritingProject]</b>
+      </td>
+      <td class="top"><a>Slevinski, S.</a>, "<a href="https://github.com/Slevinski/SuttonSignWriting">Sutton SignWriting Project</a>"</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.authors">
+  <a href="#rfc.authors">Author's Address</a>
+</h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Stephen E Slevinski Jr</span> 
+	  <span class="n hidden">
+		<span class="family-name">Slevinski</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Center for Sutton Movement Writing</span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:slevinski@signwriting.org">slevinski@signwriting.org</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>

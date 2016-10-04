@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Sutton SignWriting Font Technology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="written sign language tools for user interface and searching">
+    <meta name="author" content="Stephen E Slevinski Jr">
+    <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/SuttonSignWriting.css" />
+    <link rel="stylesheet" type="text/css" href="../include/common.css" />
+    <script src="../assets/SuttonSignWriting.js"></script>
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="../index.html"><img src="../assets/ssw_icon.svg"> Sutton SignWriting</a>
+        </div>
+        <div class="navbar-text navbar-right">
+          <a class="navbar-link" style="padding-left:30px;" href="../guide.html">Guide</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../characters/index.html">Characters</a>
+          <a class="navbar-link active" style="padding-left:30px;" href="index.html">Components</a>
+          <a class="navbar-link" style="padding-left:30px;" href="../draft.html">Internet&nbsp;Draft</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="fonts.html" role="button">Font Technology</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="svg.html" role="button">Scalar Vector Graphics</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="html.html" role="button">HTML and CSS</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="js.html" role="button">JavaScript Library</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="col-xs-12">
+          <h1>Font Technology</h1>
+
+              <h2 id="ttf">Installing the TrueType Fonts</h2>
+              <p>The Sutton SignWriting TrueType fonts are available for download and installation.  
+              The fonts have been tailored for the Sutton SignWriting JavaScript library.
+              Please ignore warning and unusual font previews during installation as these will not affect the fonts utility.</p>
+              <p>Installing the fonts using the instructions below is not required, but it will improve the user experience.
+              If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.</p>
+              <h3>Windows, Linux, and Mac</h3>
+              <p>Installation is straight forward for these platforms.  Simply download the 2 TrueType fonts and install as usual.</p>
+              <a class="btn btn-default btn-lg btn-block" href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf" role="button">Sutton SignWriting TrueType Font</a>
+              <a class="btn btn-default btn-lg btn-block" href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill TrueType Font</a>
+
+              <h3>iOS</h3>
+              <p>Installation is possible with a configuration profile that includes the 2 TrueType fonts.  Simply download the configuration profile and install.</p>
+              <a class="btn btn-default btn-lg btn-block" href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.mobileconfig" role="button">Sutton SignWriting Configuration Profile</a>
+
+              <h3>Android</h3>
+              <p>Android can not install the fonts directly onto the system.
+              The CSS declarations below will install the fonts in the browser cache.
+              </p>
+
+             <hr>
+
+              <h2 id="css">Using the Fonts without Installation</h2>
+              <p>The TrueType Fonts can be used without installing the fonts on any platform by defining two font-face statements.
+              Simply include the "<a href="include/fonts.css">fonts.css</a>" style sheet or the following CSS in any HTML page to access the fonts.</p>
+              <pre>
+@font-face {
+  font-family: "SuttonSignWriting";
+  src: 
+    local('SuttonSignWriting'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SuttonSignWritingFill";
+  src: 
+    local('SuttonSignWritingFill'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf') format('truetype');
+}
+              </pre>
+              
+              <p>If the fonts are installed, then the system fonts will be used.
+              If the fonts are not installed when a SignWriting Font page is opened, the CSS will cause the fonts to be automatically downloaded to the browser's cache on the first visit.  
+              Once the fonts are installed in the browser cache, they will remain there until the browser cache is emptied.
+              Any webside that uses this CSS can access the browser installed font without requesting a new copy.
+              The fonts are 10 MB, so the first install make take a few seconds or longer depending on your download speed and processor.</p>
+        </div>
+      </div>        
+      
+    </div>
+<hr>
+      <footer>
+      <div class="col-sm-12">
+        <center>
+          <p>Sutton SignWriting Fonts<br>
+          Copyright (c) 1974-2016, Center for Sutton Movement Writing, inc<br>
+          Licensed under the SIL Open Font License v1.1</p>
+        </center>
+      </div>
+      </footer>
+
+  </body>
+
+</html>
