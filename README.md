@@ -27,4 +27,5 @@ Licensed under the MIT License
 
 
 ### Version History
+* 1.0.1 - Oct 4th, 17th, 2016: url fix
 * 1.0.0 - Oct 4th, 17th, 2016: init

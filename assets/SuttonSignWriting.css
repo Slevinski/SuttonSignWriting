@@ -2,13 +2,13 @@
   font-family: "SuttonSignWriting";
   src: 
     local('SuttonSignWriting'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf') format('truetype');
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting.ttf') format('truetype');
 }
 @font-face {
   font-family: "SuttonSignWritingFill";
   src: 
     local('SuttonSignWritingFill'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf') format('truetype');
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingFill.ttf') format('truetype');
 }
 
 svg{

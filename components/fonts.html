@@ -53,12 +53,12 @@
               If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.</p>
               <h3>Windows, Linux, and Mac</h3>
               <p>Installation is straight forward for these platforms.  Simply download the 2 TrueType fonts and install as usual.</p>
-              <a class="btn btn-default btn-lg btn-block" href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf" role="button">Sutton SignWriting TrueType Font</a>
-              <a class="btn btn-default btn-lg btn-block" href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill TrueType Font</a>
+              <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWriting.ttf" role="button">Sutton SignWriting TrueType Font</a>
+              <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill TrueType Font</a>
 
               <h3>iOS</h3>
               <p>Installation is possible with a configuration profile that includes the 2 TrueType fonts.  Simply download the configuration profile and install.</p>
-              <a class="btn btn-default btn-lg btn-block" href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.mobileconfig" role="button">Sutton SignWriting Configuration Profile</a>
+              <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWriting.mobileconfig" role="button">Sutton SignWriting Configuration Profile</a>
 
               <h3>Android</h3>
               <p>Android can not install the fonts directly onto the system.
@@ -69,19 +69,19 @@
 
               <h2 id="css">Using the Fonts without Installation</h2>
               <p>The TrueType Fonts can be used without installing the fonts on any platform by defining two font-face statements.
-              Simply include the "<a href="include/fonts.css">fonts.css</a>" style sheet or the following CSS in any HTML page to access the fonts.</p>
+              Simply include the "<a href="../include/fonts.css">fonts.css</a>" style sheet or the following CSS in any HTML page to access the fonts.</p>
               <pre>
 @font-face {
   font-family: "SuttonSignWriting";
   src: 
     local('SuttonSignWriting'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWriting.ttf') format('truetype');
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting.ttf') format('truetype');
 }
 @font-face {
   font-family: "SuttonSignWritingFill";
   src: 
     local('SuttonSignWritingFill'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/fonts/SuttonSignWritingFill.ttf') format('truetype');
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingFill.ttf') format('truetype');
 }
               </pre>
               
