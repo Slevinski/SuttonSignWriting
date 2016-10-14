@@ -1,5 +1,5 @@
 /**
-* Sutton SignWriting JavaScript Library v1.0.0
+* Sutton SignWriting JavaScript Library v1.0.2
 * https://github.com/Slevinski/SuttonSignWriting
 * Copyright (c) 2007-2016, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MIT License.
@@ -675,21 +675,21 @@ var ssw = {
 
     if (styling){
       var rs;
-      rs = styling.match(/C/);
+      stylings = styling.split('-');
+      rs = stylings[1].match(/C/);
       options.colorize = rs?true:false;
 
-      rs = styling.match(/P[0-9]{2}/);
+      rs = stylings[1].match(/P[0-9]{2}/);
       if (rs){
         options.pad = parseInt(rs[0].substring(1,rs[0].length));
       }
 
-      rs = styling.match(/G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_/);
+      rs = stylings[1].match(/G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_/);
       if (rs){
         var back = rs[0].substring(2,rs[0].length-1);
         options.back = /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/g.test(back)?"#"+back:back;
       }
-//fix
-      stylings = styling.split('-');
+
       rs = stylings[1].match(/D_([0-9a-f]{3}([0-9a-f]{3})?|[a-zA-Z]+)(,([0-9a-f]{3}([0-9a-f]{3})?|[a-zA-Z]+))?_/);
       if (rs) {
         colors = rs[0].substring(2,rs[0].length-1).split(',');
@@ -735,8 +735,8 @@ var ssw = {
         }
       }
 
-      if (stylings[3]) {
-        stylings = stylings[3].split('!');
+      if (stylings.length>3){
+        stylings = stylings.slice(3).join('-').split('!');
         options.class = stylings[0]?stylings[0]:'';
         options.id = stylings[1]?stylings[1]:'';
       }
@@ -917,21 +917,22 @@ var ssw = {
 
     if (styling){
       var rs;
-      rs = styling.match(/C/);
+      stylings = styling.split('-');
+
+      rs = stylings[1].match(/C/);
       options.colorize = rs?true:false;
 
-      rs = styling.match(/P[0-9]{2}/);
+      rs = stylings[1].match(/P[0-9]{2}/);
       if (rs){
         options.pad = parseInt(rs[0].substring(1,rs[0].length));
       }
 
-      rs = styling.match(/G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_/);
+      rs = stylings[1].match(/G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_/);
       if (rs){
         var back = rs[0].substring(2,rs[0].length-1);
         options.back = /^[0-9a-fA-F]{3}([0-9a-fA-F]{3})?$/g.test(back)?"#"+back:back;
       }
-//fix
-      stylings = styling.split('-');
+
       rs = stylings[1].match(/D_([0-9a-f]{3}([0-9a-f]{3})?|[a-zA-Z]+)(,([0-9a-f]{3}([0-9a-f]{3})?|[a-zA-Z]+))?_/);
       if (rs) {
         colors = rs[0].substring(2,rs[0].length-1).split(',');
@@ -1855,9 +1856,3 @@ var ssw = {
     return '<span class="outside"><span class="middle"><span class="inside">' + signs.join('') + '</span></span></span>';
   }
 };
-
-
-
-
-
-
