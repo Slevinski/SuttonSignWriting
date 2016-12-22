@@ -61,7 +61,7 @@ function hashChange(event){
 var header = {};
 header.controller = function(){};
 header.view = function(ctrl){
-  return [ m('div',{onclick:function(e){urlSym='';hashSet();}},tt("ssw_characters")),
+  return [ m('div',{onclick:function(e){urlSym='';hashSet();}},tt("ssw_symbols")),
     m('div.section',[
       m('div.btn',{class:urlSet=='key'?'selected':'',onclick:function(e){urlSet='key';urlSym='';hashSet();}},tt('Symbols Keys')),
       m('div.btn',{class:urlSet=='code'?'selected':'',onclick:function(e){urlSet='code';urlSym='';hashSet();}},tt('Symbol Codes'))

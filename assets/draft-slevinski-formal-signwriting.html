@@ -376,7 +376,7 @@
   <link href="#rfc.toc" rel="Contents"/>
 <link href="#rfc.section.1" rel="Chapter" title="1 Sutton SignWriting"/>
 <link href="#rfc.section.1.1" rel="Chapter" title="1.1 Script"/>
-<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Characters"/>
+<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Symbols"/>
 <link href="#rfc.section.2" rel="Chapter" title="2 Formal SignWriting"/>
 <link href="#rfc.section.2.1" rel="Chapter" title="2.1 Building Blocks"/>
 <link href="#rfc.section.2.1.1" rel="Chapter" title="2.1.1 Symbol Keys"/>
@@ -409,10 +409,9 @@
 <link href="#rfc.section.3.3.4" rel="Chapter" title="3.3.4 Sentences"/>
 <link href="#rfc.section.3.4" rel="Chapter" title="3.4 JavaScript Library"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 Unicode Considerations"/>
-<link href="#rfc.section.4.1" rel="Chapter" title="4.1 UTF-8"/>
-<link href="#rfc.section.4.2" rel="Chapter" title="4.2 CSMW Proposal for SignWriting Characters"/>
-<link href="#rfc.section.4.2.1" rel="Chapter" title="4.2.1 Symbol Codepoints"/>
-<link href="#rfc.section.4.2.2" rel="Chapter" title="4.2.2 Other Codepoints"/>
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Existing Characters"/>
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 New Characters"/>
+<link href="#rfc.section.4.3" rel="Chapter" title="4.3 Sutton SignWriting Symbols"/>
 <link href="#rfc.section.5" rel="Chapter" title="5 IANA Considerations"/>
 <link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations"/>
 <link href="#rfc.references" rel="Chapter" title="7 References"/>
@@ -423,8 +422,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Slevinski, S." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-slevinski-formal-signwriting-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-10-4" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-slevinski-formal-signwriting-01" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-12-22" />
   <meta name="dct.abstract" content="Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
   <meta name="description" content="Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
 
@@ -445,10 +444,10 @@
 </tr>
 <tr>
   <td class="left">Intended status: Informational</td>
-  <td class="right">October 4, 2016</td>
+  <td class="right">December 22, 2016</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 7, 2017</td>
+  <td class="left">Expires: June 25, 2017</td>
   <td class="right"></td>
 </tr>
 
@@ -457,17 +456,17 @@
   </table>
 
   <p class="title">Formal SignWriting<br />
-  <span class="filename">draft-slevinski-formal-signwriting-00</span></p>
+  <span class="filename">draft-slevinski-formal-signwriting-01</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
 <p>Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  </p>
-<p>Formal SignWriting (FSW) is a faithful character-encoding of Sutton SignWriting based on 2-dimensional mathematics.  FSW defines a formal language for written sign languages where any sign of any sign language can be written as a string of ASCII characters.  The mathematical names are explained with tokens and regular expression patterns.  Symbol keys reference the Sutton SignWriting Characters.  Coordinates are used for 2-dimensional placement.  Signs are written in a spatial SignBox, where each symbol is positioned with a 2-dimension coordinate.  For sorting, each sign can have an optional temporal sequence of symbols that is outside of the SignBox.  To create sentences, signs are written sequentially, interspersed with punctuation symbols.  </p>
+<p>Formal SignWriting (FSW) is a faithful character-encoding of Sutton SignWriting based on 2-dimensional mathematics.  FSW defines a formal language for written sign languages where any sign of any sign language can be written as a string of ASCII characters.  The mathematical names are explained with tokens and regular expression patterns.  Symbol keys reference the Sutton SignWriting Symbols.  Cartesian coordinates are used for 2-dimensional placement.  Signs are written in a spatial SignBox, where each symbol is positioned with a 2-dimension coordinate.  For sorting, each sign can have an optional temporal sequence of symbols that is outside of the SignBox.  To create sentences, signs are written sequentially, interspersed with punctuation symbols.  </p>
 <p>The styling string of Formal SignWriting uses a lite markup to define a variety of styling options.  The entire sign can be customized for padding, coloring, and size.  Individual symbols within a sign can be customized for coloring and size.  For SVG, class names and IDs can be defined.  </p>
 <p>The query language of Formal SignWriting uses a lite markup, similar to FSW, to define a variety of searching possibilities.  The spatial SignBox can be searched for symbols or ranges of symbols.  For each symbol or range, the search can specify if the symbol only needs to be found somewhere in the SignBox, or if the symbol needs to be found near certain coordinates.  The temporal sequence can be searched for starting symbols, written as a sequential list of symbols and ranges of symbols.  When searching the temporal sequence, the search results will be limited to signs that start with a matching temporal sequence.  Each query string is transformed into one or more regular expressions.  The regular expressions are used to quickly search large amounts of data.  </p>
 <p>Formal SignWriting has been specifically designed to integrate with standard browser technology.  Four main components make this integration possible: 1) Font Technology, 2) Scalar Vector Graphics, 3) HTML and CSS, and 4) a JavaScript Library.  </p>
-<p>Formal SignWriting is ASCII based, so it is compatible with and optimized for UTF-8.  A Unicode character design is proposed that is isomorphic to Formal SignWriting.  </p>
+<p>Formal SignWriting is ASCII based, so it is compatible with and optimized for UTF-8.  Using the 672 existing characters of the Sutton SignWriting block in Unicode 8 along with an additional 17 proposed Unicode characters, it is possible to create a pure Unicode string that is isomorphic to the Formal SignWriting string.  </p>
 <p>This memo defines a conceptual character encoding map for the Internet community.  It is published for reference, examination, implementation, and evaluation.  Distribution of this memo is unlimited.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
@@ -475,7 +474,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 7, 2017.</p>
+<p>This Internet-Draft will expire on June 25, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -489,7 +488,7 @@
 
   	<li>1.   <a href="#rfc.section.1">Sutton SignWriting</a></li>
 <ul><li>1.1.   <a href="#rfc.section.1.1">Script</a></li>
-<li>1.2.   <a href="#rfc.section.1.2">Characters</a></li>
+<li>1.2.   <a href="#rfc.section.1.2">Symbols</a></li>
 </ul><li>2.   <a href="#rfc.section.2">Formal SignWriting</a></li>
 <ul><li>2.1.   <a href="#rfc.section.2.1">Building Blocks</a></li>
 <ul><li>2.1.1.   <a href="#rfc.section.2.1.1">Symbol Keys</a></li>
@@ -522,11 +521,10 @@
 <li>3.3.4.   <a href="#rfc.section.3.3.4">Sentences</a></li>
 </ul><li>3.4.   <a href="#rfc.section.3.4">JavaScript Library</a></li>
 </ul><li>4.   <a href="#rfc.section.4">Unicode Considerations</a></li>
-<ul><li>4.1.   <a href="#rfc.section.4.1">UTF-8</a></li>
-<li>4.2.   <a href="#rfc.section.4.2">CSMW Proposal for SignWriting Characters</a></li>
-<ul><li>4.2.1.   <a href="#rfc.section.4.2.1">Symbol Codepoints</a></li>
-<li>4.2.2.   <a href="#rfc.section.4.2.2">Other Codepoints</a></li>
-</ul></ul><li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Existing Characters</a></li>
+<li>4.2.   <a href="#rfc.section.4.2">New Characters</a></li>
+<li>4.3.   <a href="#rfc.section.4.3">Sutton SignWriting Symbols</a></li>
+</ul><li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
 <li>6.   <a href="#rfc.section.6">Security Considerations</a></li>
 <li>7.   <a href="#rfc.references">References</a></li>
 <li><a href="#rfc.authors">Author's Address</a></li>
@@ -541,8 +539,8 @@
 <p id="rfc.section.1.1.p.1">Sign language is vastly different than spoken language. Instead of the sequential sounds of the voice, there is a 3 dimensional space with simultaneous action.  Sutton SignWriting creates 2-dimensional writing that is visually icon and full of featural information.  This is true on the symbol level and on the sign level.  A symbol represents phonemic information and is full of featural information to better understand the phonemes of the symbols.  A sign is a 2-dimensional arrangement of symbols and is full of featural information to better understand the morphemes of the signs.  </p>
 <p id="rfc.section.1.1.p.2">Punctuation is represented by a single symbol and separates a series of signs into structured sentences.  Line breaks should not occur before punctuation.  </p>
 <p id="rfc.section.1.1.p.3">When written vertically, SignWriting can use 3 different lanes: left, middle, and right.  The middle lane is the default lane and punctuation is always used in the middle lane.  No matter the lane, the center of a sign is aligned with the center of the lane.  The left and right lanes are used to represent body weight shifts and are represented by a horizontal offset from the middle lane.  Body weight shifts are important to the grammar of sign languages, used for two different grammatical aspects: 1) role shifting during sign language storytelling, and 2) spatial comparisons of two items under discussion.  One "role" or "item" is placed on the right side of the body (right lane), and the other on the left side of the body (left lane), and the weight shifts back and forth between the two, with the narrator in the middle (middle lane).  </p>
-<h1 id="rfc.section.1.2"><a href="#rfc.section.1.2">1.2.</a> <a href="#characters" id="characters">Characters</a></h1>
-<p id="rfc.section.1.2.p.1">The Sutton SignWriting characters are the building blocks of Sutton SignWriting.  The characters are arranged in 2 dimensions to create the sign images.  Each character identifies a symbol of the International SignWriting Alphabet 2010 (ISWA 2010), a symbol set created by Valerie Sutton.  The characters are organized as a 16-bit coded character set.  </p>
+<h1 id="rfc.section.1.2"><a href="#rfc.section.1.2">1.2.</a> <a href="#symbols" id="symbols">Symbols</a></h1>
+<p id="rfc.section.1.2.p.1">The Sutton SignWriting Symbols are the building blocks of Sutton SignWriting.  The symbols are arranged in 2 dimensions to create the sign images.  The symbols are defined in the International SignWriting Alphabet 2010 (ISWA 2010), a symbol set created by Valerie Sutton.  The symbols are organized with a 16-bit coded character set.  </p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#formal_signwriting" id="formal_signwriting">Formal SignWriting</a></h1>
 <p id="rfc.section.2.p.1">Formal SignWriting (FSW) is a faithful character-encoding of Sutton SignWriting based on 2-dimensional mathematics.  FSW defines a formal language for written sign languages where any sign of any sign language can be written as a string of ASCII characters.  Each sign is written as a separate word.  </p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#building" id="building">Building Blocks</a></h1>
@@ -1560,7 +1558,7 @@ X Axis       |
   <dd style="margin-left: 8">Match 45[0-5]</dd>
 </dl>
 
-<p> Final Match (12[1-9]|1[3-9][0-9]|[2-3][0-9][0-9]|4[0-4][0-9]|45[0-5]) </p>
+<p> Final Match (12[2-9]|1[3-9][0-9]|[2-3][0-9][0-9]|4[0-4][0-9]|45[0-5]) </p>
 <p id="rfc.section.2.4.2.p.8">For the styling string regular expression, see <a href="#styling">Section 2.2</a>.  </p>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#browser" id="browser">Browser Integration</a></h1>
 <p id="rfc.section.3.p.1">Formal SignWriting has been specifically designed to integrate with standard browser technology.  Four main components make this integration possible: 1) Font Technology, 2) Scalar Vector Graphics, 3) HTML and CSS, and 4) a JavaScript Library.  </p>
@@ -1674,7 +1672,7 @@ M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468
   &lt;g transform="translate(508,496)"&gt;...&lt;/g&gt;
   &lt;g transform="translate(500,468)"&gt;...&lt;/g&gt;
                 </pre>
-<p id="rfc.section.3.2.1.3.p.3">Inside of each group, 2 text elements are written.  The symbol fill is written first using the SuttonSignWritingFill font with a plane 16 character.  The symbol line is written second using the SuttonSignWriting font with a plane 4 character.  See <a href="#sym_codes">Section 4.2.1</a> for the formula to convert symbol keys to codepoints.  </p>
+<p id="rfc.section.3.2.1.3.p.3">Inside of each group, 2 text elements are written.  The symbol fill is written first using the SuttonSignWritingFill font with a plane 16 character.  The symbol line is written second using the SuttonSignWriting font with a plane 4 character.  See <a href="#sutton_symbols">Section 4.3</a> for the formula to convert symbol keys to codepoints.  </p>
 <pre>
 &lt;text class="sym-fill" 
  style="font-family:'SuttonSignWritingFill';font-size:30px;fill:white;"&gt;
@@ -1821,49 +1819,111 @@ div.signtext div {
           Licensed under the MIT License
           </pre>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#unicode" id="unicode">Unicode Considerations</a></h1>
-<p id="rfc.section.4.p.1">In 2015, the symbols of Sutton SignWriting were added to Unicode version 8.  Unfortunately, the official encoding has several issues that make the characters unusable.  These issues have been reported to the Unicode Technical Committee, but the issues are still unresolved.  </p>
-<h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> <a href="#utf8" id="utf8">UTF-8</a></h1>
-<p id="rfc.section.4.1.p.1">Formal SignWriting is based on ASCII, so it can be supported anywhere ASCII is supported.  ASCII is a subset of UTF-8, with a one-to-one character correspondence.  Anywhere UTF-8 is supported, the size of the Formal SignWriting strings is equal to the ASCII encoding of 8 bits per character.  With UTF-32, the size of the string is 4 times that of the ASCII encoding, requiring 32 bits for each character.  </p>
-<h1 id="rfc.section.4.2"><a href="#rfc.section.4.2">4.2.</a> <a href="#proposal" id="proposal">CSMW Proposal for SignWriting Characters</a></h1>
-<p id="rfc.section.4.2.p.1">Alternately, rather than the ASCII encoding of Formal SignWriting, the Center for Sutton Movement Writing has the following proposal for Unicode characters that fully support Sutton SignWriting.  </p>
-<h1 id="rfc.section.4.2.1"><a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#sym_codes" id="sym_codes">Symbol Codepoints</a></h1>
-<p id="rfc.section.4.2.1.p.1">In order to support Sutton SignWriting, you must support all of the Sutton SignWriting Characters.  This set has been designed as a 16-bit coded character set.  These characters are best supported using an entire Unicode plane.  A simple formula transforms a symbol key into a codepoint.  Given a symbol key as variable "key", in JavaScript the function is defined as: </p>
+<p id="rfc.section.4.p.1">Formal SignWriting is ASCII based, so it is compatible with and optimized for UTF-8.  </p>
+<p id="rfc.section.4.p.2">Using the 672 existing characters of the Sutton SignWriting block in Unicode 8 along with an additional 17 proposed Unicode characters, it is possible to create a pure Unicode string that is isomorphic to the Formal SignWriting string.  </p>
+<h1 id="rfc.section.4.1"><a href="#rfc.section.4.1">4.1.</a> <a href="#uni_8" id="uni_8">Existing Characters</a></h1>
+<p id="rfc.section.4.1.p.1">In Unicode version 8, the addition of 672 characters made it possible to cover all of the Sutton SignWriting Symbols.  See <a href="#symbols">Section 1.2</a> and <a href="#sutton_symbols">Section 4.3</a> </p>
+<div id="rfc.table.22"/>
+<div id="table_uni_8"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Description</th>
+      <th class="left">Unicode Range</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Base Charcters</td>
+      <td class="left">U+1D800 to U+1DA8B</td>
+    </tr>
+    <tr>
+      <td class="left">Fill Modifiers 2 to 6</td>
+      <td class="left">U+1DA9B to U+1DA9F</td>
+    </tr>
+    <tr>
+      <td class="left">Rotation Modifiers 2 to 16</td>
+      <td class="left">U+1DAA1 to U+1DAAF</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.4.1.p.2">Each symbol key can be rewritten as 3 Unicode characters of a base, a fill, and a rotation.  Given a symbol key as variable "key", in JavaScript the 3 codepoints can be derived with the following statements: </p>
+
+<ul class="empty">
+  <li>var base = parseInt(key.substr(1,3),16) + parseInt('1D700',16); </li>
+  <li>var fill = parseInt(key.substr(4,1),16) + parseInt('1DA9A',16); </li>
+  <li>var rotation = parseInt(key.substr(5,1),16) + parseInt('1DAA0',16); </li>
+</ul>
+
+<p> </p>
+<h1 id="rfc.section.4.2"><a href="#rfc.section.4.2">4.2.</a> <a href="#uni_new" id="uni_new">New Characters</a></h1>
+<p id="rfc.section.4.2.p.1">The Center for Sutton Movement Writing proposes the addition of 17 Unicode characters to complete the script encoding and cover 2-dimensional layout.  Sutton SignWriting is a complex script.  For font support, MicroSoft's Universal Shaping Engine will be targeted.  The Universal Shaping Engine is supported on Windows, OS X and iOS.  </p>
+<p id="rfc.section.4.2.p.2">Android and linux do not yet support the Universal Shaping Engine design.  Until the complex font can be used on these operating system, the SVG text is required for fall-back.  See <a href="#svg">Section 3.2</a> </p>
+<div id="rfc.table.23"/>
+<div id="table_uni_new"/>
+<table cellpadding="3" cellspacing="0" class="tt all left">
+  <thead>
+    <tr>
+      <th class="left">Description</th>
+      <th class="left">Formal SignWriting</th>
+      <th class="left">Proposed Unicode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="left">Fill Modifier 1</td>
+      <td class="left">0</td>
+      <td class="left">U+1DA9A</td>
+    </tr>
+    <tr>
+      <td class="left">Rotation Modifier 1</td>
+      <td class="left">0</td>
+      <td class="left">U+1DAA0</td>
+    </tr>
+    <tr>
+      <td class="left">Numbers</td>
+      <td class="left">0 to 9</td>
+      <td class="left">U+1DAB0 to U+1DAB9</td>
+    </tr>
+    <tr>
+      <td class="left">Sequence Marker</td>
+      <td class="left">A</td>
+      <td class="left">U+1DABA</td>
+    </tr>
+    <tr>
+      <td class="left">SignBox Markers</td>
+      <td class="left">B</td>
+      <td class="left">U+1DABB</td>
+    </tr>
+    <tr>
+      <td class="left">Left Lane Markers</td>
+      <td class="left">L</td>
+      <td class="left">U+1DABC</td>
+    </tr>
+    <tr>
+      <td class="left">Middle Lane Markers</td>
+      <td class="left">M</td>
+      <td class="left">U+1DABD</td>
+    </tr>
+    <tr>
+      <td class="left">Right Lane Markers</td>
+      <td class="left">R</td>
+      <td class="left">U+1DABE</td>
+    </tr>
+  </tbody>
+</table>
+<p id="rfc.section.4.2.p.3">Fill Modifier 1 and Rotation Modifier 1 are included to fix sorting and simplify processing.</p>
+<p id="rfc.section.4.2.p.4">The 10 number characters express the concept of distance, important for use with 2-dimensional scripts.</p>
+<p id="rfc.section.4.2.p.5">The 5 structural markers define cohesive units of the script.</p>
+<h1 id="rfc.section.4.3"><a href="#rfc.section.4.3">4.3.</a> <a href="#sutton_symbols" id="sutton_symbols">Sutton SignWriting Symbols</a></h1>
+<p id="rfc.section.4.3.p.1">In order to support Sutton SignWriting, you must support all of the Sutton SignWriting Symbols.  This set has been designed as a 16-bit coded character set.  Using these derived codepoints makes it easier to reference the individual Sutton SignWriting Symbols in a variety of ways.  For inside of a font file, an entire Unicode plane can be used to reference these symbols.  Inside of the font files, plane 4 is often used to identify each glyph, but these characters have not been officially proposed to Unicode.  Alternately, plane 16 can be used, but this creates a font filled with private use area characters.  Finally, the glyphs can be added to a font file without assigning a unique Unicode codepoint to each, but this results in each glyph being given a unique glyph ID that is only meaningful for that specific font file.  </p>
+<p id="rfc.section.4.3.p.2">A simple formula transforms a symbol key into a codepoint.  Given a symbol key as variable "key", in JavaScript the function is defined as: </p>
 
 <ul class="empty">
   <li>var code = ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1; </li>
 </ul>
 
 <p> </p>
-<h1 id="rfc.section.4.2.2"><a href="#rfc.section.4.2.2">4.2.2.</a> <a href="#other_codes" id="other_codes">Other Codepoints</a></h1>
-<p id="rfc.section.4.2.2.p.1">In addition to the Sutton SignWriting characters, the structural markers and number characters need to be supported.  These other codepoints make it possible to create Unicode strings that are isomorphic to the Formal SignWriting strings.  </p>
-<div id="rfc.table.22"/>
-<div id="table_other_codes"/>
-<table cellpadding="3" cellspacing="0" class="tt all left">
-  <thead>
-    <tr>
-      <th class="left">Description</th>
-      <th class="left">Formal SignWriting</th>
-      <th class="left">x-Character-SignWriting</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="left">Sequence Marker</td>
-      <td class="left">A</td>
-      <td class="left">U+1D800</td>
-    </tr>
-    <tr>
-      <td class="left">SignBox Markers</td>
-      <td class="left">B, L, M, R</td>
-      <td class="left">U+1D801 to U+1D804</td>
-    </tr>
-    <tr>
-      <td class="left">Numbers</td>
-      <td class="left">250 to 749</td>
-      <td class="left">U+1D80C to U+1D9FF</td>
-    </tr>
-  </tbody>
-</table>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> IANA Considerations</h1>
 <p id="rfc.section.5.p.1">None.</p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> Security Considerations</h1>

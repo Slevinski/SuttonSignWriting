@@ -452,13 +452,13 @@ function fswChange(){
 	  document.getElementById("fswpuaRow").className = "warning";
 	}
 
-    var fswuni12Out = ssw.uni12(fswIn);
-	document.getElementById("fswuni12Fn").innerHTML = 'ssw.uni12("' + fswIn + '");';
-	document.getElementById("fswuni12Out").innerHTML = fswuni12Out;
-	if (fswuni12Out) {
-	  document.getElementById("fswuni12Row").className = "success";
+    var fswunicodeOut = ssw.unicode(fswIn,1);
+	document.getElementById("fswunicodeFn").innerHTML = 'ssw.unicode("' + fswIn + '");';
+	document.getElementById("fswunicodeOut").innerHTML = fswunicodeOut;
+	if (fswunicodeOut) {
+	  document.getElementById("fswunicodeRow").className = "success";
 	} else {
-	  document.getElementById("fswuni12Row").className = "warning";
+	  document.getElementById("fswunicodeRow").className = "warning";
 	}
 
     var converteOut = ssw.convert(fswIn,'A');
@@ -845,9 +845,9 @@ function setText(fsw){
           <td id="fswpuaFn">ssw.pua("")</td>
           <td id="fswpuaOut"></td>
         </tr>
-        <tr id="fswuni12Row">
-          <td id="fswuni12Fn">ssw.uni12("")</td>
-          <td id="fswuni12Out"></td>
+        <tr id="fswunicodeRow">
+          <td id="fswunicodeFn">ssw.unicode("")</td>
+          <td id="fswunicodeOut"></td>
         </tr>
         <tr id="converteRow">
           <td id="converteFn">ssw.convert("","A")</td>

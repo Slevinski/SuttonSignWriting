@@ -1,7 +1,7 @@
 var messages = {
   en: {
     language: 'English',
-    ssw_characters: 'Sutton SignWriting Characters',
+    ssw_symbols: 'Sutton SignWriting Symbols',
     index: 'Index',
     char_keys: 'Symbol Keys',
     char_uni8: 'Unicode 8',
