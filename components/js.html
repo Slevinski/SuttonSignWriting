@@ -452,7 +452,7 @@ function fswChange(){
 	  document.getElementById("fswpuaRow").className = "warning";
 	}
 
-    var fswunicodeOut = ssw.unicode(fswIn,1);
+    var fswunicodeOut = ssw.unicode(fswIn);
 	document.getElementById("fswunicodeFn").innerHTML = 'ssw.unicode("' + fswIn + '");';
 	document.getElementById("fswunicodeOut").innerHTML = fswunicodeOut;
 	if (fswunicodeOut) {
