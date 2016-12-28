@@ -1,7 +1,7 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 1.1.0  
-December 22nd, 2016
+> Version 1.1.1  
+December 28th, 2016
 
 
 The Sutton SignWriting project is designed for the internet community and includes TrueType Fonts, Scalar Vector Graphics, HTML, CSS, and JavaScript Functions. 
@@ -27,6 +27,7 @@ Licensed under the MIT License
 
 
 ### Version History
+* 1.1.1 - Dec 28th, 2016: draft character links
 * 1.1.0 - Dec 22nd, 2016: updated Unicode proposal 
 * 1.0.2 - Oct 14th, 2016: styling string fixes
 * 1.0.1 - Oct 4th, 2016: url fix
