@@ -195,8 +195,8 @@ suite('.pua( )', function(){
 // .uni8()
 suite('.uni8( )', function(){
   suite('Valid', function(){
-    test('should return 1 to 3 Unicode 8 characters for key', function(){
-      assert.equal(ssw.uni8("S10000"),'𝠀');
+    test('should return 3 Unicode 8 characters for key', function(){
+      assert.equal(ssw.uni8("S10000"),'𝠀𝪚𝪠');
       assert.equal(ssw.uni8("S38b5f"),'𝪋𝪟𝪯');
     });
   });
@@ -204,6 +204,22 @@ suite('.uni8( )', function(){
     test('should return empty string for invalid keys', function(){
       assert.equal(ssw.uni8("S1000"),'');
       assert.equal(ssw.uni8("S4005f"),'');
+    });
+  });
+});
+
+// .uni8inherent()
+suite('.uni8inherent( )', function(){
+  suite('Valid', function(){
+    test('should return 1 to 3 Unicode 8 characters for key', function(){
+      assert.equal(ssw.uni8inherent("S10000"),'𝠀');
+      assert.equal(ssw.uni8inherent("S38b5f"),'𝪋𝪟𝪯');
+    });
+  });
+  suite('Invalid', function(){
+    test('should return empty string for invalid keys', function(){
+      assert.equal(ssw.uni8inherent("S1000"),'');
+      assert.equal(ssw.uni8inherent("S4005f"),'');
     });
   });
 });

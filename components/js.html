@@ -173,6 +173,15 @@ function keyChange(){
 	  document.getElementById("uni8Row").className = "warning";
 	}
 
+    var uni8inherentOut = ssw.uni8inherent(keyIn);
+	document.getElementById("uni8inherentFn").innerHTML = 'ssw.uni8inherent("' + keyIn + '");';
+	document.getElementById("uni8inherentOut").innerHTML = uni8inherentOut;
+	if (uni8inherentOut) {
+	  document.getElementById("uni8inherentRow").className = "success";
+	} else {
+	  document.getElementById("uni8inherentRow").className = "warning";
+	}
+
 	var isOut = ssw.is(keyIn);
 	document.getElementById("isFn").innerHTML = 'ssw.is("' + keyIn + '");';
 	document.getElementById("isOut").innerHTML = isOut;
@@ -690,6 +699,10 @@ function setText(fsw){
         <tr id="uni8Row">
           <td id="uni8Fn">ssw.uni8("")</td>
           <td id="uni8Out"></td>
+        </tr>
+        <tr id="uni8inherentRow">
+          <td id="uni8inherentFn">ssw.uni8inherent("")</td>
+          <td id="uni8inherentOut"></td>
         </tr>
         <tr id="isRow">
           <td id="isFn">ssw.is("")</td>

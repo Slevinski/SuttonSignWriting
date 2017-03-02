@@ -1,7 +1,7 @@
 /**
-* Sutton SignWriting JavaScript Library v1.1.0
+* Sutton SignWriting JavaScript Library v1.1.2
 * https://github.com/Slevinski/SuttonSignWriting
-* Copyright (c) 2007-2016, Stephen E Slevinski Jr
+* Copyright (c) 2007-2017, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MIT License.
 */
 var ssw = {
@@ -327,6 +327,17 @@ var ssw = {
     var rotation = key.substr(5,1);
     rotation = parseInt(rotation,16) + parseInt('1DAA0',16);
     uni8 += hexval?rotation.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((rotation - 0x10000) >> 10), 0xDC00 + ((rotation - 0x10000) & 0x3FF));
+    return uni8;
+  },
+  uni8inherent: function(text,hexval){
+    var uni8 = ssw.uni8(text,hexval);
+    if (hexval){
+      uni8 = uni8.replace(/1DA9A/g,'');
+      uni8 = uni8.replace(/1DAA0/g,'');
+    } else {
+      uni8 = uni8.replace(/\uD836\uDE9A/g,'');
+      uni8 = uni8.replace(/\uD836\uDEA0/g,'');
+    }
     return uni8;
   },
   unicode: function(text,hexval){
