@@ -11,7 +11,7 @@ The Formal SignWriting specification is a faithful encoding of Sutton SignWritin
 ### Sutton SignWriting Fonts
 The Sutton SignWriting TrueType fonts are available for download and installation. The fonts have been tailored for the Sutton SignWriting JavaScript Library. Install instructions available for Windows, Linux, Mac, and iOS.  
 >Sutton SignWriting Fonts  
-Copyright (c) 1974-2016, Center for Sutton Movement Writing, inc  
+Copyright (c) 1974-2017, Center for Sutton Movement Writing, inc  
 Licensed under the SIL Open Font License v1.1
 
 
@@ -19,7 +19,7 @@ Licensed under the SIL Open Font License v1.1
 The JavaScript library leverages the TrueType fonts without any additional requirements. 
 Simply include the Sutton SignWriting JavaScript file in any HTML page to access the functions.  
 > Sutton SignWriting JavaScript Library  
-Copyright (c) 2007-2016, Stephen E Slevinski Jr  
+Copyright (c) 2007-2017, Stephen E Slevinski Jr  
 Licensed under the MIT License
 
 
