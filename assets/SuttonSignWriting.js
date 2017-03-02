@@ -1,11 +1,12 @@
 /**
-* Sutton SignWriting JavaScript Library v1.1.2
+* Sutton SignWriting JavaScript Library v1.1.3
 * https://github.com/Slevinski/SuttonSignWriting
 * Copyright (c) 2007-2017, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MIT License.
 */
 var ssw = {
   key: function(text,style){
+    if (!text) return '';
     var re = 'S[123][0-9a-f]{2}[0-5][0-9a-f]([0-9]{3}x[0-9]{3})?';
     if (style){
       re += '(' + ssw.regex('-') + ')?';
@@ -18,6 +19,7 @@ var ssw = {
     }
   },
   fsw: function(text,style){
+    if (!text) return '';
     var re;
     if (style){
       re = ssw.regex('Q-');
@@ -32,6 +34,7 @@ var ssw = {
     }
   },
   styling: function(text){
+    if (!text) return '';
     var sfsw = text.match(new RegExp(ssw.regex('-')));
     if (!sfsw) {
       return '';

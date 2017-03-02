@@ -1,6 +1,6 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 1.1.2  
+> Version 1.1.3  
 March 2nd, 2017
 
 
@@ -27,6 +27,7 @@ Licensed under the MIT License
 
 
 ### Version History
+* 1.1.3 - Mar 2nd, 2017: handle null values
 * 1.1.2 - Mar 2nd, 2017: unicode 8 inherent fn 
 * 1.1.1 - Dec 28th, 2016: draft character links 
 * 1.1.0 - Dec 22nd, 2016: updated Unicode proposal 
