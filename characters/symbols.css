@@ -1,0 +1,288 @@
+@font-face {
+  font-family: "SignWriting 2010";
+  src: 
+    local('SignWriting 2010'),
+    local('SignWriting_2010'),
+    url('https://cdn.rawgit.com/Slevinski/signwriting_2010_fonts/master/fonts/SignWriting%202010.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SignWriting 2010 Filling";
+  src: 
+    local('SignWriting 2010 Filling'),
+    local('SignWriting_2010_Filling'),
+    url('https://cdn.rawgit.com/Slevinski/signwriting_2010_fonts/master/fonts/SignWriting%202010%20Filling.ttf') format('truetype');
+}
+svg {
+  overflow: visible;
+}
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+body, body:before, body:after {
+  margin:0;
+  margin-right: 30%;
+}
+html,body {
+  overflow: auto;
+  height: 100%;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+#header {
+  position: relative;
+  top:0px;
+  height: 16%;
+  width: 100%;
+  background: #f8f8f8;
+  border: 1px solid;
+  border-color: #e7e7e7;
+  border-width: 0 0 1px;
+  cursor: pointer;
+}
+
+#header p {
+  padding-top: 1vh;
+  position: relative;
+  margin: auto;
+  text-align: center;
+  font-size:6vmin;
+}
+
+#header p:hover{
+  color: #337ab7;
+}
+
+#header p svg {
+  margin:0;
+  height: 8vmin;
+  max-height: 8vmin;
+  cursor: default;
+}
+
+h1, h2, p {
+  margin-left: 5%;
+}
+h3 {
+  text-align: center;
+  clear: both;
+  margin-top: 10%;
+  margin-bottom: -2%;
+}
+
+#table {
+  width: 100%;
+}
+
+table {
+  width: 90%;
+  margin-top: 0px;
+  margin-left: 5%;
+  clear: both;
+  border-collapse: initial;
+  border-spacing: initial;
+}
+
+table, th, td {
+  border: 1px solid black;
+  padding: 2px;
+} 
+table.structure {
+  border: 0;
+}
+table.structure td:hover{
+  background: #e7e7e7;
+}
+th, td {
+  position: relative;
+  height: 50px;
+}
+table.structure th, table.structure td {
+  height: 13px;
+}
+table.main th, table.main td {
+  width: 5.6%;
+} 
+table.sub th, table.sub td {
+  width: 14.3%;
+} 
+table.main th, table.sub th {
+  background: lightgray;
+}
+
+table th, table td{
+  text-align: center;
+  box-sizing: border-box;
+}
+
+th {
+	background:lightgray
+}
+
+th.prime {
+  font-size: 150%;
+}
+td svg {
+  position: absolute;
+  display: block;
+  top:2.5%;
+  bottom: 2.5%;
+  left: 2.5%;
+  right: 2.5%;
+  margin: auto;
+  max-width: 95%;
+  max-height: 95%;
+}
+table.main td {
+  cursor: pointer;
+}
+td.invalid {
+  background: gray;
+}
+
+table.main td:hover svg g text.sym-line{
+  fill: #337ab7 !important;
+}
+
+div.title{
+  padding-top: 10px;
+}
+
+div#table { 
+  padding-top: 10px;
+}
+
+table.main, table.sub {
+  margin-top: 10px;
+}
+
+div.section {
+  margin-left: 8%;
+}
+
+div.section div.btn {
+  width: 25%;
+}
+div.nav {
+  float: right;
+  margin-top: 10px;
+  margin-right:12%;
+  width: 50%;
+}
+div.nav div.btn{
+  height: 20px;
+}
+
+div.btn {
+  position: relative;
+  float: left;
+  width: 20%;
+  height: 5vh;
+  margin-left:4%;
+  margin-top:1%;
+  text-align: center;
+  border: 1px solid black;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+div.topleft {
+  position: absolute;
+  top: 4%;
+  left: 0%;
+  width: 7%;
+  height: 5vh;
+  margin-left:4%;
+  margin-top:1%;
+  text-align: center;
+  border: 1px solid black;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+div.topright {
+  position: absolute;
+  top: 4%;
+  right: 0%;
+  width: 7%;
+  height: 5vh;
+  margin-right:4%;
+  margin-top:1%;
+  text-align: center;
+  border: 1px solid black;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+div.topleft.selected, div.topright.selected {
+  color: #337ab7;
+  background: #c7c7c7;
+}
+div.topleft a:hover, div.topright a:hover{
+  background: #337ab7;
+}
+div.topright a, div.topleft a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  font-size:3vmin;
+  background: gray;
+}
+div.title {
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  width: 38%
+}
+div.btn.selected{
+  color: #337ab7;
+  background: #c7c7c7;
+}
+div.btn:hover{
+  background: #e7e7e7;
+}
+div.btn svg {
+  position:absolute;
+  top: 0;  
+  bottom: 0;  
+  left: 0;  
+  right: 0; 
+  margin:auto;
+}
+#header div.btn p {
+  position: relative;
+  margin:auto;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  cursor: default;
+  font-size:3vmin;
+}
+
+.clearfix:after {
+    content:"";
+    display:block;
+    clear:both;
+}

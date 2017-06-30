@@ -2,3 +2,56 @@
   color: red;
 }
 
+.boxed {
+  border: 1px solid black;
+  overflow: hidden;
+}
+
+div.signtext {
+  -webkit-writing-mode: vertical-lr;
+  -moz-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  font-size: 0%;
+  border-left: 1px solid blue;
+  height: 95%;
+}
+
+span.outside {
+  border-left: 1px solid blue;
+  vertical-align: top;
+}
+
+span.middle {
+  vertical-align: bottom;
+}
+
+span.inside {
+  border-left: 1px dashed red;
+}
+
+div.sign {
+  writing-mode: horizontal-tb;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 20px;
+}
+div.sign svg {
+  overflow: visible !important;
+}
+
+div.blinking-cursor svg g text {
+    animation: blink 1s ease-out infinite;
+}
+
+div.sign.blinking-cursor {
+  padding: 0;
+  height: 0;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 1; }
+  51% { opacity: 0; }
+  100% { opacity: 0; }
+}

@@ -1,24 +1,36 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Sutton SignWriting Symbols</title>
-    <meta id="idviewport" name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Sutton SignWriting Characters</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="written sign language tools for user interface and searching">
     <meta name="author" content="Stephen E Slevinski Jr">
     <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../include/vendor/bootstrap.sub.css" />
     <link rel="stylesheet" type="text/css" href="../assets/SuttonSignWriting.css" />
     <link rel="stylesheet" type="text/css" href="../include/common.css" />
     <script src="../assets/SuttonSignWriting.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="characters.css" />
-    <script src="../include/vendor/mithril.min.js"></script>
-    <script src="../include/vendor/translate.min.js"></script>
-    <script src="messages.js" charset="utf-8"></script>
-
+    <style>
+      .fsw-1dOpt {
+        font-family: SuttonSignWriting1dOpt;
+      }
+      input.fsw-1dOpt {
+        height: 50px;
+        font-size: 30px;
+      }
+      .fsw-1d {
+        font-family: SuttonSignWriting1d;
+        -moz-font-feature-settings: "liga";
+        -webkit-font-feature-settings: "liga";
+        font-feature-settings: "liga";
+      }
+      input.fsw-1d {
+        height: 50px;
+        font-size: 30px;
+      }
+    </style>
   </head>
 
   <body>
@@ -35,25 +47,259 @@
           <a class="navbar-link" style="padding-left:30px;" href="../draft.html">Internet&nbsp;Draft</a>
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <a class="active btn btn-default btn-lg col-sm-6 col-xs-12" href="index.html" role="button">Unicode</a>
+          <a class="btn btn-default btn-lg col-sm-6 col-xs-12" href="symbols.html" role="button">Symbols</a>
+        </div>
+      </div>
     </div>
 
-  <div id="header"></div>
-  <div id="table"></div>
-  <script src="characters.js"></script>
+
+<script>
+
+function fswAsciiChange(){
+    var fswIn = document.getElementById("fsw-ascii").value;
+
+    var fswOut = ssw.fsw(fswIn);
+	document.getElementById("fswAsciiOut").innerHTML = fswOut;
+
+    var fswAsciiSvgOut = ssw.svg(fswIn);
+	document.getElementById("fswAsciiSvgOut").innerHTML = fswAsciiSvgOut;
+
+    var fswAsciiPngOut = ssw.png(fswIn);
+	document.getElementById("fswAsciiPngOut").innerHTML = '<img src="' + fswAsciiPngOut + '">';
+
+}
+function setFswAscii(fsw){
+	document.getElementById("fsw-ascii").value = fsw;
+}
+
+function fswOpt1Change(){
+    var fswIn = document.getElementById("fsw-opt1").value;
+
+    var fswOut = ssw.fsw(fswIn);
+	document.getElementById("fswOpt1Out").innerHTML = fswOut;
+
+    var fswOpt1SvgOut = ssw.svg(fswIn);
+	document.getElementById("fswOpt1SvgOut").innerHTML = fswOpt1SvgOut;
+
+    var fswOpt1PngOut = ssw.png(fswIn);
+	document.getElementById("fswOpt1PngOut").innerHTML = '<img src="' + fswOpt1PngOut + '">';
+
+}
+function setFswOpt1(fsw){
+	document.getElementById("fsw-opt1").value = ssw.opt(fsw);
+	document.getElementById("fsw-opt1with").value = ssw.opt(fsw);
+}
+
+function fswOpt2Change(){
+    var fswIn = document.getElementById("fsw-opt2").value;
+
+    var fswOut = ssw.fsw(fswIn);
+	document.getElementById("fswOpt2Out").innerHTML = fswOut;
+
+    var fswOpt2SvgOut = ssw.svg(fswIn);
+	document.getElementById("fswOpt2SvgOut").innerHTML = fswOpt2SvgOut;
+
+    var fswOpt2PngOut = ssw.png(fswIn);
+	document.getElementById("fswOpt2PngOut").innerHTML = '<img src="' + fswOpt2PngOut + '">';
+
+}
+function setFswOpt2(fsw){
+	document.getElementById("fsw-opt2").value = ssw.unicode(fsw);
+	document.getElementById("fsw-opt2with").value = ssw.unicode(fsw);
+}
+
+function textChange(){
+    var textIn = document.getElementById("text").value;
+
+    var signtextOut = ssw.signtext(textIn);
+
+    var signs = ssw.signtext(textIn).map(function(fsw) {
+      var bbox = ssw.bbox(fsw).split(' ');
+      var w = bbox[1]-bbox[0];
+      var h = bbox[3]-bbox[2];
+      var adj = 1000 - bbox[0] - bbox[1];
+      adj += 2; //adjust for center dotted line
+      if (fsw.indexOf('L')>-1) adj += 150;
+      if (fsw.indexOf('R')>-1) adj -= 150;
+      var style = 'width: ' + w + 'px;height: ' + h + 'px;'
+      if (adj>0) {
+        style += 'margin-right: ' + adj + 'px;'
+      } else if (adj<0) {
+        adj = -adj;
+        style += 'border-left: ' + adj + 'px solid transparent;';
+      }
+      return '<div class="sign" style="' + style + '">' + ssw.svg(fsw) + '</div>';
+    });
+    document.getElementById("signtextOut").innerHTML = '<span class="outside"><span class="middle"><span class="inside"><div class="sign blinking-cursor">' + ssw.svg('M524x501S37a06476x499-Z2') + '</div>' + signs.join('') + '</span></span></span>';
+}
+
+
+function setText(text){
+	document.getElementById("text").value = text;
+
+    document.getElementById("text-opt1").value= ssw.signtext(text).map(function(fsw) { 
+      return ssw.opt(fsw);
+    }).join(" ");
+
+    document.getElementById("text-opt2").value= ssw.signtext(text).map(function(fsw) { 
+      return ssw.unicode(fsw);
+    }).join(" ");
+}
+
+</script>
+
+    <div class="container">
+      <div class="row">
+
+        <div class="boxed col-lg-4 col-sm-12">
+          <h2>UTF-8</h2>
+          <p>Formal SignWriting as ASCII characters is compatible with and optimized for UTF-8.</p>
+
+          <div>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button class="btn btn-default" onClick="setFswAscii('AS14c20S27106M518x529S14c20481x471S27106503x489'); fswAsciiChange();return false;">Hello</button>
+                  <button class="btn btn-default" onClick="setFswAscii('M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468'); fswAsciiChange();return false;">World</button>
+                  <button class="btn btn-default" onClick="setFswAscii('AS20310S26b02S33100M521x547S33100482x483S20310506x500S26b02503x520'); fswAsciiChange();return false;">Steve</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input style="width:100%" type="fsw" class="form-control" id="fsw-ascii" placeholder="enter Formal SignWriting as ASCII characters" oninput="fswAsciiChange();">
+                </div>
+              </div>
+            </form>
+          </div>
+          
+
+          <div class="col-sm-12">
+            <br><p style="overflow:hidden;" id="fswAsciiOut"></p>
+          </div>
+          <div class="col-sm-6" id="fswAsciiSvgOut"></div>
+          <div class="col-sm-6" id="fswAsciiPngOut"></div>
+
+          <hr>
+        </div>
+        
+        <div class="boxed col-md-6 col-lg-4 col-sm-12">
+          <h2>Option 1</h2>
+          <p>Formal SignWriting as an alternate encoding that replaces the Sutton SignWriting block in Unicode.</p>
+          
+          <div>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button class="btn btn-default" onClick="setFswOpt1('AS14c20S27106M518x529S14c20481x471S27106503x489'); fswOpt1Change();return false;">Hello</button>
+                  <button class="btn btn-default" onClick="setFswOpt1('M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468'); fswOpt1Change();return false;">World</button>
+                  <button class="btn btn-default" onClick="setFswOpt1('AS20310S26b02S33100M521x547S33100482x483S20310506x500S26b02503x520'); fswOpt1Change();return false;">Steve</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input style="width:100%" type="fsw" class="form-control" id="fsw-opt1" placeholder="System Formal SignWriting as Unicode Option 1" oninput="fswOpt1Change();">
+                </div>
+                <div class="col-sm-12">
+                  <input class="fsw-1dOpt" style="width:100%" type="fsw" class="form-control" id="fsw-opt1with" placeholder="With CSS, Formal SignWriting as Unicode Option 1" oninput="fswOpt1Change();">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-sm-12">
+            <br><p style="overflow:hidden;" id="fswOpt1Out"></p>
+          </div>
+          <div class="col-sm-6" id="fswOpt1SvgOut"></div>
+          <div class="col-sm-6" id="fswOpt1PngOut"></div>
+
+          <hr>
+        </div>
+
+        <div class="boxed col-md-6 col-lg-4 col-sm-12">
+          <h2>Option 2</h2>
+          <p>Formal SignWriting as an encoding that is 97.5% official Unicode with 17 new control characters.</p>
+          <div>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button class="btn btn-default" onClick="setFswOpt2('AS14c20S27106M518x529S14c20481x471S27106503x489'); fswOpt2Change();return false;">Hello</button>
+                  <button class="btn btn-default" onClick="setFswOpt2('M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468'); fswOpt2Change();return false;">World</button>
+                  <button class="btn btn-default" onClick="setFswOpt2('AS20310S26b02S33100M521x547S33100482x483S20310506x500S26b02503x520'); fswOpt2Change();return false;">Steve</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input style="width:100%" type="fsw" class="form-control" id="fsw-opt2" placeholder="System Formal SignWriting as Unicode Option 2" oninput="fswOpt2Change();">
+                </div>
+                <div class="col-sm-12">
+                  <input class="fsw-1d" style="width:100%" type="fsw" class="form-control" id="fsw-opt2with" placeholder="With CSS, Formal SignWriting as Unicode Option 2" oninput="fswOpt2Change();">
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="col-sm-12">
+            <br><p style="overflow:hidden;" id="fswOpt2Out"></p>
+          </div>
+          <div class="col-sm-6" id="fswOpt2SvgOut"></div>
+          <div class="col-sm-6" id="fswOpt2PngOut"></div>
+
+          <hr>
+        </div>
+        
+      </div>
+
       <hr>
+
+
+      <div class="row">
+          <div>
+            <form class="form-horizontal" role="form">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <button class="btn btn-default" onClick="setText('AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496'); textChange();return false;">Hello world.</button>
+                  <button class="btn btn-default" onClick="setText(' AS10011S10019S2e704S2e748M525x535S2e748483x510S10011501x466S2e704510x500S10019476x475 AS15a21S15a07S21100S2df04S2df14M521x538S15a07494x488S15a21498x489S2df04498x517S2df14497x461S21100479x486 AS1f010S10018S20600M519x524S10018485x494S1f010490x494S20600481x476 S38800464x496 AS10e00M507x515S10e00492x485 AS15d41S15a36S21100S26505M535x521S15d41464x479S15a36474x503S21100507x491S26505522x508 S38700463x496 AS10020M508x515S10020493x485 AS10011S28108S30a00M540x519S30a00482x482S10011519x489S28108519x461 AS10e00S10e08S20500S27100S2711cS20500S2fc00S30006S30002M544x527S10e08470x497S10e00516x497S30006482x482S20500519x484S20500471x484S27100504x464S2711c451x463S30002482x482S2fc00491x453 S38700463x496 AS10e20M508x515S10e20493x485 AS10011S28108S30a00M540x519S30a00482x482S10011519x489S28108519x461 AS10120S15a3aS26a02S20e00M529x518S15a3a502x506S20e00487x495S10120507x483S26a02471x491 AS10020S2df04S10000M527x516S10000512x486S10020473x486S2df04489x485 AS10012S19205S22a04S20e00M529x525S10012499x477S20e00499x491S19205472x476S22a04499x510 S38800464x496 AS15a21S2a20cS15a01S15a07M538x518S15a21515x483S15a07463x482S15a01466x483S2a20c493x490 AS10011S10019S2eb04S2eb48M523x536S2eb48485x504S10011502x463S2eb04507x497S10019477x472 AS19a00S19a08S22a04S22a14S2fb04M534x521S22a14475x503S19a00506x479S19a08467x479S22a04514x504S2fb04493x515 S38800464x496 AS1eb20S15a37S26507S26507S15a10S15a18S22b04S22b14M530x550S15a37470x456S15a10515x523S15a18481x523S1eb20490x468S22b14479x488S26507504x450S22b04514x489S26507516x460 AS1d117S26505S1d417M539x531S1d117460x468S1d417514x506S26505491x492 M517x522S1000a487x507S10041483x479 S38700463x496 AS20320S22e04M509x519S20320493x481S22e04492x501 S38800464x496 M532x516S1ce20469x485S20320495x500S18620514x486 S38700463x496 M533x538S1f110504x523S34d00482x482 M554x518S1920a481x484S19202501x484S26606524x483S26612446x483S20500496x507 S38700463x496 AS15d02S15d0aS20e00S22f00M522x524S22f00487x477S15d02495x500S15d0a479x505S20e00493x493 AS11500S20308S20e00S26a02S34600M525x562S20308503x547S11500510x515S20e00495x531S26a02478x525S34600482x482 S38700463x496 M551x542S1dc2f448x465S1dc01482x459S26605502x488S26615467x490S1e101526x509S1e12f488x510 AS18040S18048S2eb08S2eb4cS2fb00M532x538S18040501x523S18048467x511S2eb4c477x470S2eb08506x483S2fb00494x462 S38800464x496 M532x516S1ce20469x485S20320495x500S18620514x486 AS19a00S19a08S22a04S22a14S2fb04M534x521S22a14475x503S19a00506x479S19a08467x479S22a04514x504S2fb04493x515 S38700463x496 AS10011S10019S2eb04S2eb48M523x536S2eb48485x504S10011502x463S2eb04507x497S10019477x472 AS1eb20S15a06S29b0bM516x531S15a06484x468S1eb20492x483S29b0b484x496 AS20350S20358S22f04S22f14S30114M528x565S20350508x530S20358477x530S22f04503x551S22f14471x551S30114482x477 S38800464x496'); textChange();return false;">FSW Introduction.</button>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <h3>UTF-8</h3>
+                  <textarea rows="3" style="width:100%" class="form-control" id="text" placeholder="extended text in FSW ASCII" oninput="textChange();"></textarea>
+                </div>
+                <div class="col-sm-12">
+                  <h3>Option 1</h3>
+                  <textarea rows="3" style="width:100%" class="fsw-1dOpt form-control" id="text-opt1" placeholder="Unicode Option 1"></textarea>
+                </div>
+                <div class="col-sm-12">
+                  <h3>Option 2</h3>
+                  <textarea rows="3" style="width:100%" class="fsw-1d form-control" id="text-opt2" placeholder="Unicode Option 2"></textarea>
+                </div>
+                <div class="col-md-12">
+                  <h3>SignText</h3>
+                  <div class="col-sm-12" id="signtextFn"></div>
+                  <div class="signtext col-sm-12" id="signtextOut"></div>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+      </div>
 
       <footer>
       <div class="col-md-6 col-sm-12">
         <center>
           <p>Sutton SignWriting Fonts<br>
-          Copyright (c) 1974-2016, Center for Sutton Movement Writing, inc<br>
+          Copyright (c) 1974-2017, Center for Sutton Movement Writing, inc<br>
           Licensed under the SIL Open Font License v1.1</p>
         </center>
       </div>
       <div class="col-md-6 col-sm-12">
         <center>
           <p>Sutton SignWriting JavaScript Library<br>
-          Copyright (c) 2007-2016, Stephen E Slevinski Jr<br>
+          Copyright (c) 2007-2017, Stephen E Slevinski Jr<br>
           Licensed under the MIT License</p>
         </center>
       </div>
@@ -62,8 +308,9 @@
         <hr><br>
         <center>
           <p>The Sutton SignWriting Project by Stephen E Slevinski Jr is available for
-          <a href="https://github.com/Slevinski/SuttonSignWriting/archive/gh-pages.zip">download</a> from the 
+          <a href="https://github.com/Slevinski/SuttonSignWriting/archive/master.zip">download</a> from the 
           <a href="https://github.com/Slevinski/SuttonSignWriting/">GitHub Repo.</a>
+        </center>
 
       </div>
       </footer>

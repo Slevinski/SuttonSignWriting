@@ -1,5 +1,5 @@
 /**
-* Sutton SignWriting JavaScript Library v1.1.3
+* Sutton SignWriting JavaScript Library v1.2.0
 * https://github.com/Slevinski/SuttonSignWriting
 * Copyright (c) 2007-2017, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MIT License.
@@ -286,7 +286,8 @@ var ssw = {
     key = ssw.key(text);
     if (!key) {return '';}
     var code = 0x40000 + ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1;
-    return hexval?code.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((code - 0x10000) >> 10), 0xDC00 + ((code - 0x10000) & 0x3FF));
+    key = key.replace(key.substr(0,6),hexval?code.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((code - 0x10000) >> 10), 0xDC00 + ((code - 0x10000) & 0x3FF)));
+    return key;
   },
   pua: function(text,hexval){
     var key;
@@ -305,7 +306,8 @@ var ssw = {
     key = ssw.key(text);
     if (!key) {return '';}
     var pua = 0x100000 + ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1;
-    return hexval?pua.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((pua - 0x10000) >> 10), 0xDC00 + ((pua - 0x10000) & 0x3FF));
+    pua = key.replace(key.substr(0,6),hexval?pua.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((pua - 0x10000) >> 10), 0xDC00 + ((pua - 0x10000) & 0x3FF)));
+    return pua;
   },
   uni8: function(text,hexval){
     var key;
@@ -330,7 +332,9 @@ var ssw = {
     var rotation = key.substr(5,1);
     rotation = parseInt(rotation,16) + parseInt('1DAA0',16);
     uni8 += hexval?rotation.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((rotation - 0x10000) >> 10), 0xDC00 + ((rotation - 0x10000) & 0x3FF));
+    uni8 = key.replace(key.substr(0,6),uni8);
     return uni8;
+
   },
   uni8inherent: function(text,hexval){
     var uni8 = ssw.uni8(text,hexval);
@@ -342,6 +346,38 @@ var ssw = {
       uni8 = uni8.replace(/\uD836\uDEA0/g,'');
     }
     return uni8;
+  },
+  opt: function(text,hexval){
+    var key;
+    var pos;
+    var fsw = ssw.code(text);
+    if (fsw){
+      var str;
+      var code;
+      var coord;
+      code = parseInt('1D800',16);
+      fsw = fsw.replace('B','B!');
+      fsw = fsw.replace('A',hexval?code.toString(16).toUpperCase():String.fromCharCode(0xD800 + (((code) - 0x10000) >> 10), 0xDC00 + (((code) - 0x10000) & 0x3FF)));
+      fsw = fsw.replace('B!',hexval?(code+1).toString(16).toUpperCase():String.fromCharCode(0xD800 + (((code+1) - 0x10000) >> 10), 0xDC00 + (((code+1) - 0x10000) & 0x3FF)));
+      fsw = fsw.replace('L',hexval?(code+2).toString(16).toUpperCase():String.fromCharCode(0xD800 + (((code+2) - 0x10000) >> 10), 0xDC00 + (((code+2) - 0x10000) & 0x3FF)));
+      fsw = fsw.replace('M',hexval?(code+3).toString(16).toUpperCase():String.fromCharCode(0xD800 + (((code+3) - 0x10000) >> 10), 0xDC00 + (((code+3) - 0x10000) & 0x3FF)));
+      fsw = fsw.replace('R',hexval?(code+4).toString(16).toUpperCase():String.fromCharCode(0xD800 + (((code+4) - 0x10000) >> 10), 0xDC00 + (((code+4) - 0x10000) & 0x3FF)));
+      var pattern = '[0-9]{3}x[0-9]{3}';
+      var matches = fsw.match(new RegExp(pattern,'g'));
+      var i;
+      for(i=0; i<matches.length; i+=1) {
+        str = matches[i];
+        coord = str.split('x');
+        coord = coord.map(function(c){  
+          c = 0x1D80C + parseInt(c) - 250;
+          return hexval?c.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((c - 0x10000) >> 10), 0xDC00 + ((c - 0x10000) & 0x3FF));
+        });
+        fsw = fsw.replace(str,coord.join(''));
+      }
+      return fsw;
+    }
+    key = ssw.key(text);
+    return ssw.code(key,hexval);
   },
   unicode: function(text,hexval){
     var key;
@@ -380,7 +416,19 @@ var ssw = {
       return fsw;
     }
     key = ssw.key(text);
-    return ssw.uni8(key,hexval);
+    var uni = ssw.uni8(key,hexval)
+    var pattern = '[0-9]{3}x[0-9]{3}';
+    var matches = uni.match(new RegExp(pattern,'g'));
+    if (matches.length){
+      coord = matches[0].replace('x','').split('');
+      coord = coord.map(function(c){  
+        c = 0x1DAB0 + parseInt(c);
+        return hexval?c.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((c - 0x10000) >> 10), 0xDC00 + ((c - 0x10000) & 0x3FF));
+      });
+      console.log (uni);
+      uni = uni.replace(matches[0],coord.join(''));
+    }
+    return uni;
   },
   bbox: function(fsw) {
     var rcoord = /[0-9]{3}x[0-9]{3}/g;

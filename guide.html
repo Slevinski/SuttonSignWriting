@@ -8,7 +8,7 @@
     <meta name="author" content="Stephen E Slevinski Jr">
     <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="include/vendor/bootstrap.sub.css" />
     <link rel="stylesheet" type="text/css" href="assets/SuttonSignWriting.css" />
     <link rel="stylesheet" type="text/css" href="include/common.css" />
     <script src="assets/SuttonSignWriting.js"></script>
@@ -41,6 +41,9 @@
                 <a href="#fsw" class="list-group-item">
                   <h5 class="list-group-item-heading">Formal SignWriting</h5>
                 </a>
+                <a href="#char" class="list-group-item">
+                  <h5 class="list-group-item-heading">Character Options</h5>
+                </a>
                 <a href="#ttf" class="list-group-item">
                   <h5 class="list-group-item-heading">TrueType Fonts</h5>
                 </a>
@@ -57,7 +60,7 @@
             <div class="col-sm-8 col-xs-12">
               <h2>Guide to Sutton SignWriting</h2>
               <p class="lead">
-                The Sutton SignWriting project is designed for the internet community and include TrueType Fonts, Scalar Vector Graphics, HTML, CSS, and JavaScript Functions.
+                The Sutton SignWriting project is designed for the internet community and includes TrueType Fonts, Scalar Vector Graphics, HTML, CSS, and JavaScript Functions.
                 The Formal SignWriting specification is a faithful encoding of Sutton SignWriting that is documented in an Internet Draft submitted to the IETF.
               </p>
 
@@ -77,35 +80,96 @@
               <h2 id="fsw">Formal SignWriting</h2>
               <p>Formal SignWriting (FSW) is a faithful character-encoding of Sutton SignWriting based on 2-dimensional mathematics.
               FSW defines a formal language for written sign languages 
-              where any sign of any sign language can be written as a string of ASCII characters.
+              where any sign of any sign language can be written as a string of ASCII or Unicode characters.
               Each sign is written as a separate word.
+
+             <hr>
+
+              <h2 id="char">Character Options</h2>
+
+              <h3 id="utf8">UTF-8</h2>
+                <p>Formal SignWriting as ASCII characters is compatible with and optimized for UTF-8.</p>
+                <p>Formal SignWriting as ASCII characters is the standard that is currently used by the Center for Sutton Movement Writing and the sign language Wikipedia projects on Wikimedia Incubator.
+                The ASCII form is fully supported with the fonts, styling string, query string, and the various transformations.
+                </p>
+
+              <hr>
+
+              <h3 id="option1">Option 1</h2>
+                <p>Formal SignWriting as an alternate encoding that replaces the Sutton SignWriting block in Unicode. Option 1 focuses on small size, simple design, and easy of use.
+                This option can complicate processing with UTF-8 and UTF-16 considerations.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.2" role="button">Unicode Option 1 Specification</a>
+
+              <hr>
+
+              <h3 id="option2">Option 2</h2>
+                <p>Formal SignWriting as an encoding that is 97.5% official Unicode with defined characters in the Sutton SignWriting block.
+                Option 2 focuses on augmenting the Unicode 8 standard with 17 new control characters for a design that is compatible with Formal SignWriting.
+                This option is three times larger than Option 1 and 
+                requires the support of the ligature feature "ccmp" for Glyph Composition/Decomposition with extension lookup.
+                Support in current software is limited, but improving over time.
+                Support in older software is limited.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.3" role="button">Unicode Option 2 Specification</a>
+
              <hr>
 
               <h2 id="ttf">TrueType Fonts</h2>
-              <p>The Sutton SignWriting TrueType fonts are available for download and installation.  
-              The fonts have been tailored for the Sutton SignWriting JavaScript library.
-              </p>
-              <a class="btn btn-default btn-lg btn-block" href="components/fonts.html" role="button">Using the TrueType Fonts</a>
+                <p>The Sutton SignWriting TrueType fonts are available for download and installation.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="components/fonts.html" role="button">Using the TrueType Fonts</a>
+
+              <h3 id="ssw-font">Sutton SignWriting Symbol Fonts</h2>
+                <p>There are two fonts for the Sutton SignWriting symbols: 
+                the <em>Sutton SignWriting font</em> as the positive space of the symbol glyphs on Unicode plane 4 and 
+                the <em>Sutton SignWriting Fill font</em>  as the negative space of the symbol glyphs on Unicode plane 16.
+                These glyphs descend below the baseline and are meant to be used inside SVG.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.ttf" role="button">Sutton SignWriting Font</a>
+                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill Font</a>
+
+              <hr>
+
+              <h3 id="ssw-font-1dalt">Sutton SignWriting 1D Optimal Font</h2>
+                <p>The Sutton SignWriting 1D Optimal font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
+                The font uses the Unicode Option 1 character set.
+                These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting1dOpt.ttf" role="button">Sutton SignWriting 1D Optimal Font</a>
+
+              <hr>
+
+              <h3 id="ssw-font-1d">Sutton SignWriting 1D Font</h2>
+                <p>The Sutton SignWriting 1D font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
+                The font uses the Unicode Option 2 character set.
+                These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
+                </p>
+                <p>Using this font requires the support of the ligature feature "ccmp" for Glyph Composition/Decomposition.
+                Support in older software is limited. 
+                In the browser, "ccmp" ligatures support with extension lookup is possible, but it will require extra css to define the font famiily and may require extra css to enable the "ccmp" feature. 
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting1d.ttf" role="button">Sutton SignWriting 1D Font</a>
 
              <hr>
 
               <h2 id="svg">SVG Considerations</h2>
               <p>SVG is used to create the 2-dimensional signs of Sutton SignWriting.  
-              The SVG images can be downloaded from the SignWriting Server or created with the JavaScript Library.
+              The SVG images can be downloaded from the SignWriting Server or created with a JavaScript function.
               SVG images requested from the SignWriting Server require an internet connection and a separate download for each image.
-              SVG images created with the JavaScript library require the TrueType Fonts.
+              SVG images created with a JavaScript function require TrueType Fonts for display.
               </p>
               <a class="btn btn-default btn-lg btn-block" href="components/svg.html" role="button">SVG Components</a>
               <a class="btn btn-default btn-lg btn-block" href="http://signpuddle.net/index.html" role="button">SignWriting Server</a>
 
              <hr>
 
-              <h2 id="js">JavaScript Library</h2>
-              <p>The JavaScript library leverages the TrueType fonts without any additional requirements.
+              <h2 id="js">JavaScript Libraries</h2>
+              <p>The JavaScript libraries leverage the TrueType fonts without any additional requirements.
               Simply include the "<a href="assets/SuttonSignWriting.js">SuttonSignWriting.js</a>" script or the minified version "<a href="assets/SuttonSignWriting.min.js">SuttonSignWriting.min.js</a>" in any HTML page to access the function library.
               View the <a href="components/js.html">API Reference</a> for example usage.</p>
-              <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.js" role="button">Sutton SignWriting JavaScript Library (53 KB)</a>
-              <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.min.js" role="button">Minified Sutton SignWriting JS Library (25 KB)</a>
+              <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.js" role="button">Sutton SignWriting JavaScript Library (56 KB)</a>
+              <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.min.js" role="button">Minified Sutton SignWriting JS Library (27 KB)</a>
 
               <hr>
               

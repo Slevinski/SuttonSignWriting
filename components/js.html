@@ -8,7 +8,7 @@
     <meta name="author" content="Stephen E Slevinski Jr">
     <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../include/vendor/bootstrap.sub.css" />
     <link rel="stylesheet" type="text/css" href="../assets/SuttonSignWriting.css" />
     <link rel="stylesheet" type="text/css" href="../include/common.css" />
     <script src="../assets/SuttonSignWriting.js"></script>
@@ -30,18 +30,19 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="fonts.html" role="button">Font Technology</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="fonts.html" role="button">Fonts</a>
           <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="svg.html" role="button">Scalar Vector Graphics</a>
           <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="html.html" role="button">HTML and CSS</a>
-          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="js.html" role="button">JavaScript Library</a>
+          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="js.html" role="button">JavaScript</a>
           <div class="active col-md-3 col-sm-6 col-xs-12" style="float:right;">
             <a class="active btn btn-default col-xs-6" href="js.html" role="button">API</a>
             <a class="btn btn-default col-xs-6" href="tests/index.html" role="button">Test</a>
           <div>
         </div>
       </div>
+        </div>
     </div>
-
+    </div>
 
 <script>
 function keyChange(){
@@ -452,6 +453,15 @@ function fswChange(){
 	  document.getElementById("fswcodeRow").className = "warning";
 	}
 
+    var fswoptOut = ssw.opt(fswIn);
+	document.getElementById("fswoptFn").innerHTML = 'ssw.opt("' + fswIn + '");';
+	document.getElementById("fswoptOut").innerHTML = fswoptOut;
+	if (fswoptOut) {
+	  document.getElementById("fswoptRow").className = "success";
+	} else {
+	  document.getElementById("fswoptRow").className = "warning";
+	}
+
     var fswpuaOut = ssw.pua(fswIn);
 	document.getElementById("fswpuaFn").innerHTML = 'ssw.pua("' + fswIn + '");';
 	document.getElementById("fswpuaOut").innerHTML = fswpuaOut;
@@ -853,6 +863,10 @@ function setText(fsw){
         <tr id="fswcodeRow">
           <td id="fswcodeFn">ssw.code("")</td>
           <td id="fswcodeOut"></td>
+        </tr>
+        <tr id="fswoptRow">
+          <td id="fswoptFn">ssw.opt("")</td>
+          <td id="fswoptOut"></td>
         </tr>
         <tr id="fswpuaRow">
           <td id="fswpuaFn">ssw.pua("")</td>

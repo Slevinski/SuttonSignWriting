@@ -8,7 +8,7 @@
     <meta name="author" content="Stephen E Slevinski Jr">
     <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
     <link rel="icon" href="../favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="../include/vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="../include/vendor/bootstrap.sub.css" />
     <link rel="stylesheet" type="text/css" href="../assets/SuttonSignWriting.css" />
     <link rel="stylesheet" type="text/css" href="../include/common.css" />
     <script src="../assets/SuttonSignWriting.js"></script>
@@ -31,10 +31,10 @@
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="fonts.html" role="button">Font Technology</a>
+          <a class="active btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="fonts.html" role="button">Fonts</a>
           <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="svg.html" role="button">Scalar Vector Graphics</a>
           <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="html.html" role="button">HTML and CSS</a>
-          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="js.html" role="button">JavaScript Library</a>
+          <a class="btn btn-default btn-lg col-md-3 col-sm-6 col-xs-12" href="js.html" role="button">JavaScript</a>
         </div>
       </div>
     </div>
@@ -43,18 +43,68 @@
       <div class="row">
 
         <div class="col-xs-12">
-          <h1>Font Technology</h1>
+          <h1>Fonts</h1>
+            <p>The Sutton SignWriting TrueType fonts are available for download and installation.  
+            Please ignore warning and unusual font previews during installation as these will not affect the utility of the font.</p>
 
-              <h2 id="ttf">Installing the TrueType Fonts</h2>
-              <p>The Sutton SignWriting TrueType fonts are available for download and installation.  
-              The fonts have been tailored for the Sutton SignWriting JavaScript library.
-              Please ignore warning and unusual font previews during installation as these will not affect the fonts utility.</p>
-              <p>Installing the fonts using the instructions below is not required, but it will improve the user experience.
-              If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.</p>
+            <p>Installing the fonts using the instructions below is not required, but it will improve the user experience.
+            If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.</p>
+
+            <p>The <em>Sutton SignWriting font</em> and the <em>Sutton SignWriting Fill font</em> have been tailored for SVG.
+            The <em>Sutton SignWriting 1D Optimal font</em> and the <em>Sutton SignWriting 1D</em> font are useful in standard 1D text fields.
+            The <em>Sutton Signwriting 2D Optimal font</em> and the <em>Sutton SignWriting 2D</em> font are currently in development.
+            </p>
+
+
+            <h2 id="ttf">TrueType Fonts</h2>
+              <h3 id="ssw-font">Sutton SignWriting Symbol Fonts</h2>
+                <p>There are two fonts for the Sutton SignWriting symbols: 
+                the <em>Sutton SignWriting font</em> as the positive space of the symbol glyphs on Unicode plane 4 and 
+                the <em>Sutton SignWriting Fill font</em>  as the negative space of the symbol glyphs on Unicode plane 16.
+                These glyphs descend below the baseline and are meant to be used inside SVG.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWriting.ttf" role="button">Sutton SignWriting Font</a>
+                <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill Font</a>
+
+              <hr>
+
+              <h3 id="ssw-font-1dopt">Sutton SignWriting 1D Optimal Font</h2>
+                <p>The Sutton SignWriting 1D Optimal font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
+                The font uses the Unicode Option 1 character set.
+                These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWriting1dOpt.ttf" role="button">Sutton SignWriting 1D Optimal Font</a>
+
+              <hr>
+
+              <h3 id="ssw-font-1d">Sutton SignWriting 1D Font</h2>
+                <p>The Sutton SignWriting 1D font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
+                The font uses the Unicode Option 2 character set.
+                These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
+                </p>
+                <p>Using this font requires the support of the ligature feature "ccmp" for Glyph Composition/Decomposition.
+                Support in older software is limited. 
+                In the browser, "ccmp" ligatures support with extension lookup is possible, but it will require extra css to define the font famiily and may require extra css to enable the "ccmp" feature. 
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWriting1d.ttf" role="button">Sutton SignWriting 1D Font</a>
+
+              <hr>
+
+              <h3 id="ssw-font-2d">Sutton SignWriting 2D Font Development</h2>
+                <p>A 2-dimensional font has been designed for the Universal Shaping Engine for complex scripts.
+                Development is planned for next year.  
+                A grant has been submitted to the Wikimedia Foundation to support this work.
+                Two fonts are planned:
+                the <em>Sutton SignWriting 2D Optimal font</em> using <a href="../assets/draft-slevinski-formal-signwriting.html#rfc.section.4.2">Unicode Option 1</a> characters and 
+                the <em>Sutton SignWriting 2D font</em>  using <a href="../assets/draft-slevinski-formal-signwriting.html#rfc.section.4.3">Unicode Option 2</a> characters.
+                </p>
+                <a class="btn btn-default btn-lg btn-block" href="https://meta.wikimedia.org/wiki/Grants:Project/slevinski/ASL_Wikipedia_2-D_Font_Development_for_SignWriting" role="button">Wikimedia Grant for 2D Font Development</a>
+
+            <hr>
+
+            <h2 id="ttf">Installing the TrueType Fonts</h2>
               <h3>Windows, Linux, and Mac</h3>
-              <p>Installation is straight forward for these platforms.  Simply download the 2 TrueType fonts and install as usual.</p>
-              <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWriting.ttf" role="button">Sutton SignWriting TrueType Font</a>
-              <a class="btn btn-default btn-lg btn-block" href="../assets/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill TrueType Font</a>
+              <p>Installation is straight forward for these platforms.  Simply download the TrueType fonts and install as usual.</p>
 
               <h3>iOS</h3>
               <p>Installation is possible with a configuration profile that includes the 2 TrueType fonts.  Simply download the configuration profile and install.</p>
@@ -67,7 +117,7 @@
 
              <hr>
 
-              <h2 id="css">Using the Fonts without Installation</h2>
+            <h2 id="css">Using the Fonts without Installation</h2>
               <p>The TrueType Fonts can be used without installing the fonts on any platform by defining two font-face statements.
               Simply include the "<a href="../include/fonts.css">fonts.css</a>" style sheet or the following CSS in any HTML page to access the fonts.</p>
               <pre>
@@ -83,13 +133,25 @@
     local('SuttonSignWritingFill'),
     url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingFill.ttf') format('truetype');
 }
+@font-face {
+  font-family: "SuttonSignWriting1dOpt";
+  src: 
+    local('SuttonSignWriting1dOpt'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting1dOpt.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SuttonSignWriting1d";
+  src: 
+    local('SuttonSignWriting1d'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting1d.ttf') format('truetype');
+}
               </pre>
               
               <p>If the fonts are installed, then the system fonts will be used.
               If the fonts are not installed when a SignWriting Font page is opened, the CSS will cause the fonts to be automatically downloaded to the browser's cache on the first visit.  
               Once the fonts are installed in the browser cache, they will remain there until the browser cache is emptied.
               Any webside that uses this CSS can access the browser installed font without requesting a new copy.
-              The fonts are 10 MB, so the first install make take a few seconds or longer depending on your download speed and processor.</p>
+              The fonts are 10 MB, so the first install may take a few seconds or longer depending on your download speed and processor.</p>
         </div>
       </div>        
       
@@ -99,7 +161,7 @@
       <div class="col-sm-12">
         <center>
           <p>Sutton SignWriting Fonts<br>
-          Copyright (c) 1974-2016, Center for Sutton Movement Writing, inc<br>
+          Copyright (c) 1974-2017, Center for Sutton Movement Writing, inc<br>
           Licensed under the SIL Open Font License v1.1</p>
         </center>
       </div>
