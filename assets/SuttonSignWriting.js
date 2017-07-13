@@ -1,5 +1,5 @@
 /**
-* Sutton SignWriting JavaScript Library v1.2.0
+* Sutton SignWriting JavaScript Library v1.3.0
 * https://github.com/Slevinski/SuttonSignWriting
 * Copyright (c) 2007-2017, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MIT License.
@@ -269,7 +269,7 @@ var ssw = {
       return prefix + ((ssw.is(prefix,'hand') && !ssw.structure('group',prefix,'is'))?'1':'0') +'0';
     }
   },
-  code: function(text,hexval){
+  uni: function(text,plane,hexval){
     var key;
     var i;
     var fsw = ssw.fsw(text);
@@ -279,35 +279,21 @@ var ssw = {
       var len = matches?matches.length:0;
       for(i=0; i<len; i+=1) {
         key = matches[i];
-        fsw = fsw.replace(key,ssw.code(key,hexval));
+        fsw = fsw.replace(key,ssw.uni(key,plane,hexval));
       }
       return fsw;
     }
     key = ssw.key(text);
     if (!key) {return '';}
-    var code = 0x40000 + ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1;
+    var code = parseInt(plane + "0000", 16) + ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1;
     key = key.replace(key.substr(0,6),hexval?code.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((code - 0x10000) >> 10), 0xDC00 + ((code - 0x10000) & 0x3FF)));
     return key;
   },
+  code: function(text,hexval){
+    return ssw.uni(text,"4",hexval);
+  },
   pua: function(text,hexval){
-    var key;
-    var i;
-    var fsw = ssw.fsw(text);
-    if (fsw){
-      var pattern = 'S[123][0-9a-f]{2}[0-5][0-9a-f]';
-      var matches = fsw.match(new RegExp(pattern,'g'));
-      var len = matches?matches.length:0;
-      for(i=0; i<len; i+=1) {
-        key = matches[i];
-        fsw = fsw.replace(key,ssw.pua(key,hexval));
-      }
-      return fsw;
-    }
-    key = ssw.key(text);
-    if (!key) {return '';}
-    var pua = 0x100000 + ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1;
-    pua = key.replace(key.substr(0,6),hexval?pua.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((pua - 0x10000) >> 10), 0xDC00 + ((pua - 0x10000) & 0x3FF)));
-    return pua;
+    return ssw.uni(text,"10",hexval);
   },
   uni8: function(text,hexval){
     var key;
@@ -350,11 +336,11 @@ var ssw = {
   opt: function(text,hexval){
     var key;
     var pos;
-    var fsw = ssw.code(text);
+    var str;
+    var code;
+    var coord;
+    var fsw = ssw.fsw(text);
     if (fsw){
-      var str;
-      var code;
-      var coord;
       code = parseInt('1D800',16);
       fsw = fsw.replace('B','B!');
       fsw = fsw.replace('A',hexval?code.toString(16).toUpperCase():String.fromCharCode(0xD800 + (((code) - 0x10000) >> 10), 0xDC00 + (((code) - 0x10000) & 0x3FF)));
@@ -374,10 +360,29 @@ var ssw = {
         });
         fsw = fsw.replace(str,coord.join(''));
       }
+
+      var pattern = 'S[123][0-9a-f]{2}[0-5][0-9a-f]';
+      var matches = fsw.match(new RegExp(pattern,'g'));
+      for(i=0; i<matches.length; i+=1) {
+        key = matches[i];
+        fsw = fsw.replace(key,ssw.uni(key,"4",hexval));
+      }
       return fsw;
     }
     key = ssw.key(text);
-    return ssw.code(key,hexval);
+    var uni = ssw.uni(key,"4",hexval);
+    var pattern = '[0-9]{3}x[0-9]{3}';
+    var matches = uni.match(new RegExp(pattern,'g'));
+    if(matches.length) {
+      str = matches[0];
+      coord = str.split('x');
+      coord = coord.map(function(c){  
+        c = 0x1D80C + parseInt(c) - 250;
+        return hexval?c.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((c - 0x10000) >> 10), 0xDC00 + ((c - 0x10000) & 0x3FF));
+      });
+      uni = uni.replace(str,coord.join(''));
+    }
+    return uni;
   },
   unicode: function(text,hexval){
     var key;
@@ -425,7 +430,6 @@ var ssw = {
         c = 0x1DAB0 + parseInt(c);
         return hexval?c.toString(16).toUpperCase():String.fromCharCode(0xD800 + ((c - 0x10000) >> 10), 0xDC00 + ((c - 0x10000) & 0x3FF));
       });
-      console.log (uni);
       uni = uni.replace(matches[0],coord.join(''));
     }
     return uni;
@@ -524,8 +528,8 @@ var ssw = {
     var canvas = ssw.canvaser;
     var context = canvas.getContext("2d");
     context.clearRect(0, 0, bound, bound);
-    context.font = (30*zoom) + "px 'SuttonSignWriting'";
-    context.fillText(ssw.code(key),0,0);
+    context.font = (30*zoom) + "px 'SuttonSignWritingLine'";
+    context.fillText(ssw.uni(key,"F"),0,0);
     imgData = context.getImageData(0,0,bound,bound).data;
 
     wloop:
@@ -866,18 +870,18 @@ var ssw = {
         gelem += '"';
       }
       gelem += '>';
-      gelem += ssw.pua(sym);
+      gelem += ssw.uni(sym,"10");
       gelem += '</text>';
       gelem += '<text ';
       gelem += 'class="sym-line" ';
       if (!options.css) {
         gelem += 'style="';
         gelem += options.copy=='code'?'':'pointer-events:none;';
-        gelem += 'font-family:\'SuttonSignWriting\';font-size:' + (options.F[i+1]?30*options.F[i+1][0]:30) + 'px;fill:' + (options.E[i+1]?options.E[i+1][0]:options.colorize?'#'+ssw.colorize(sym):options.line) + ';';
+        gelem += 'font-family:\'SuttonSignWritingLine\';font-size:' + (options.F[i+1]?30*options.F[i+1][0]:30) + 'px;fill:' + (options.E[i+1]?options.E[i+1][0]:options.colorize?'#'+ssw.colorize(sym):options.line) + ';';
         gelem += '"';
       }
       gelem += '>';
-      gelem += ssw.code(sym);
+      gelem += ssw.uni(sym,"F");
       gelem += '</text>';
       gelem += '</g>';
       syms[i] = gelem;
@@ -1133,10 +1137,10 @@ var ssw = {
       }
       context.font = (options.F[i+1]?30*options.size*options.F[i+1][0]:30*options.size) + "px 'SuttonSignWritingFill'";
       context.fillStyle =  (options.E[i+1]?options.E[i+1][1]?options.E[i+1][1]:options.fill:options.fill);
-      context.fillText(ssw.pua(sym),((x-x1)*options.size),((y-y1)*options.size));
-      context.font = (options.F[i+1]?30*options.size*options.F[i+1][0]:30*options.size) + "px 'SuttonSignWriting'";
+      context.fillText(ssw.uni(sym,"10"),((x-x1)*options.size),((y-y1)*options.size));
+      context.font = (options.F[i+1]?30*options.size*options.F[i+1][0]:30*options.size) + "px 'SuttonSignWritingLine'";
       context.fillStyle = (options.E[i+1]?options.E[i+1][0]:options.colorize?'#'+ssw.colorize(sym):options.line);
-      context.fillText(ssw.code(sym),((x-x1)*options.size),((y-y1)*options.size));
+      context.fillText(ssw.uni(sym,"F"),((x-x1)*options.size),((y-y1)*options.size));
     }
     return canvas;
   },

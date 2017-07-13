@@ -147,22 +147,31 @@ function keyChange(){
 	  document.getElementById("pngRow").className = "warning";
 	}
 
-    var codeOut = ssw.code(keyIn);
-	document.getElementById("codeFn").innerHTML = 'ssw.code("' + keyIn + '");';
-	document.getElementById("codeOut").innerHTML = codeOut;
-	if (codeOut) {
-	  document.getElementById("codeRow").className = "success";
+    var uni1Out = ssw.uni(keyIn,"4");
+	document.getElementById("uni1Fn").innerHTML = 'ssw.uni("' + keyIn + '","4");';
+	document.getElementById("uni1Out").innerHTML = uni1Out;
+	if (uni1Out) {
+	  document.getElementById("uni1Row").className = "success";
 	} else {
-	  document.getElementById("codeRow").className = "warning";
+	  document.getElementById("uni1Row").className = "warning";
 	}
 
-    var puaOut = ssw.pua(keyIn);
-	document.getElementById("puaFn").innerHTML = 'ssw.pua("' + keyIn + '");';
-	document.getElementById("puaOut").innerHTML = puaOut;
-	if (puaOut) {
-	  document.getElementById("puaRow").className = "success";
+    var uni2Out = ssw.uni(keyIn,"F");
+	document.getElementById("uni2Fn").innerHTML = 'ssw.uni("' + keyIn + '","F");';
+	document.getElementById("uni2Out").innerHTML = uni2Out;
+	if (uni2Out) {
+	  document.getElementById("uni2Row").className = "success";
 	} else {
-	  document.getElementById("puaRow").className = "warning";
+	  document.getElementById("uni2Row").className = "warning";
+	}
+
+    var uni3Out = ssw.uni(keyIn,"10");
+	document.getElementById("uni3Fn").innerHTML = 'ssw.uni("' + keyIn + '","10");';
+	document.getElementById("uni3Out").innerHTML = uni3Out;
+	if (uni3Out) {
+	  document.getElementById("uni3Row").className = "success";
+	} else {
+	  document.getElementById("uni3Row").className = "warning";
 	}
 
     var uni8Out = ssw.uni8(keyIn);
@@ -444,13 +453,13 @@ function fswChange(){
 	  document.getElementById("sfswpngRow").className = "warning";
 	}
 
-    var fswcodeOut = ssw.code(fswIn);
-	document.getElementById("fswcodeFn").innerHTML = 'ssw.code("' + fswIn + '");';
-	document.getElementById("fswcodeOut").innerHTML = fswcodeOut;
-	if (fswcodeOut) {
-	  document.getElementById("fswcodeRow").className = "success";
+    var fswuni1Out = ssw.uni(fswIn,"4");
+	document.getElementById("fswuni1Fn").innerHTML = 'ssw.uni("' + fswIn + '","4");';
+	document.getElementById("fswuni1Out").innerHTML = fswuni1Out;
+	if (fswuni1Out) {
+	  document.getElementById("fswuni1Row").className = "success";
 	} else {
-	  document.getElementById("fswcodeRow").className = "warning";
+	  document.getElementById("fswuni1Row").className = "warning";
 	}
 
     var fswoptOut = ssw.opt(fswIn);
@@ -462,19 +471,10 @@ function fswChange(){
 	  document.getElementById("fswoptRow").className = "warning";
 	}
 
-    var fswpuaOut = ssw.pua(fswIn);
-	document.getElementById("fswpuaFn").innerHTML = 'ssw.pua("' + fswIn + '");';
-	document.getElementById("fswpuaOut").innerHTML = fswpuaOut;
-	if (fswpuaOut) {
-	  document.getElementById("fswpuaRow").className = "success";
-	} else {
-	  document.getElementById("fswpuaRow").className = "warning";
-	}
-
     var fswunicodeOut = ssw.unicode(fswIn);
 	document.getElementById("fswunicodeFn").innerHTML = 'ssw.unicode("' + fswIn + '");';
 	document.getElementById("fswunicodeOut").innerHTML = fswunicodeOut;
-	if (fswunicodeOut) {
+	if (fswoptOut) {
 	  document.getElementById("fswunicodeRow").className = "success";
 	} else {
 	  document.getElementById("fswunicodeRow").className = "warning";
@@ -698,13 +698,17 @@ function setText(fsw){
           <td id="pngFn">ssw.png("")</td>
           <td id="pngOut"></td>
         </tr>
-        <tr id="codeRow">
-          <td id="codeFn">ssw.code("")</td>
-          <td id="codeOut"></td>
+        <tr id="uni1Row">
+          <td id="uni1Fn">ssw.uni("")</td>
+          <td id="uni1Out"></td>
         </tr>
-        <tr id="puaRow">
-          <td id="puaFn">ssw.pua("")</td>
-          <td id="puaOut"></td>
+        <tr id="uni2Row">
+          <td id="uni2Fn">ssw.uni("")</td>
+          <td id="uni2Out"></td>
+        </tr>
+        <tr id="uni3Row">
+          <td id="uni3Fn">ssw.uni("")</td>
+          <td id="uni3Out"></td>
         </tr>
         <tr id="uni8Row">
           <td id="uni8Fn">ssw.uni8("")</td>
@@ -860,17 +864,13 @@ function setText(fsw){
           <td id="fswpngFn">ssw.png("")</td>
           <td id="fswpngOut"></td>
         </tr>
-        <tr id="fswcodeRow">
-          <td id="fswcodeFn">ssw.code("")</td>
-          <td id="fswcodeOut"></td>
+        <tr id="fswuni1Row">
+          <td id="fswuni1Fn">ssw.uni("")</td>
+          <td id="fswuni1Out"></td>
         </tr>
         <tr id="fswoptRow">
           <td id="fswoptFn">ssw.opt("")</td>
           <td id="fswoptOut"></td>
-        </tr>
-        <tr id="fswpuaRow">
-          <td id="fswpuaFn">ssw.pua("")</td>
-          <td id="fswpuaOut"></td>
         </tr>
         <tr id="fswunicodeRow">
           <td id="fswunicodeFn">ssw.unicode("")</td>

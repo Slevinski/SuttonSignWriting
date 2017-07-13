@@ -1,7 +1,7 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 1.2.0  
-June 30th, 2017
+> Version 1.3.0  
+July 12th, 2017
 
 The Sutton SignWriting project is designed for the internet community and includes TrueType Fonts, Scalar Vector Graphics, HTML, CSS, and JavaScript Functions.
 The Formal SignWriting specification is a faithful encoding of Sutton SignWriting that is documented in an Internet Draft submitted to the IETF.  
@@ -14,7 +14,7 @@ The Sutton SignWriting TrueType fonts are available for download and installatio
 Installing the fonts using the instructions below is not required, but it will improve the user experience.
 If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.  
 
-The Sutton SignWriting font and the Sutton SignWriting Fill font have been tailored for SVG.
+The Sutton SignWriting Line font and the Sutton SignWriting Fill font have been tailored for SVG.
 The Sutton SignWriting 1D Optimal font and the Sutton SignWriting 1D font are useful in standard 1D text fields.
 The Sutton Signwriting 2D Optimal font and the Sutton SignWriting 2D font are currently in development.  
 
@@ -36,6 +36,7 @@ Licensed under the MIT License
 
 
 ### Version History
+* 1.3.0 - Jul 12th, 2017: plane 15 line font
 * 1.2.0 - Jun 30th, 2017: 1D fonts and Unicode options
 * 1.1.3 - Mar 2nd, 2017: handle null values
 * 1.1.2 - Mar 2nd, 2017: unicode 8 inherent fn 

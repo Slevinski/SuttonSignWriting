@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "SuttonSignWriting";
+  font-family: "SuttonSignWritingLine";
   src: 
-    local('SuttonSignWriting'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting.ttf') format('truetype');
+    local('SuttonSignWritingLine'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingLine.ttf') format('truetype');
 }
 @font-face {
   font-family: "SuttonSignWritingFill";

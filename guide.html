@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Sutton SignWriting Guide</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="written sign language tools for user interface and searching">
+    <meta name="description" content="Guide to Sutton SignWriting with characters, fonts, SVG, and JavaScript">
     <meta name="author" content="Stephen E Slevinski Jr">
     <meta name="robots" content="noindex,nocache,nofollow,noarchive,noimageindex,nosnippet"/>
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
@@ -99,7 +99,7 @@
                 <p>Formal SignWriting as an alternate encoding that replaces the Sutton SignWriting block in Unicode. Option 1 focuses on small size, simple design, and easy of use.
                 This option can complicate processing with UTF-8 and UTF-16 considerations.
                 </p>
-                <a class="btn btn-default btn-lg btn-block" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.2" role="button">Unicode Option 1 Specification</a>
+                <ul><li><a class="" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.2" role="button">Unicode Option 1 Specification</a></li></ul>
 
               <hr>
 
@@ -111,36 +111,36 @@
                 Support in current software is limited, but improving over time.
                 Support in older software is limited.
                 </p>
-                <a class="btn btn-default btn-lg btn-block" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.3" role="button">Unicode Option 2 Specification</a>
+                <ul><li><a class="" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.3" role="button">Unicode Option 2 Specification</a></li></ul>
 
              <hr>
 
               <h2 id="ttf">TrueType Fonts</h2>
                 <p>The Sutton SignWriting TrueType fonts are available for download and installation.
                 </p>
-                <a class="btn btn-default btn-lg btn-block" href="components/fonts.html" role="button">Using the TrueType Fonts</a>
+                <ul><li><a class="" href="components/fonts.html" role="button">Using the TrueType Fonts</a></li></ul>
 
-              <h3 id="ssw-font">Sutton SignWriting Symbol Fonts</h2>
-                <p>There are two fonts for the Sutton SignWriting symbols: 
-                the <em>Sutton SignWriting font</em> as the positive space of the symbol glyphs on Unicode plane 4 and 
+              <h3 id="ssw-font">Symbol Fonts for SVG</h2>
+                <p>There are two fonts for the Sutton SignWriting symbols that are used in SVG:
+                the <em>Sutton SignWriting Line font</em> as the positive space of the symbol glyphs on Unicode plane 15 and 
                 the <em>Sutton SignWriting Fill font</em>  as the negative space of the symbol glyphs on Unicode plane 16.
-                These glyphs descend below the baseline and are meant to be used inside SVG.
+                These glyphs descend below the baseline.
                 </p>
-                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.ttf" role="button">Sutton SignWriting Font</a>
-                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill Font</a>
+                <ul><li><a class="" href="assets/SuttonSignWritingLine.ttf" role="button">Sutton SignWriting Line Font</a></li>
+                <li><a class="" href="assets/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill Font</a></li></ul>
 
               <hr>
 
-              <h3 id="ssw-font-1dalt">Sutton SignWriting 1D Optimal Font</h2>
+              <h3 id="ssw-font-1dalt">1D Optimal Font for Unicode Option 1</h2>
                 <p>The Sutton SignWriting 1D Optimal font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
                 The font uses the Unicode Option 1 character set.
                 These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
                 </p>
-                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting1dOpt.ttf" role="button">Sutton SignWriting 1D Optimal Font</a>
+                <ul><li><a class="" href="assets/SuttonSignWriting1dOpt.ttf" role="button">Sutton SignWriting 1D Optimal Font</a></li></ul>
 
               <hr>
 
-              <h3 id="ssw-font-1d">Sutton SignWriting 1D Font</h2>
+              <h3 id="ssw-font-1d">1D Font for Unicode Option 2</h2>
                 <p>The Sutton SignWriting 1D font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
                 The font uses the Unicode Option 2 character set.
                 These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
@@ -149,7 +149,7 @@
                 Support in older software is limited. 
                 In the browser, "ccmp" ligatures support with extension lookup is possible, but it will require extra css to define the font famiily and may require extra css to enable the "ccmp" feature. 
                 </p>
-                <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting1d.ttf" role="button">Sutton SignWriting 1D Font</a>
+                <ul><li><a class="" href="assets/SuttonSignWriting1d.ttf" role="button">Sutton SignWriting 1D Font</a></li></ul>
 
              <hr>
 
@@ -159,8 +159,8 @@
               SVG images requested from the SignWriting Server require an internet connection and a separate download for each image.
               SVG images created with a JavaScript function require TrueType Fonts for display.
               </p>
-              <a class="btn btn-default btn-lg btn-block" href="components/svg.html" role="button">SVG Components</a>
-              <a class="btn btn-default btn-lg btn-block" href="http://signpuddle.net/index.html" role="button">SignWriting Server</a>
+              <ul><li><a class="" href="components/svg.html" role="button">SVG Components</a></li>
+              <li><a class="" href="http://signpuddle.net/index.html" role="button">SignWriting Server</a></li></ul>
 
              <hr>
 
@@ -168,8 +168,8 @@
               <p>The JavaScript libraries leverage the TrueType fonts without any additional requirements.
               Simply include the "<a href="assets/SuttonSignWriting.js">SuttonSignWriting.js</a>" script or the minified version "<a href="assets/SuttonSignWriting.min.js">SuttonSignWriting.min.js</a>" in any HTML page to access the function library.
               View the <a href="components/js.html">API Reference</a> for example usage.</p>
-              <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.js" role="button">Sutton SignWriting JavaScript Library (56 KB)</a>
-              <a class="btn btn-default btn-lg btn-block" href="assets/SuttonSignWriting.min.js" role="button">Minified Sutton SignWriting JS Library (27 KB)</a>
+              <ul><li><a class="" href="assets/SuttonSignWriting.js" role="button">Sutton SignWriting JavaScript Library (56 KB)</a></li>
+              <li><a class="" href="assets/SuttonSignWriting.min.js" role="button">Minified Sutton SignWriting JS Library (27 KB)</a></li></ul>
 
               <hr>
               
