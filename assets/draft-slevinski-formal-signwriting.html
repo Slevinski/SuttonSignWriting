@@ -425,12 +425,12 @@
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.6.2 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.7.0 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Slevinski, S." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-slevinski-formal-signwriting-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-6-24" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-slevinski-formal-signwriting-03" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-7-20" />
   <meta name="dct.abstract" content="Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
   <meta name="description" content="Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
 
@@ -451,10 +451,10 @@
 </tr>
 <tr>
 <td class="left">Intended status: Informational</td>
-<td class="right">June 24, 2017</td>
+<td class="right">July 20, 2017</td>
 </tr>
 <tr>
-<td class="left">Expires: December 26, 2017</td>
+<td class="left">Expires: January 21, 2018</td>
 <td class="right"></td>
 </tr>
 
@@ -463,7 +463,7 @@
   </table>
 
   <p class="title">Formal SignWriting<br />
-  <span class="filename">draft-slevinski-formal-signwriting-02</span></p>
+  <span class="filename">draft-slevinski-formal-signwriting-03</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>Sutton SignWriting is the universal and complete solution for written sign language.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  </p>
@@ -477,7 +477,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on December 26, 2017.</p>
+<p>This Internet-Draft will expire on January 21, 2018.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
 <p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
@@ -1768,29 +1768,33 @@ X Axis       |
 <h1 id="rfc.section.3.1.1">
 <a href="#rfc.section.3.1.1">3.1.1.</a> <a href="#install_fonts" id="install_fonts">Installing the TrueType Fonts</a>
 </h1>
-<p id="rfc.section.3.1.1.p.1">The Sutton SignWriting TrueType fonts are available for download and installation. The fonts have been tailored for the Sutton SignWriting JavaScript library. Please ignore warning and unusual font previews during installation as these will not affect the fonts utility.  </p>
-<p id="rfc.section.3.1.1.p.2">Installing the fonts using the instructions below is not required, but it will improve the user experience. If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.  </p>
+<p id="rfc.section.3.1.1.p.1">The Sutton SignWriting TrueType fonts are available for download and installation.  </p>
+<p id="rfc.section.3.1.1.p.2">Installing the fonts using the instructions below is not required, but it will improve the user experience.  If the fonts are not installed on the system, CSS declarations will install the fonts in the browser cache.  </p>
 <h1 id="rfc.section.3.1.1.1">
 <a href="#rfc.section.3.1.1.1">3.1.1.1.</a> <a href="#font_desktop" id="font_desktop">Windows, Linux, and Mac</a>
 </h1>
-<p id="rfc.section.3.1.1.1.p.1">Installation is straight forward for Windows, Linux and Mac. Simply download the 2 TrueType fonts and install as usual.  </p>
+<p id="rfc.section.3.1.1.1.p.1">Installation is straight forward for Windows, Linux and Mac. Simply download the TrueType fonts and install as usual.  </p>
 
 <dl>
 <dt></dt>
-<dd style="margin-left: 8"><a href="#SuttonSignWritingFont" class="xref">Sutton SignWriting TrueType Font</a></dd>
+<dd style="margin-left: 8"><a href="#SuttonSignWritingFontLine" class="xref">Sutton SignWriting Line TrueType Font</a></dd>
 <dt></dt>
 <dd style="margin-left: 8"><a href="#SuttonSignWritingFontFill" class="xref">Sutton SignWriting Fill TrueType Font</a></dd>
+<dt></dt>
+<dd style="margin-left: 8"><a href="#SuttonSignWritingFont1DOpt" class="xref">Sutton SignWriting 1D Optimal TrueType Font</a></dd>
+<dt></dt>
+<dd style="margin-left: 8"><a href="#SuttonSignWritingFont1D" class="xref">Sutton SignWriting 1D TrueType Font</a></dd>
 </dl>
 
 <p> </p>
 <h1 id="rfc.section.3.1.1.2">
-<a href="#rfc.section.3.1.1.2">3.1.1.2.</a> <a href="#font_ios" id="font_ios">iOS</a>
+<a href="#rfc.section.3.1.1.2">3.1.1.2.</a> <a href="#font_ios" id="font_ios">Mac and iOS</a>
 </h1>
-<p id="rfc.section.3.1.1.2.p.1">Installation is possible on iOS with a configuration profile that includes the 2 TrueType fonts.  Simply download the configuration profile and install.  </p>
+<p id="rfc.section.3.1.1.2.p.1">Installation is possible for Mac OS X and iOS with a configuration profile.  The Sutton SignWriting Plus configuration profile includes 3 fonts: SuttonSignWritingLine, SuttonSignWritingFill, and SuttonSignWriting1D.  With the configuration profile installed, the Unicode Option 1 characters can be used throughout the operating system, even as file and folder names.  </p>
 
 <dl>
 <dt></dt>
-<dd style="margin-left: 8"><a href="#SuttonSignWritingProfile" class="xref">Sutton SignWriting Configuration Profile</a></dd>
+<dd style="margin-left: 8"><a href="#SuttonSignWritingFontPlus" class="xref">Sutton SignWriting Plus Configuration Profile</a></dd>
 </dl>
 
 <p> </p>
@@ -1804,16 +1808,28 @@ X Axis       |
 <p id="rfc.section.3.1.2.p.1">The TrueType Fonts can be used without installing the fonts on any platform by defining two font-face statements.  Simply include the following CSS in any HTML page to access the fonts.  Make sure to replace the URLs with the fully qualified links for both fonts.  </p>
 <pre>
 @font-face {
-  font-family: "SuttonSignWriting";
+  font-family: "SuttonSignWritingLine";
   src: 
-    local('SuttonSignWriting'),
-    url('https://.../SuttonSignWriting.ttf') format('truetype');
+    local('SuttonSignWritingLine'),
+    url('https://.../SuttonSignWritingLine.ttf') format('truetype');
 }
 @font-face {
   font-family: "SuttonSignWritingFill";
   src: 
     local('SuttonSignWritingFill'),
     url('https://.../SuttonSignWritingFill.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SuttonSignWriting1dOpt";
+  src: 
+    local('SuttonSignWriting1dOpt'),
+    url('https://.../SuttonSignWriting1dOpt.ttf') format('truetype');
+}
+@font-face {
+  font-family: "SuttonSignWriting1d";
+  src: 
+    local('SuttonSignWriting1d'),
+    url('https://.../SuttonSignWriting1d.ttf') format('truetype');
 }
             </pre>
 <p id="rfc.section.3.1.2.p.2">If the fonts are installed, then the system fonts will be used.  If the fonts are not installed when a SignWriting Font page is opened, the CSS will cause the fonts to be automatically downloaded to the browser's cache on the first visit.  Once the fonts are installed in the browser cache, they will remain there until the browser cache is emptied.  Any webside that uses this CSS can access the browser installed font without requesting a new copy.  The fonts are 10 MB, so the first install make take a few seconds or longer depending on your download speed and processor.  </p>
@@ -1888,15 +1904,15 @@ M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468
   &lt;g transform="translate(508,496)"&gt;...&lt;/g&gt;
   &lt;g transform="translate(500,468)"&gt;...&lt;/g&gt;
                 </pre>
-<p id="rfc.section.3.2.1.3.p.3">Inside of each group, 2 text elements are written.  The symbol fill is written first using the SuttonSignWritingFill font with a plane 16 character.  The symbol line is written second using the SuttonSignWriting font with a plane 4 character.  See <a href="#uni_symbols" class="xref">Section 4.2.1</a> for the formula to convert symbol keys to codepoints.  </p>
+<p id="rfc.section.3.2.1.3.p.3">Inside of each group, 2 text elements are written.  The symbol fill is written first using the SuttonSignWritingFill font with a plane 16 character.  The symbol line is written second using the SuttonSignWritingLine font with a plane 15 character.  See <a href="#uni_symbols" class="xref">Section 4.2.1</a> for the formula to convert symbol keys to codepoints.  </p>
 <pre>
 &lt;text class="sym-fill" 
  style="font-family:'SuttonSignWritingFill';font-size:30px;fill:white;"&gt;
  {plane 16 codepoint}
 &lt;/text&gt;
 &lt;text class="sym-line" 
- style="font-family:'SuttonSignWriting';font-size:30px;fill:black;"&gt;
- {plane 4 codepoint}
+ style="font-family:'SuttonSignWritingLine';font-size:30px;fill:black;"&gt;
+ {plane 15 codepoint}
 &lt;/text&gt;
                 </pre>
 <h1 id="rfc.section.3.2.2">
@@ -2051,6 +2067,7 @@ div.signtext div {
 <h1 id="rfc.section.4">
 <a href="#rfc.section.4">4.</a> <a href="#unicode" id="unicode">Unicode Considerations</a>
 </h1>
+<p id="rfc.section.4.p.1">Discussions with the Unicode Technical Committee continue.  The latest document submission is <a href="#SuttonSignWritingOptions" class="xref">Design Options for Sutton SignWriting with examples and fonts</a>.</p>
 <h1 id="rfc.section.4.1">
 <a href="#rfc.section.4.1">4.1.</a> <a href="#uni_utf8" id="uni_utf8">UTF-8</a>
 </h1>
@@ -2063,7 +2080,7 @@ div.signtext div {
 <h1 id="rfc.section.4.2.1">
 <a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#uni_symbols" id="uni_symbols">Symbols</a>
 </h1>
-<p id="rfc.section.4.2.1.p.1">In order to support Sutton SignWriting, you must support all of the Sutton SignWriting Symbols.  This set has been designed as a 16-bit coded character set.  Using these derived codepoints makes it easier to reference the individual Sutton SignWriting Symbols in a variety of ways.  For inside of a font file, an entire Unicode plane can be used to reference these symbols.  Inside of the font files, plane 4 is used to identify each glyph, but these characters have not been officially proposed to Unicode.  Alternately, plane 16 can be used, but this creates a font filled with private use area characters.  Finally, the glyphs can be added to a font file without assigning a unique Unicode codepoint to each, but this results in each glyph being given a unique glyph ID that is only meaningful for that specific font file.  </p>
+<p id="rfc.section.4.2.1.p.1">In order to support Sutton SignWriting, you must support all of the Sutton SignWriting Symbols.  This set has been designed as a 16-bit coded character set.  Using these derived codepoints makes it easier to reference the individual Sutton SignWriting Symbols in a variety of ways.  Unicode Option 1 uses plane 4 characters as the canonical codepoints for the Sutton SignWriting symbol glyphs.  </p>
 <p id="rfc.section.4.2.1.p.2">A simple formula transforms a symbol key into a codepoint.  Given a symbol key as variable "key", in JavaScript the function is defined as: </p>
 
 <ul class="empty"><li>var code = ((parseInt(key.slice(1,4),16) - 256) * 96) + ((parseInt(key.slice(4,5),16))*16) + parseInt(key.slice(5,6),16) + 1; </li></ul>
@@ -2212,9 +2229,14 @@ div.signtext div {
 <a>Slevinski, S.</a>, "<a href="https://signpuddle.net">SignWriting Server</a>"</td>
 </tr>
 <tr>
-<td class="reference"><b id="SuttonSignWritingFont">[SuttonSignWritingFont]</b></td>
+<td class="reference"><b id="SuttonSignWritingFont1D">[SuttonSignWritingFont1D]</b></td>
 <td class="top">
-<a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting.ttf">Sutton SignWriting TypeType Font</a>"</td>
+<a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting1d.ttf">Sutton SignWriting 1D TypeType Font</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="SuttonSignWritingFont1DOpt">[SuttonSignWritingFont1DOpt]</b></td>
+<td class="top">
+<a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting1dOpt.ttf">Sutton SignWriting 1D Optimal TypeType Font</a>"</td>
 </tr>
 <tr>
 <td class="reference"><b id="SuttonSignWritingFontFill">[SuttonSignWritingFontFill]</b></td>
@@ -2222,9 +2244,19 @@ div.signtext div {
 <a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingFill.ttf">Sutton SignWriting Fill TypeType Font</a>"</td>
 </tr>
 <tr>
-<td class="reference"><b id="SuttonSignWritingProfile">[SuttonSignWritingProfile]</b></td>
+<td class="reference"><b id="SuttonSignWritingFontLine">[SuttonSignWritingFontLine]</b></td>
 <td class="top">
-<a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting.mobileconfig">Sutton SignWriting Configuration Profile</a>"</td>
+<a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingLine.ttf">Sutton SignWriting Line TypeType Font</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="SuttonSignWritingFontPlus">[SuttonSignWritingFontPlus]</b></td>
+<td class="top">
+<a>Slevinski, S.</a>, "<a href="https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingPlus.mobileconfig">Sutton SignWriting Plus Configuration Profile</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="SuttonSignWritingOptions">[SuttonSignWritingOptions]</b></td>
+<td class="top">
+<a>Slevinski, S.</a>, "<a href="http://www.unicode.org/L2/L2017/17220-signwriting-design-opt.pdf">Sutton SignWriting Design Options</a>"</td>
 </tr>
 <tr>
 <td class="reference"><b id="SuttonSignWritingProject">[SuttonSignWritingProject]</b></td>
