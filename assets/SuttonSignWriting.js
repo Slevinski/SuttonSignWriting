@@ -1,5 +1,5 @@
 /**
-* Sutton SignWriting JavaScript Library v1.3.0
+* Sutton SignWriting JavaScript Library v1.3.2
 * https://github.com/Slevinski/SuttonSignWriting
 * Copyright (c) 2007-2017, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MIT License.
@@ -373,7 +373,7 @@ var ssw = {
     var uni = ssw.uni(key,"4",hexval);
     var pattern = '[0-9]{3}x[0-9]{3}';
     var matches = uni.match(new RegExp(pattern,'g'));
-    if(matches.length) {
+    if (matches){
       str = matches[0];
       coord = str.split('x');
       coord = coord.map(function(c){  
@@ -734,7 +734,7 @@ var ssw = {
     options.E = [];
     options.F = [];
 
-    options.copy = options.copy=="uni8"?"uni8":options.copy=="code"?"code":"key";
+    options.copy = options.copy  || "fsw";
 
     if (styling){
       var rs;
@@ -875,8 +875,7 @@ var ssw = {
       gelem += '<text ';
       gelem += 'class="sym-line" ';
       if (!options.css) {
-        gelem += 'style="';
-        gelem += options.copy=='code'?'':'pointer-events:none;';
+        gelem += 'style="pointer-events:none;';
         gelem += 'font-family:\'SuttonSignWritingLine\';font-size:' + (options.F[i+1]?30*options.F[i+1][0]:30) + 'px;fill:' + (options.E[i+1]?options.E[i+1][0]:options.colorize?'#'+ssw.colorize(sym):options.line) + ';';
         gelem += '"';
       }
@@ -907,11 +906,25 @@ var ssw = {
       svg += 'width="' + (w * options.size) + '" height="' + (h * options.size) + '" ';
     }
     svg += 'viewBox="' + x1 + ' ' + y1 + ' ' + w + ' ' + h + '">';
-    if (options.copy!='code') {
-      svg += '<text style="font-size:0%;">';
-      svg += options.copy=="pua"?ssw.pua(text):options.copy=="uni8"?ssw.uni8(text):options.copy=="code"?ssw.code(text):text;
-      svg += '</text>';
+    svg += '<text style="font-size:0%;">';
+    switch(options.copy){
+    case "uni8":
+      svg += ssw.uni8(text);
+      break;
+    case "code":
+      svg += ssw.code(text);
+      break;
+    case "opt":
+      svg += ssw.opt(text);
+      break;
+    case "unicode":
+      svg += ssw.unicode(text);
+      break;
+    default:
+      svg += text;
+      break;
     }
+    svg += '</text>';
     if (options.back) {
       svg += '  <rect x="' + x1 + '" y="' + y1 + '" width="' + w + '" height="' + h + '" style="fill:' + options.back + ';" />';
     }

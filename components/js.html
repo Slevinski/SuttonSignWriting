@@ -408,8 +408,8 @@ function fswChange(){
 	  document.getElementById("fswsizeRow").className = "warning";
 	}
 
-    var fswsvgOut = ssw.svg(fswInN);
-	document.getElementById("fswsvgFn").innerHTML = 'ssw.svg("' + fswInN + '");';
+    var fswsvgOut = ssw.svg(fswInN,{"copy":"opt"});
+	document.getElementById("fswsvgFn").innerHTML = 'ssw.svg("' + fswInN + '",{"copy":"opt"});';
 	document.getElementById("fswsvgOut").innerHTML = fswsvgOut;
 	if (fswsvgOut) {
 	  document.getElementById("fswsvgRow").className = "success";

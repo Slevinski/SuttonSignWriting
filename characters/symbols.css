@@ -1,17 +1,3 @@
-@font-face {
-  font-family: "SignWriting 2010";
-  src: 
-    local('SignWriting 2010'),
-    local('SignWriting_2010'),
-    url('https://cdn.rawgit.com/Slevinski/signwriting_2010_fonts/master/fonts/SignWriting%202010.ttf') format('truetype');
-}
-@font-face {
-  font-family: "SignWriting 2010 Filling";
-  src: 
-    local('SignWriting 2010 Filling'),
-    local('SignWriting_2010_Filling'),
-    url('https://cdn.rawgit.com/Slevinski/signwriting_2010_fonts/master/fonts/SignWriting%202010%20Filling.ttf') format('truetype');
-}
 svg {
   overflow: visible;
 }
@@ -135,6 +121,10 @@ td svg {
   max-width: 95%;
   max-height: 95%;
 }
+td.codepoint {
+  font-size: 2em;
+  text-align: center;
+}
 table.main td {
   cursor: pointer;
 }
@@ -144,6 +134,10 @@ td.invalid {
 
 table.main td:hover svg g text.sym-line{
   fill: #337ab7 !important;
+}
+
+table.main td:hover {
+  color: #337ab7 !important;
 }
 
 div.title{

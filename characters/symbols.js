@@ -46,7 +46,7 @@ function hashChange(event){
     vars[hash[0]] = hash[1];
   }
   var newUI = vars['ui']?vars['ui']:localStorage['langUI']?localStorage['langUI']:'en';
-  var newSet = vars['set']?vars['set']:'key';
+  var newSet = vars['set']?vars['set']:'code';
   var newSym = vars['sym']?vars['sym']:'';
   if (newUI==localStorage['langUI'] && newSet==urlSet && newSym==urlSym) return;
   urlUI(newUI);
@@ -151,7 +151,12 @@ table.view = function(ctrl){
         svg = ssw.svg(key,{view:'code',copy:urlSet});
         if (svg){
           tooltip = urlSet=='key'?key:(urlSet=='code'?'U+'+(parseInt(uni,16) + c*16+r).toString(16).toUpperCase():'U+'+uni.toString(16).toUpperCase()+' U+1DA9'+(c+10).toString(16).toUpperCase()+' U+1DAA'+r.toString(16).toUpperCase());
-          row.push(['td',svg,tooltip,'']);
+          if(urlSet=='code'){
+            codepoint = ssw.opt(key);
+            row.push(['td.codepoint',codepoint,tooltip,'']);
+          } else {
+            row.push(['td',svg,tooltip,'']);
+          }
         } else {
           row.push(['td.invalid','','','']);
         }
@@ -193,7 +198,12 @@ table.view = function(ctrl){
           tooltip = urlSet!='key'?'U+':'';
           tooltip += cellSym + ': ';
           tooltip += (urlSet=='key')?t("base_" + baseKey):t("uni_" + baseKey);
-          row.push(['td',svg,tooltip,cellSym]);
+          if(urlSet=='code'){
+            codepoint = ssw.opt(key);
+            row.push(['td.codepoint',codepoint,tooltip,cellSym]);
+          } else {
+            row.push(['td',svg,tooltip,cellSym]);
+          }
         } else {
           row.push(['td.invalid','','','']);
         }
