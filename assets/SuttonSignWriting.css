@@ -11,16 +11,16 @@
     url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingFill.ttf') format('truetype');
 }
 @font-face {
-  font-family: "SuttonSignWriting1dOpt";
+  font-family: "SuttonSignWritingOneD";
   src: 
-    local('SuttonSignWriting1dOpt'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting1dOpt.ttf') format('truetype');
+    local('SuttonSignWritingOneD'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingOneD.ttf') format('truetype');
 }
 @font-face {
-  font-family: "SuttonSignWriting1d";
+  font-family: "SuttonSignWritingNull";
   src: 
-    local('SuttonSignWriting1d'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWriting1d.ttf') format('truetype');
+    local('SuttonSignWritingNull'),
+    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingNull.ttf') format('truetype');
 }
 
 svg{

@@ -1,8 +1,8 @@
 /**
-* Sutton SignWriting JavaScript Library v1.3.2
+* Sutton SignWriting JavaScript Library v1.4.0
 * https://github.com/Slevinski/SuttonSignWriting
 * Copyright (c) 2007-2017, Stephen E Slevinski Jr
-* SuttonSignWriting.js is released under the MIT License.
+* SuttonSignWriting.js is released under the MaIT License.
 */
 var ssw = {
   key: function(text,style){
@@ -18,7 +18,47 @@ var ssw = {
       return key[0];
     }
   },
+  pair: function(hex){
+    var code = parseInt(hex,16);
+    var str = String.fromCharCode(0xD800 + (((code) - 0x10000) >> 10), 0xDC00 + (((code) - 0x10000) & 0x3FF));
+    if (hex && str.length == 2){
+      return [str.charCodeAt(0).toString(16).toUpperCase(),str.charCodeAt(1).toString(16).toUpperCase()];
+    } else {
+      return [];
+    }
+  },
+  keyu: function(text,style){
+    if (!text) return '';
+//    var start = ssw.pair('40001');
+//    var end = ssw.pair('4F480');
+//    var re = ssw.rangeu('40001','4F480) + '(' + range('1D80C','1D9FF') + ')?';
+    var re = '((\\uD8C0[\\uDC01-\\uDFFF])|([\\uD8C1-\\uD8FC][\\uDC00-\\uDFFF])|(\\uD8FD[\\uDC00-\\uDC21]))(\uD836[\uDC0C-\uDDFF]\uD836[\uDC0C-\uDDFF])?';
+    if (style){
+      re += '(' + ssw.regex('-') + ')?';
+    }
+    var key = text.match(new RegExp(re));
+    if (!key) {
+      return '';
+    } else {
+      return key[0];
+    }
+  },
   fsw: function(text,style){
+    if (!text) return '';
+    var re;
+    if (style){
+      re = ssw.regex('Q-');
+    } else {
+      re = ssw.regex('Q');
+    }
+    var fsw = text.match(new RegExp(re));
+    if (!fsw) {
+      return '';
+    } else {
+      return fsw[0];
+    }
+  },
+  fswu: function(text,style){
     if (!text) return '';
     var re;
     if (style){
@@ -1178,6 +1218,36 @@ var ssw = {
       return '';
     }
   },
+  queryu: function (query){
+    if (query=='-') {
+      return '-';
+    }
+
+    var re_sym = ssw.rangeu('40001','4F480');
+    var re_num = ssw.rangeu('1D80C','1D9FF');
+    var re_coord = re_num + re_num;
+    var re_signbox = '((' + ssw.rangeu('1D801') + ')|(' + ssw.rangeu('1D802') + ')|(' + ssw.rangeu('1D803') + ')|(' + ssw.rangeu('1D804') + '))'; 
+    var re_seq = ssw.rangeu('1D800');
+    var re_word = re_signbox + re_coord + '(' + re_sym + re_coord + ')*';
+    var re_term = '(' + re_seq + '(' + re_sym + ')+)';
+
+    var q_range = 'R' + re_sym + re_sym;
+    var q_sym = re_sym + 'f?r?';
+    var q_coord = '(' + re_num + re_num + ')?';
+    var q_var = '(V[0-9]+)';
+    var q_styling = '-C?(P[0-9]{2})?(G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_)?(D_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)?(Z([0-9]+(\.[0-9]+)?|x))?(-(D[0-9]{2}_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)*(Z[0-9]{2},[0-9]+(\.[0-9]+)?(,[0-9]{3}x[0-9]{3})?)*)?(--?[_a-zA-Z][_a-zA-Z0-9-]{0,100}( -?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*!([a-zA-Z][_a-zA-Z0-9-]{0,100}!)?)?';
+    var q_style = '(' + q_styling + ')?';
+
+
+  
+    var re = 'Q((A(' + q_sym + '|R' + q_sym + q_sym + ')+)?T)?((R' + q_sym + q_sym + q_coord + ')|(' + q_sym + q_coord + '))*(V[0-9]+)?-?';
+    query = query.match(new RegExp(re));
+    if (query) {
+      return query[0];
+    } else {
+      return '';
+    }
+  },
   range: function (min,max,hex){
     var pattern;
     var re;
@@ -1591,6 +1661,65 @@ var ssw = {
     }
     return pattern;
   },
+  rangeu: function (min,max){
+    max = max || min;
+    if (min>max) return '';
+    var pattern = '';
+    var re = [];
+    var min = ssw.pair(min);
+    var max = ssw.pair(max);
+    if (min.length!=2 && max.length!=2) return '';
+
+    // HEAD // min[0] with range of min[1] to (DFFF or max[1])
+    if (min[0]==max[0]) {
+      if (min[1]==max[1]) {
+        pattern = '\\u' + min[0] + '\\u' + min[1];
+        re.push(pattern);
+      } else {
+        pattern = '\\u' + min[0] + '[\\u' + min[1] + '-\\u' + max[1] + ']';
+        re.push(pattern);
+      }
+    } else {
+      if(min[1]=="DFFF"){
+        pattern = '\\u' + min[0] + '\\uDFFF';
+      } else {
+        pattern = '\\u' + min[0] + '[\\u' + min[1] + '-\\uDFFF]';
+      }
+      re.push(pattern);
+
+      // BODY // range of (min[0] +1) to (max[0] -1) with all DC00-DFFF
+      var diff = (parseInt(max[0],16)) - (parseInt(min[0],16));
+      if (diff==2){
+        pattern = '\\u' + (parseInt(min[0],16)+1).toString(16).toUpperCase();
+        pattern += '[\\uDC00-\\uDFFF]';
+        re.push(pattern);
+      }
+      if (diff>2){
+        pattern = '[';
+        pattern += '\\u' + (parseInt(min[0],16)+1).toString(16).toUpperCase();
+        pattern += '-\\u' + (parseInt(max[0],16)-1).toString(16).toUpperCase();
+        pattern += '][\\uDC00-\\uDFFF]';
+        re.push(pattern);
+      }
+
+      // TAIL // max[0] with range of DC00 to max[1]
+      if(min[1]=="DC00"){
+        pattern = '\\u' + max[0] + '\\uDC00';
+      } else {
+        pattern = '\\u' + max[0] + '[\\uDC00-\\u' + max[1] + ']';
+      }
+      re.push(pattern);
+
+    }
+    cnt = re.length;
+    if (cnt==1){
+      pattern = re[0];
+    } else {
+      pattern = re.join(')|(');
+      pattern = '((' + pattern + '))';
+    }
+    return pattern;
+  },
   regex: function (query,fuzz){
     query = ssw.query(query);
     if (!query) {
@@ -1623,6 +1752,192 @@ var ssw = {
     var q_styling = '-C?(P[0-9]{2})?(G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_)?(D_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)?(Z([0-9]+(\.[0-9]+)?|x))?(-(D[0-9]{2}_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)*(Z[0-9]{2},[0-9]+(\.[0-9]+)?(,[0-9]{3}x[0-9]{3})?)*)?(--?[_a-zA-Z][_a-zA-Z0-9-]{0,100}( -?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*!([a-zA-Z][_a-zA-Z0-9-]{0,100}!)?)?';
     var q_style = '(' + q_styling + ')?';
     var q_term;
+    query = ssw.query(query);
+    if (!query) {return '';}
+    if (query=='-'){
+      return [q_styling];
+    }
+    if (query=='Q'){
+      return [re_term + "?" + re_word];
+    }
+    if (query=='Q-'){
+      return [re_term + "?" + re_word + q_style];
+    }
+    if (query=='QT'){
+      return [re_term + re_word];
+    }
+    if (query=='QT-'){
+      return [re_term + re_word + q_style];
+    }
+    var segments = [];
+    var term = query.indexOf('T')+1;
+    if (term){
+      q_term = '(A';
+      var qat = query.slice(0,term);
+      query = query.replace(qat,'');
+      if (qat == 'QT') {
+        q_term += '(' + re_sym + ')+)';
+      } else {
+        matches = qat.match(new RegExp('(' + q_sym + '|' + q_range + ')','g'));
+        if (matches){
+          var matched;
+          for(i=0; i<matches.length; i+=1) {
+            matched = matches[i].match(new RegExp(q_sym));
+            if (matched){
+              segment = matched[0].slice(0,4);
+              fill = matched[0].slice(4,5);
+              if (fill=='u') {
+                segment += '[0-5]';
+              } else {
+                segment += fill;
+              }
+              rotate = matched[0].slice(5,6);
+              if (rotate=='u') {
+                segment += '[0-9a-f]';
+              } else {
+                segment += rotate;
+              }
+              q_term += segment;
+            } else {
+              from = matches[i].slice(1,4);
+              to = matches[i].slice(5,8);
+              re_range = ssw.range(from,to,'hex');
+              segment = 'S' + re_range + '[0-5][0-9a-f]';
+              q_term += segment;
+            }
+          }
+          q_term += '(' + re_sym + ')*)';
+        }
+      }
+    }
+    //get the variance
+    matches = query.match(new RegExp(q_var,'g'));
+    if (matches) {
+      fuzz = matches.toString().slice(1)*1;
+    }
+    //this gets all symbols with or without location
+    fsw_pattern = q_sym + q_coord;
+    matches = query.match(new RegExp(fsw_pattern,'g'));
+    if (matches){
+      for(i=0; i<matches.length; i+=1) {
+        part = matches[i].toString();
+        base = part.slice(1,4);
+        segment = 'S' + base;
+        fill = part.slice(4,5);
+        if (fill=='u') {
+          segment += '[0-5]';
+        } else {
+          segment += fill;
+        }
+        rotate = part.slice(5,6);
+        if (rotate=='u') {
+          segment += '[0-9a-f]';
+        } else {
+          segment += rotate;
+        }
+        if (part.length>6){
+          x = part.slice(6,9)*1;
+          y = part.slice(10,13)*1;
+          //now get the x segment range+++
+          segment += ssw.range((x-fuzz),(x+fuzz));
+          segment += 'x';
+          segment += ssw.range((y-fuzz),(y+fuzz));
+        } else {
+          segment += re_coord;
+        }
+        //now I have the specific search symbol
+        // add to general ksw word
+        segment = re_word + segment + '(' + re_sym + re_coord + ')*';
+        if (term) {
+          segment = q_term + segment;
+        } else {
+          segment = re_term + "?" + segment;
+        }
+        if (query.indexOf('-')>0){
+          segment += q_style;
+        }
+        segments.push(segment);
+      }
+    }
+    //this gets all ranges
+    fsw_pattern = q_range + q_coord;
+    matches = query.match(new RegExp(fsw_pattern,'g'));
+    if (matches){
+      for(i=0; i<matches.length; i+=1) {
+        part = matches[i].toString();
+        from = part.slice(1,4);
+        to = part.slice(5,8);
+        re_range = ssw.range(from,to,"hex");
+        segment = 'S' + re_range + '[0-5][0-9a-f]';
+        if (part.length>8){
+          x = part.slice(8,11)*1;
+          y = part.slice(12,15)*1;
+          //now get the x segment range+++
+          segment += ssw.range((x-fuzz),(x+fuzz));
+          segment += 'x';
+          segment += ssw.range((y-fuzz),(y+fuzz));
+        } else {
+          segment += re_coord;
+        }
+        // add to general ksw word
+        segment = re_word + segment + '(' + re_sym + re_coord + ')*';
+        if (term) {
+          segment = q_term + segment;
+        } else {
+          segment = re_term + "?" + segment;
+        }
+        if (query.indexOf('-')>0){
+          segment += q_style;
+        }
+        segments.push(segment);
+      }
+    }
+    if (!segments.length){
+        if (query.indexOf('-')>0){
+          segment += q_style;
+        }
+      segments.push(q_term + re_word);
+    }
+    return segments;
+  },
+  regexu: function (query,fuzz){
+    query = ssw.query(query);
+    if (!query) {
+      return '';
+    }
+    var matches;
+    var i;
+    var fsw_pattern;
+    var part;
+    var from;
+    var to;
+    var re_range;
+    var segment;
+    var x;
+    var y;
+    var base;
+    var fill;
+    var rotate;
+    if (!fuzz) {
+      fuzz = 20;
+    }
+
+    var re_sym = ssw.rangeu('40001','4F480');
+    var re_num = ssw.rangeu('1D80C','1D9FF');
+    var re_coord = re_num + re_num;
+    var re_signbox = '((' + ssw.rangeu('1D801') + ')|(' + ssw.rangeu('1D802') + ')|(' + ssw.rangeu('1D803') + ')|(' + ssw.rangeu('1D804') + '))'; 
+    var re_seq = ssw.rangeu('1D800');
+    var re_word = re_signbox + re_coord + '(' + re_sym + re_coord + ')*';
+    var re_term = '(' + re_seq + '(' + re_sym + ')+)';
+
+    var q_range = 'R' + re_sym + re_sym;
+    var q_sym = re_sym + 'f?r?';
+    var q_coord = '(' + re_num + re_num + ')?';
+    var q_var = '(V[0-9]+)';
+    var q_styling = '-C?(P[0-9]{2})?(G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_)?(D_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)?(Z([0-9]+(\.[0-9]+)?|x))?(-(D[0-9]{2}_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)*(Z[0-9]{2},[0-9]+(\.[0-9]+)?(,[0-9]{3}x[0-9]{3})?)*)?(--?[_a-zA-Z][_a-zA-Z0-9-]{0,100}( -?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*!([a-zA-Z][_a-zA-Z0-9-]{0,100}!)?)?';
+    var q_style = '(' + q_styling + ')?';
+
+
     query = ssw.query(query);
     if (!query) {return '';}
     if (query=='-'){

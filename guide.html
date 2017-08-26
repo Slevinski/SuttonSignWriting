@@ -42,7 +42,7 @@
                   <h5 class="list-group-item-heading">Formal SignWriting</h5>
                 </a>
                 <a href="#char" class="list-group-item">
-                  <h5 class="list-group-item-heading">Character Options</h5>
+                  <h5 class="list-group-item-heading">Character Sets</h5>
                 </a>
                 <a href="#ttf" class="list-group-item">
                   <h5 class="list-group-item-heading">TrueType Fonts</h5>
@@ -85,33 +85,17 @@
 
              <hr>
 
-              <h2 id="char">Character Options</h2>
+              <h2 id="char">Character Sets</h2>
 
-              <h3 id="utf8">UTF-8</h2>
-                <p>Formal SignWriting as ASCII characters is compatible with and optimized for UTF-8.</p>
-                <p>Formal SignWriting as ASCII characters is the standard that is currently used by the Center for Sutton Movement Writing and the sign language Wikipedia projects on Wikimedia Incubator.
-                The ASCII form is fully supported with the fonts, styling string, query string, and the various transformations.
-                </p>
+              <h3 id="fsw">Formal SignWriting in ASCII (FSW)</h3>
+              <p>Signs are written as SignWriting words with mathamatical names of ASCII characters from the set: ABLMRS0123456789xabcdef.
+              Stable since January 2012.
+              </p>
 
-              <hr>
-
-              <h3 id="option1">Option 1</h2>
-                <p>Formal SignWriting as an alternate encoding that replaces the Sutton SignWriting block in Unicode. Option 1 focuses on small size, simple design, and easy of use.
-                This option can complicate processing with UTF-8 and UTF-16 considerations.
-                </p>
-                <ul><li><a class="" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.2" role="button">Unicode Option 1 Specification</a></li></ul>
-
-              <hr>
-
-              <h3 id="option2">Option 2</h2>
-                <p>Formal SignWriting as an encoding that is 97.5% official Unicode with defined characters in the Sutton SignWriting block.
-                Option 2 focuses on augmenting the Unicode 8 standard with 17 new control characters for a design that is compatible with Formal SignWriting.
-                This option is three times larger than Option 1 and 
-                requires the support of the ligature feature "ccmp" for Glyph Composition/Decomposition with extension lookup.
-                Support in current software is limited, but improving over time.
-                Support in older software is limited.
-                </p>
-                <ul><li><a class="" href="assets/draft-slevinski-formal-signwriting.html#rfc.section.4.3" role="button">Unicode Option 2 Specification</a></li></ul>
+              <h3 id="swu">SignWriting in Unicode (SWU)</h3>
+              <p>Signs are written as SignWriting words with an experimental Unicode character design.
+              This character set overwrites the Sutton SignWriting Block (U+1D800 - U+1D9FF) and uses Plane 4 for the Sutton SignWriting symbols.
+              </p>
 
              <hr>
 
@@ -130,28 +114,23 @@
                 <li><a class="" href="assets/SuttonSignWritingFill.ttf" role="button">Sutton SignWriting Fill Font</a></li></ul>
 
               <hr>
-
-              <h3 id="ssw-font-1dalt">1D Optimal Font for Unicode Option 1</h2>
-                <p>The Sutton SignWriting 1D Optimal font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
-                The font uses the Unicode Option 1 character set.
+              <h3 id="ssw-font-oned">One Dimensional Font for SignWriting in Unicode</h3>
+                <p>The Sutton SignWriting One-D font is production ready. 
+                It uses the SignWriting in Unicode (SWU) experimental characters to visualizes a sign as a 1-dimensional string of glyphs for structural markers, symbols, and numbers. 
                 These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
                 </p>
-                <ul><li><a class="" href="assets/SuttonSignWriting1dOpt.ttf" role="button">Sutton SignWriting 1D Optimal Font</a></li></ul>
+                <ul><li><a class="" href="../assets/SuttonSignWritingOneD.ttf" role="button">Sutton SignWriting One-D Font</a></li></ul>
 
               <hr>
 
-              <h3 id="ssw-font-1d">1D Font for Unicode Option 2</h2>
-                <p>The Sutton SignWriting 1D font visualizes a Formal SignWriting word as a 1-dimensional string of glyphs for structural markers, symbols, and numbers.
-                The font uses the Unicode Option 2 character set.
-                These glyphs are centered above the baseline and are meant to be used in traditionally 1-dimensional situations.
+              <h3 id="ssw-font-null">Sutton SgnWriting Null</h3>
+                <p>The Sutton SignWriting Null font provides empty glyphs for invalid symbol codes on Plane 4 and Plane 15. 
+                The font is useful to normalize how browsers and software process invalid characters.
                 </p>
-                <p>Using this font requires the support of the ligature feature "ccmp" for Glyph Composition/Decomposition.
-                Support in older software is limited. 
-                In the browser, "ccmp" ligatures support with extension lookup is possible, but it will require extra css to define the font famiily and may require extra css to enable the "ccmp" feature. 
-                </p>
-                <ul><li><a class="" href="assets/SuttonSignWriting1d.ttf" role="button">Sutton SignWriting 1D Font</a></li></ul>
+                <ul><li><a class="" href="../assets/SuttonSignWritingNull.ttf" role="button">Sutton SignWriting Null Font</a></li></ul>
 
-             <hr>
+
+              <hr>
 
               <h2 id="svg">SVG Considerations</h2>
               <p>SVG is used to create the 2-dimensional signs of Sutton SignWriting.  

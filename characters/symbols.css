@@ -172,9 +172,9 @@ div.nav div.btn{
 div.btn {
   position: relative;
   float: left;
-  width: 20%;
-  height: 5vh;
-  margin-left:4%;
+  width: 40%;
+  height: 4.5vh;
+  margin-left:10%;
   margin-top:1%;
   text-align: center;
   border: 1px solid black;
