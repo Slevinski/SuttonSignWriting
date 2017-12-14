@@ -13,12 +13,28 @@
     <link rel="stylesheet" type="text/css" href="../include/common.css" />
     <script src="../assets/SuttonSignWriting.js"></script>
     <script>
-    function setFSW(fsw){
-	  document.getElementById("fsw").value = fsw;
+    function setSWU(swu){
+      document.getElementById("swu").value = swu;
     }
-    function fswChange(){
-      var fsw = ssw.fsw(document.getElementById("fsw").value);
-      
+    function swuChange(){
+      var fsw = ssw.sign(document.getElementById("fsw").value);
+      var swu = ssw.sign(document.getElementById("swu").value);
+      var conv = ssw.swu2fsw(swu);
+      if (fsw!=conv){
+        setFSW(conv);
+        fswChange(false);
+      }
+    }
+    function setFSW(fsw){
+      document.getElementById("fsw").value = fsw;
+    }
+    function fswChange(main=true){
+      var fsw = ssw.sign(document.getElementById("fsw").value);
+      var current = ssw.sign(document.getElementById("swu").value);
+      var swu = ssw.fsw2swu(fsw);
+      if (swu!=current && main){
+        setSWU(swu);
+      }
       if (fsw) {
         var bbox = ssw.bbox(fsw).split(' ');
         var w = parseInt(bbox[1]) - parseInt(bbox[0]);
@@ -33,7 +49,7 @@
         document.getElementById("svg_head").innerHTML = head;
         head = '&lt;svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="' + bbox[0] + ' ' + bbox[2] + ' ' + w + ' ' + h + '">';
         document.getElementById("svg_head2").innerHTML = head;
-        var text = '&lt;text style="font-size:0%;">' + fsw + '&lt;/text>';
+        var text = '&lt;text style="font-size:0%;">' + swu + '&lt;/text>';
         document.getElementById("svg_text").innerHTML = text;
 
         var rsym = /S[123][0-9a-f]{2}[0-5][0-9a-f][0-9]{3}x[0-9]{3}/g;
@@ -44,15 +60,14 @@
         if (!syms) syms=[];
         for (i=0; i < syms.length; i+=1) {
           sym = syms[i].slice(0,6);
-          console.log(sym);
           x = syms[i].slice(6, 9);
           y = syms[i].slice(10, 13);
-          symlist += '<li>' + sym + ' ' + '(' + x + ',' + y + ')';
+          symlist += '<li>' + ssw.uni(sym,"4") + ' ' + '(' + x + ',' + y + ')';
           glist += '&lt;g transform="translate(' + x + ',' + y + ')">...&lt;/g>\n';
         }
         document.getElementById("symlist").innerHTML = symlist;
         document.getElementById("glist").innerHTML = glist;
-        var svg = ssw.svg(fsw).replace("<text s","\n  <text s").replace(/<g/g,"\n    <g").replace(/<\/g/g,"\n    <\/g").replace(/<text c/g,"\n      <text c").replace(/<\/s/g,"\n<\/s");
+        var svg = ssw.svg(fsw,{copy:"swu"}).replace("<text s","\n  <text s").replace(/<g/g,"\n    <g").replace(/<\/g/g,"\n    <\/g").replace(/<text c/g,"\n      <text c").replace(/<\/s/g,"\n<\/s");
         document.getElementById("svg_font").innerHTML = svg.replace(/</g,'&lt;');
         document.getElementById("svg_view").innerHTML = svg;
 
@@ -110,11 +125,17 @@
               <div>
                 <form class="form-horizontal" role="form">
                   <div class="form-group">
-                    <label for="fsw" class="col-sm-3 control-label">Formal SignWriting</label>
+                    <label for="fsw" class="col-sm-3 control-label">Formal SignWriting in ASCII</label>
                     <div class="col-sm-9">
-                      <input type="fsw" class="form-control" id="fsw" placeholder="enter Formal SignWriting string" oninput="fswChange();">
+                      <input type="fsw" style="width:80%" class="form-control" id="fsw" placeholder="enter Formal SignWriting string" oninput="fswChange();">
+                    </div>
+                    <br>
+                    <label for="swu" class="col-sm-3 control-label">SignWriting in Unicode</label>
+                    <div class="col-sm-9">
+                      <input type="swu" style="width:80%;font-size:200%;" class="form-control" id="swu" placeholder="enter SignWriting in Unicode string" oninput="swuChange();">
                     </div>
                   </div>
+                  <br>
                   <div class="form-group">
                     <label class="col-sm-3 control-label">Signs</label>
                     <div class="col-sm-9">
@@ -124,6 +145,7 @@
                   </div>
                 </form>
               </div>
+              <br>
               <div id="svg_view"></div>
               <hr>
 
@@ -151,13 +173,14 @@
           <pre id="svg_head2"></pre>
 
           <h2>SVG Text</h2>
-          <p>The SVG text section is included to make it possible to copy and paste Formal SignWriting strings. The font-size is set to zero to make the text invisible.
+          <p>The SVG text section is included to make it possible to copy and paste Formal SignWriting in ASCII strings or SignWriting in Unicode strings.
+          The font-size is set to zero to make the text invisible.
           <pre id="svg_text"></pre>
           
           <h2>Font Based SVG</h2>
-          <p>Each symbol in the signbox is a combination of the symbol key and the positioning coordinate.
+          <p>Each spatial symbol in the signbox is a combination of the symbol and the positioning coordinate.
           <ul id="symlist"></ul>
-          <p>Each spatial symbol is written as an SVG group and positioned by the transformation translate.
+          <p>Each symbol is written as an SVG group and positioned by the transformation translate.
           <pre id="glist"></pre>
           <p>Inside of each group, 2 text elements are written. 
           The symbol fill is written first using the SuttonSignWritingFill font with a plane 16 character. 

@@ -3,8 +3,8 @@ var assert = chai.assert;
 var start = parseInt('100',16);
 var end = parseInt('38c',16);  //1 after last
 var inc1 = 1;
-var inc2 = 1;
-var inc3 = 1;
+var inc2 = Math.floor(Math.random() * 10)+1;
+var inc3 = Math.floor(Math.random() * 10)+1;
 var re, v, str, result;
 for (lo=start;lo<end;lo+=inc1){
   for (hi=lo;hi<end;hi+=inc2){

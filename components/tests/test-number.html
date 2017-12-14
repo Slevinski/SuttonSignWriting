@@ -61,10 +61,10 @@
     <div style="margin:40px">
       <h1>Testing Suite</h1>
       <a class="btn btn-default btn-lg" href="index.html">Main<br>Functions</a>
-      <a class="btn btn-primary btn-lg" href="test-size.html">Symbol<br>Sizing</a>
+      <a class="btn btn-default btn-lg" href="test-size.html">Symbol<br>Sizing</a>
       <a class="btn btn-default btn-lg" href="test-decimal.html">Decimal<br>Ranges</a>
       <a class="btn btn-default btn-lg" href="test-hexadecimal.html">Hexadecimal<br>Ranges</a>
-      <a class="btn btn-default btn-lg" href="test-number.html">Number<br>Ranges</a>
+      <a class="btn btn-primary btn-lg" href="test-number.html">Number<br>Ranges</a>
       <a class="btn btn-default btn-lg" href="test-symbol.html">Symbol<br>Ranges</a>
     </div>
 
@@ -75,22 +75,10 @@
     <script src="../../include/vendor/chai.js"></script>
     <script src="../../include/vendor/mocha.js"></script>
     <script>mocha.setup('tdd')</script>
-    <script src="test.size.js"></script>
+    <script src="test.number.js"></script>
     <script>
-window.onload = function () {
-  if (!ssw.size("S10000")){
-    cssCheck = setInterval(function(){
-      if (ssw.size("S10000")){
-        clearInterval(cssCheck);
-        mocha.checkLeaks();
-        mocha.run();
-      }
-    },100);
-  } else {
       mocha.checkLeaks();
       mocha.run();
-  }
-}
     </script>
   </body>
 </html>

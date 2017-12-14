@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="../assets/SuttonSignWriting.css" />
     <link rel="stylesheet" type="text/css" href="../include/common.css" />
     <script src="../assets/SuttonSignWriting.js"></script>
+    <style>
+      tbody tr:nth-child(odd) {
+        background-color: #ccc;
+      }
+    </style>
   </head>
 
   <body>
@@ -37,945 +42,455 @@
           <div class="active col-md-3 col-sm-6 col-xs-12" style="float:right;">
             <a class="active btn btn-default col-xs-6" href="js.html" role="button">API</a>
             <a class="btn btn-default col-xs-6" href="tests/index.html" role="button">Test</a>
-          <div>
+          </div>
         </div>
       </div>
-        </div>
-    </div>
     </div>
 
-<script>
-function keyChange(){
-    var keyIn = document.getElementById("key").value;
 
-    var keyOut = ssw.key(keyIn);
-	document.getElementById("keyFn").innerHTML = 'ssw.key("' + keyIn + '");';
-	document.getElementById("keyOut").innerHTML = keyOut;
-	if (keyOut) {
-	  document.getElementById("keyRow").className = "success";
-	} else {
-	  document.getElementById("keyRow").className = "warning";
-	}
-
-    var sizeOut = ssw.size(keyIn);
-	document.getElementById("sizeFn").innerHTML = 'ssw.size("' + keyIn + '");';
-	document.getElementById("sizeOut").innerHTML = sizeOut;
-	if (sizeOut) {
-	  document.getElementById("sizeRow").className = "success";
-	} else {
-	  document.getElementById("sizeRow").className = "warning";
-	}
-
-    var kindOut = ssw.structure('kind',keyIn);
-	document.getElementById("kindFn").innerHTML = 'ssw.structure("kind","' + keyIn + '");';
-	document.getElementById("kindOut").innerHTML = kindOut;
-	if (kindOut) {
-	  document.getElementById("kindRow").className = "success";
-	} else {
-	  document.getElementById("kindRow").className = "warning";
-	}
-
-    var catOut = ssw.structure("category",keyIn);
-	document.getElementById("catFn").innerHTML = 'ssw.structure("category","' + keyIn + '");';
-	document.getElementById("catOut").innerHTML = catOut;
-	if (catOut) {
-	  document.getElementById("catRow").className = "success";
-	} else {
-	  document.getElementById("catRow").className = "warning";
-	}
-
-    var grpOut = ssw.structure("group",keyIn);
-	document.getElementById("grpFn").innerHTML = 'ssw.structure("group","' + keyIn + '");';
-	document.getElementById("grpOut").innerHTML = grpOut;
-	if (grpOut) {
-	  document.getElementById("grpRow").className = "success";
-	} else {
-	  document.getElementById("grpRow").className = "warning";
-	}
-
-    var clzOut = ssw.colorize(keyIn);
-	document.getElementById("clzFn").innerHTML = 'ssw.colorize("' + keyIn + '");';
-	document.getElementById("clzOut").innerHTML = clzOut;
-	if (clzOut) {
-	  document.getElementById("clzRow").className = "success";
-	} else {
-	  document.getElementById("clzRow").className = "warning";
-	}
-
-    var viewOut = ssw.view(keyIn);
-	document.getElementById("viewFn").innerHTML = 'ssw.view("' + keyIn + '");';
-	document.getElementById("viewOut").innerHTML = viewOut;
-	if (viewOut) {
-	  document.getElementById("viewRow").className = "success";
-	} else {
-	  document.getElementById("viewRow").className = "warning";
-	}
-
-    var viewTOut = ssw.view(keyIn,true);
-	document.getElementById("viewTFn").innerHTML = 'ssw.view("' + keyIn + '",true);';
-	document.getElementById("viewTOut").innerHTML = viewTOut;
-	if (viewTOut) {
-	  document.getElementById("viewTRow").className = "success";
-	} else {
-	  document.getElementById("viewTRow").className = "warning";
-	}
-
-    var svgOut = ssw.svg(keyIn);
-	document.getElementById("svgFn").innerHTML = 'ssw.svg("' + keyIn + '");';
-	document.getElementById("svgOut").innerHTML = svgOut;
-	if (svgOut) {
-	  document.getElementById("svgRow").className = "success";
-	} else {
-	  document.getElementById("svgRow").className = "warning";
-	}
-
-    var canvasOut = ssw.canvas(keyIn);
-	document.getElementById("canvasFn").innerHTML = 'ssw.canvas("' + keyIn + '");';
-	document.getElementById("canvasOut").innerHTML = canvasOut;
-	if (canvasOut) {
-	  document.getElementById("canvasRow").className = "success";
-	} else {
-	  document.getElementById("canvasRow").className = "warning";
-	}
-
-    var pngOut = ssw.png(keyIn);
-	document.getElementById("pngFn").innerHTML = 'ssw.png("' + keyIn + '");';
-	document.getElementById("pngOut").innerHTML = pngOut;// + '<br><img src="' + pngOut + '">';
-	if (pngOut) {
-	  document.getElementById("pngRow").className = "success";
-	} else {
-	  document.getElementById("pngRow").className = "warning";
-	}
-
-    var uni1Out = ssw.uni(keyIn,"4");
-	document.getElementById("uni1Fn").innerHTML = 'ssw.uni("' + keyIn + '","4");';
-	document.getElementById("uni1Out").innerHTML = uni1Out;
-	if (uni1Out) {
-	  document.getElementById("uni1Row").className = "success";
-	} else {
-	  document.getElementById("uni1Row").className = "warning";
-	}
-
-    var uni2Out = ssw.uni(keyIn,"F");
-	document.getElementById("uni2Fn").innerHTML = 'ssw.uni("' + keyIn + '","F");';
-	document.getElementById("uni2Out").innerHTML = uni2Out;
-	if (uni2Out) {
-	  document.getElementById("uni2Row").className = "success";
-	} else {
-	  document.getElementById("uni2Row").className = "warning";
-	}
-
-    var uni3Out = ssw.uni(keyIn,"10");
-	document.getElementById("uni3Fn").innerHTML = 'ssw.uni("' + keyIn + '","10");';
-	document.getElementById("uni3Out").innerHTML = uni3Out;
-	if (uni3Out) {
-	  document.getElementById("uni3Row").className = "success";
-	} else {
-	  document.getElementById("uni3Row").className = "warning";
-	}
-
-    var uni8Out = ssw.uni8(keyIn);
-	document.getElementById("uni8Fn").innerHTML = 'ssw.uni8("' + keyIn + '");';
-	document.getElementById("uni8Out").innerHTML = uni8Out;
-	if (uni8Out) {
-	  document.getElementById("uni8Row").className = "success";
-	} else {
-	  document.getElementById("uni8Row").className = "warning";
-	}
-
-    var uni8inherentOut = ssw.uni8inherent(keyIn);
-	document.getElementById("uni8inherentFn").innerHTML = 'ssw.uni8inherent("' + keyIn + '");';
-	document.getElementById("uni8inherentOut").innerHTML = uni8inherentOut;
-	if (uni8inherentOut) {
-	  document.getElementById("uni8inherentRow").className = "success";
-	} else {
-	  document.getElementById("uni8inherentRow").className = "warning";
-	}
-
-	var isOut = ssw.is(keyIn);
-	document.getElementById("isFn").innerHTML = 'ssw.is("' + keyIn + '");';
-	document.getElementById("isOut").innerHTML = isOut;
-	if (isOut) {
-	  document.getElementById("isRow").className = "success";
-	} else {
-	  document.getElementById("isRow").className = "warning";
-	}
-
-	var iswritingOut = ssw.is(keyIn,'writing');
-	document.getElementById("iswritingFn").innerHTML = 'ssw.is("' + keyIn + '","writing");';
-	document.getElementById("iswritingOut").innerHTML = iswritingOut;
-	if (iswritingOut) {
-	  document.getElementById("iswritingRow").className = "success";
-	} else {
-	  document.getElementById("iswritingRow").className = "warning";
-	}
-
-	var ishandOut = ssw.is(keyIn,'hand');
-	document.getElementById("ishandFn").innerHTML = 'ssw.is("' + keyIn + '","hand");';
-	document.getElementById("ishandOut").innerHTML = ishandOut;
-	if (ishandOut) {
-	  document.getElementById("ishandRow").className = "success";
-	} else {
-	  document.getElementById("ishandRow").className = "warning";
-	}
-
-	var ismovementOut = ssw.is(keyIn,'movement');
-	document.getElementById("ismovementFn").innerHTML = 'ssw.is("' + keyIn + '","movement");';
-	document.getElementById("ismovementOut").innerHTML = ismovementOut;
-	if (ismovementOut) {
-	  document.getElementById("ismovementRow").className = "success";
-	} else {
-	  document.getElementById("ismovementRow").className = "warning";
-	}
-
-	var isdynamicOut = ssw.is(keyIn,'dynamic');
-	document.getElementById("isdynamicFn").innerHTML = 'ssw.is("' + keyIn + '","dynamic");';
-	document.getElementById("isdynamicOut").innerHTML = isdynamicOut;
-	if (isdynamicOut) {
-	  document.getElementById("isdynamicRow").className = "success";
-	} else {
-	  document.getElementById("isdynamicRow").className = "warning";
-	}
-
-	var isheadOut = ssw.is(keyIn,'head');
-	document.getElementById("isheadFn").innerHTML = 'ssw.is("' + keyIn + '","head");';
-	document.getElementById("isheadOut").innerHTML = isheadOut;
-	if (isheadOut) {
-	  document.getElementById("isheadRow").className = "success";
-	} else {
-	  document.getElementById("isheadRow").className = "warning";
-	}
-
-	var ishcenterOut = ssw.is(keyIn,'hcenter');
-	document.getElementById("ishcenterFn").innerHTML = 'ssw.is("' + keyIn + '","hcenter");';
-	document.getElementById("ishcenterOut").innerHTML = ishcenterOut;
-	if (ishcenterOut) {
-	  document.getElementById("ishcenterRow").className = "success";
-	} else {
-	  document.getElementById("ishcenterRow").className = "warning";
-	}
-
-	var isvcenterOut = ssw.is(keyIn,'vcenter');
-	document.getElementById("isvcenterFn").innerHTML = 'ssw.is("' + keyIn + '","vcenter");';
-	document.getElementById("isvcenterOut").innerHTML = isvcenterOut;
-	if (isvcenterOut) {
-	  document.getElementById("isvcenterRow").className = "success";
-	} else {
-	  document.getElementById("isvcenterRow").className = "warning";
-	}
-
-	var istrunkOut = ssw.is(keyIn,'trunk');
-	document.getElementById("istrunkFn").innerHTML = 'ssw.is("' + keyIn + '","trunk");';
-	document.getElementById("istrunkOut").innerHTML = istrunkOut;
-	if (istrunkOut) {
-	  document.getElementById("istrunkRow").className = "success";
-	} else {
-	  document.getElementById("istrunkRow").className = "warning";
-	}
-
-	var islimbOut = ssw.is(keyIn,'limb');
-	document.getElementById("islimbFn").innerHTML = 'ssw.is("' + keyIn + '","limb");';
-	document.getElementById("islimbOut").innerHTML = islimbOut;
-	if (islimbOut) {
-	  document.getElementById("islimbRow").className = "success";
-	} else {
-	  document.getElementById("islimbRow").className = "warning";
-	}
-
-	var islocationOut = ssw.is(keyIn,'location');
-	document.getElementById("islocationFn").innerHTML = 'ssw.is("' + keyIn + '","location");';
-	document.getElementById("islocationOut").innerHTML = islocationOut;
-	if (islocationOut) {
-	  document.getElementById("islocationRow").className = "success";
-	} else {
-	  document.getElementById("islocationRow").className = "warning";
-	}
-
-	var ispunctuationOut = ssw.is(keyIn,'punctuation');
-	document.getElementById("ispunctuationFn").innerHTML = 'ssw.is("' + keyIn + '","punctuation");';
-	document.getElementById("ispunctuationOut").innerHTML = ispunctuationOut;
-	if (ispunctuationOut) {
-	  document.getElementById("ispunctuationRow").className = "success";
-	} else {
-	  document.getElementById("ispunctuationRow").className = "warning";
-	}
-}
-
-function setRandom(type){
-	var randomOut = ssw.random(type);
-	document.getElementById("randomFn").innerHTML = 'ssw.random("' + type + '");';
-	document.getElementById("randomOut").innerHTML = randomOut;
-	document.getElementById("key").value = randomOut;
-}
-
-function setMirror(){
-    var keyIn = document.getElementById("key").value;
-	var mirrorOut = ssw.mirror(keyIn);
-	document.getElementById("key").value = mirrorOut;
-}
-
-function setFill(step){
-    var keyIn = document.getElementById("key").value;
-	var fillOut = ssw.fill(keyIn,step);
-	document.getElementById("key").value = fillOut;
-}
-
-function setRotate(step){
-    var keyIn = document.getElementById("key").value;
-	var rotateOut = ssw.rotate(keyIn,step);
-	document.getElementById("key").value = rotateOut;
-}
-
-function setScroll(step){
-    var keyIn = document.getElementById("key").value;
-	var scrollOut = ssw.scroll(keyIn,step);
-	document.getElementById("key").value = scrollOut;
-}
-
-function fswChange(){
-    var fswIn = document.getElementById("fsw").value;
-
-    var fswOut = ssw.fsw(fswIn);
-	document.getElementById("fswFn").innerHTML = 'ssw.fsw("' + fswIn + '");';
-	document.getElementById("fswOut").innerHTML = fswOut;
-	if (fswOut) {
-	  document.getElementById("fswRow").className = "success";
-	} else {
-	  document.getElementById("fswRow").className = "warning";
-	}
-
-    var sfswOut = ssw.styling(fswIn);
-	document.getElementById("sfswFn").innerHTML = 'ssw.styling("' + fswIn + '");';
-	document.getElementById("sfswOut").innerHTML = sfswOut;
-	if (sfswOut) {
-	  document.getElementById("sfswRow").className = "success";
-	} else {
-	  document.getElementById("sfswRow").className = "warning";
-	}
-
-    var fswTOut = ssw.fsw(fswIn,true);
-	document.getElementById("fswTFn").innerHTML = 'ssw.fsw("' + fswIn + '",true);';
-	document.getElementById("fswTOut").innerHTML = fswTOut;
-	if (fswOut) {
-	  document.getElementById("fswTRow").className = "success";
-	} else {
-	  document.getElementById("fswTRow").className = "warning";
-	}
-
-    var fswfilterOut = ssw.filter(fswIn,"hand");
-	document.getElementById("fswfilterFn").innerHTML = 'ssw.filter("' + fswIn + '","hand");';
-	document.getElementById("fswfilterOut").innerHTML = fswfilterOut;
-	if (fswfilterOut) {
-	  document.getElementById("fswfilterRow").className = "success";
-	} else {
-	  document.getElementById("fswfilterRow").className = "warning";
-	}
-
-    var fswmaxOut = ssw.max(fswfilterOut);
-	document.getElementById("fswmaxFn").innerHTML = 'ssw.max("' + fswfilterOut + '");';
-	document.getElementById("fswmaxOut").innerHTML = fswmaxOut;
-	if (fswmaxOut) {
-	  document.getElementById("fswmaxRow").className = "success";
-	} else {
-	  document.getElementById("fswmaxRow").className = "warning";
-	}
-
-    var fswnormOut = ssw.norm(fswIn);
-	document.getElementById("fswnormFn").innerHTML = 'ssw.norm("' + fswIn + '");';
-	document.getElementById("fswnormOut").innerHTML = fswnormOut;
-	if (fswnormOut) {
-	  document.getElementById("fswnormRow").className = "success";
-	} else {
-	  document.getElementById("fswnormRow").className = "warning";
-	}
-	var fswInN = fswnormOut;
-
-    var fswbboxOut = ssw.bbox(fswInN);
-	document.getElementById("fswbboxFn").innerHTML = 'ssw.bbox("' + fswInN + '");';
-	document.getElementById("fswbboxOut").innerHTML = fswbboxOut;
-	if (fswbboxOut) {
-	  document.getElementById("fswbboxRow").className = "success";
-	} else {
-	  document.getElementById("fswbboxRow").className = "warning";
-	}
-
-    var fswsizeOut = ssw.size(fswInN);
-	document.getElementById("fswsizeFn").innerHTML = 'ssw.size("' + fswInN + '");';
-	document.getElementById("fswsizeOut").innerHTML = fswsizeOut;
-	if (fswsizeOut) {
-	  document.getElementById("fswsizeRow").className = "success";
-	} else {
-	  document.getElementById("fswsizeRow").className = "warning";
-	}
-
-    var fswsvgOut = ssw.svg(fswInN,{"copy":"opt"});
-	document.getElementById("fswsvgFn").innerHTML = 'ssw.svg("' + fswInN + '",{"copy":"opt"});';
-	document.getElementById("fswsvgOut").innerHTML = fswsvgOut;
-	if (fswsvgOut) {
-	  document.getElementById("fswsvgRow").className = "success";
-	} else {
-	  document.getElementById("fswsvgRow").className = "warning";
-	}
-
-    var sfswsvgOut = ssw.svg(fswIn);
-	document.getElementById("sfswsvgFn").innerHTML = 'ssw.svg("' + fswIn + '");';
-	document.getElementById("sfswsvgOut").innerHTML = sfswsvgOut;
-	if (sfswsvgOut) {
-	  document.getElementById("sfswsvgRow").className = "success";
-	} else {
-	  document.getElementById("sfswsvgRow").className = "warning";
-	}
-
-    var fswcanvasOut = ssw.canvas(fswInN);
-	document.getElementById("fswcanvasFn").innerHTML = 'ssw.canvas("' + fswInN + '");';
-	document.getElementById("fswcanvasOut").innerHTML = fswcanvasOut;
-	if (fswcanvasOut) {
-	  document.getElementById("fswcanvasRow").className = "success";
-	} else {
-	  document.getElementById("fswcanvasRow").className = "warning";
-	}
-
-    var fswpngOut = ssw.png(fswInN);
-	document.getElementById("fswpngFn").innerHTML = 'ssw.png("' + fswInN + '");';
-	document.getElementById("fswpngOut").innerHTML = '<img src="' + fswpngOut + '">';
-	if (fswpngOut) {
-	  document.getElementById("fswpngRow").className = "success";
-	} else {
-	  document.getElementById("fswpngRow").className = "warning";
-	}
-
-    var sfswpngOut = ssw.png(fswIn);
-	document.getElementById("sfswpngFn").innerHTML = 'ssw.png("' + fswIn + '");';
-	document.getElementById("sfswpngOut").innerHTML = '<img src="' + sfswpngOut + '">';
-	if (sfswpngOut) {
-	  document.getElementById("sfswpngRow").className = "success";
-	} else {
-	  document.getElementById("sfswpngRow").className = "warning";
-	}
-
-    var fswuni1Out = ssw.uni(fswIn,"4");
-	document.getElementById("fswuni1Fn").innerHTML = 'ssw.uni("' + fswIn + '","4");';
-	document.getElementById("fswuni1Out").innerHTML = fswuni1Out;
-	if (fswuni1Out) {
-	  document.getElementById("fswuni1Row").className = "success";
-	} else {
-	  document.getElementById("fswuni1Row").className = "warning";
-	}
-
-    var fswoptOut = ssw.opt(fswIn);
-	document.getElementById("fswoptFn").innerHTML = 'ssw.opt("' + fswIn + '");';
-	document.getElementById("fswoptOut").innerHTML = fswoptOut;
-	if (fswoptOut) {
-	  document.getElementById("fswoptRow").className = "success";
-	} else {
-	  document.getElementById("fswoptRow").className = "warning";
-	}
-
-    var fswunicodeOut = ssw.unicode(fswIn);
-	document.getElementById("fswunicodeFn").innerHTML = 'ssw.unicode("' + fswIn + '");';
-	document.getElementById("fswunicodeOut").innerHTML = fswunicodeOut;
-	if (fswoptOut) {
-	  document.getElementById("fswunicodeRow").className = "success";
-	} else {
-	  document.getElementById("fswunicodeRow").className = "warning";
-	}
-
-    var converteOut = ssw.convert(fswIn,'A');
-	document.getElementById("converteFn").innerHTML = 'ssw.convert("' + fswIn + '","A");';
-	document.getElementById("converteOut").innerHTML = converteOut;
-	if (converteOut) {
-	  document.getElementById("converteRow").className = "success";
-	} else {
-	  document.getElementById("converteRow").className = "warning";
-	}
-
-    var convertgOut = ssw.convert(fswIn,'a');
-	document.getElementById("convertgFn").innerHTML = 'ssw.convert("' + fswIn + '","a");';
-	document.getElementById("convertgOut").innerHTML = convertgOut;
-	if (convertgOut) {
-	  document.getElementById("convertgRow").className = "success";
-	} else {
-	  document.getElementById("convertgRow").className = "warning";
-	}
-
-    var convertEOut = ssw.convert(fswIn,'S');
-	document.getElementById("convertEFn").innerHTML = 'ssw.convert("' + fswIn + '","S");';
-	document.getElementById("convertEOut").innerHTML = convertEOut;
-	if (convertEOut) {
-	  document.getElementById("convertERow").className = "success";
-	} else {
-	  document.getElementById("convertERow").className = "warning";
-	}
-
-    var convertELOut = ssw.convert(fswIn,'SL');
-	document.getElementById("convertELFn").innerHTML = 'ssw.convert("' + fswIn + '","SL");';
-	document.getElementById("convertELOut").innerHTML = convertELOut;
-	if (convertELOut) {
-	  document.getElementById("convertELRow").className = "success";
-	} else {
-	  document.getElementById("convertELRow").className = "warning";
-	}
-
-    var convertGOut = ssw.convert(fswIn,'s');
-	document.getElementById("convertGFn").innerHTML = 'ssw.convert("' + fswIn + '","s");';
-	document.getElementById("convertGOut").innerHTML = convertGOut;
-	if (convertGOut) {
-	  document.getElementById("convertGRow").className = "success";
-	} else {
-	  document.getElementById("convertGRow").className = "warning";
-	}
-
-    var convertGLOut = ssw.convert(fswIn,'sL');
-	document.getElementById("convertGLFn").innerHTML = 'ssw.convert("' + fswIn + '","sL");';
-	document.getElementById("convertGLOut").innerHTML = convertGLOut;
-	if (convertGLOut) {
-	  document.getElementById("convertGLRow").className = "success";
-	} else {
-	  document.getElementById("convertGLRow").className = "warning";
-	}
-
-}
-
-function setFSW(fsw){
-	document.getElementById("fsw").value = fsw;
-}
-
-function queryChange(){
-    var queryIn = document.getElementById("query").value;
-    var textIn = document.getElementById("text").value;
-
-    var queryOut = ssw.query(queryIn);
-	document.getElementById("queryFn").innerHTML = 'ssw.query("' + queryIn + '");';
-	document.getElementById("queryOut").innerHTML = queryOut;
-	if (queryOut) {
-	  document.getElementById("queryRow").className = "success";
-	} else {
-	  document.getElementById("queryRow").className = "warning";
-	}
-
-    var regexOut = ssw.regex(queryIn);
-	document.getElementById("regexFn").innerHTML = 'ssw.regex("' + queryIn + '");';
-	if (regexOut) {
-      document.getElementById("regexOut").innerHTML = 'Array("' + regexOut.join('", "') + '")';
-	  document.getElementById("regexRow").className = "success";
-	} else {
-      document.getElementById("regexOut").innerHTML = '';
-	  document.getElementById("regexRow").className = "warning";
-	}
-
-    var resultsOut = ssw.results(queryIn,textIn);
-	document.getElementById("resultsFn").innerHTML = 'ssw.results("' + queryIn + '","' + textIn + '");';
-	if (resultsOut) {
-      document.getElementById("resultsOut").innerHTML = 'Array("' + resultsOut.join('", "') + '")';
-	  document.getElementById("resultsRow").className = "success";
-	} else {
-      document.getElementById("resultsOut").innerHTML = '';
-	  document.getElementById("resultsRow").className = "warning";
-	}
-
-    var signtextOut = ssw.signtext(textIn);
-	document.getElementById("signtextFn").innerHTML = 'ssw.signtext("' + textIn + '");';
-	if (signtextOut) {
-      document.getElementById("signtextOut").innerHTML = 'Array("' + signtextOut.join('", "') + '")';
-	  document.getElementById("signtextRow").className = "success";
-	} else {
-      document.getElementById("signtextOut").innerHTML = '';
-	  document.getElementById("signtextRow").className = "warning";
-	}
-
-}
-
-function setQuery(query){
-	document.getElementById("query").value = query;
-}
-
-function setText(fsw){
-	document.getElementById("text").value = fsw;
-}
-
-</script>
     <div class="container">
-        <div class="row">
-            <div>
-              <h1>JavaScript Library API Reference</h1>
-              <p class="lead">
-                Live function calls and their output.
-              </p>
-
-              <hr>
-
-              <h2 id="symbol">Symbol Functions</h2>
-              <p>The symbol functions are based symbol keys.</p>
-              <div>
-                <form class="form-horizontal" role="form">
-                  <div class="form-group">
-                    <label for="key" class="col-sm-3 control-label">Symbol Key</label>
-                    <div class="col-sm-9">
-                      <input type="key" class="form-control" id="key" placeholder="enter Symbol Key" oninput="keyChange();">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Random</label>
-                    <div class="col-sm-9">
-                      <button class="btn btn-default" onClick="setRandom('hand'); keyChange();return false;">Hand</button>
-                      <button class="btn btn-default" onClick="setRandom('movement'); keyChange();return false;">Movement</button>
-                      <button class="btn btn-default" onClick="setRandom('dynamic'); keyChange();return false;">Dynamic</button>
-                      <button class="btn btn-default" onClick="setRandom('head'); keyChange();return false;">Head</button>
-                      <button class="btn btn-default" onClick="setRandom('trunk'); keyChange();return false;">Trunk</button>
-                      <button class="btn btn-default" onClick="setRandom('limb'); keyChange();return false;">Limb</button>
-                      <button class="btn btn-default" onClick="setRandom('location'); keyChange();return false;">Location</button>
-                      <button class="btn btn-default" onClick="setRandom('punctuation'); keyChange();return false;">Punctuation</button>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Modify</label>
-                    <div class="col-sm-9">
-                      <button class="btn btn-default" onClick="setMirror(); keyChange();return false;">Mirror</button>
-                      <button class="btn btn-default" onClick="setFill(-1); keyChange();return false;"><- Fill</button>
-                      <button class="btn btn-default" onClick="setFill(1); keyChange();return false;">Fill -></button>
-                      <button class="btn btn-default" onClick="setRotate(-1); keyChange();return false;"><- Rotate</button>
-                      <button class="btn btn-default" onClick="setRotate(1); keyChange();return false;">Rotate -></button>
-                      <button class="btn btn-default" onClick="setScroll(-1); keyChange();return false;"><- Scroll</button>
-                      <button class="btn btn-default" onClick="setScroll(1); keyChange();return false;">Scroll -></button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th width="20%">Function Call</th>
-          <th width="80%">Output</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="randomRow" class="active">
-          <td id="randomFn">ssw.random()</td>
-          <td id="randomOut"><script>document.write(ssw.random())</script></td>
-        </tr>
-        <tr id="keyRow">
-          <td id="keyFn">ssw.key("")</td>
-          <td id="keyOut"></td>
-        </tr>
-        <tr id="sizeRow">
-          <td id="sizeFn">ssw.size("")</td>
-          <td id="sizeOut"></td>
-        </tr>
-        <tr id="kindRow">
-          <td id="kindFn">ssw.structure("kind","")</td>
-          <td id="kindOut"></td>
-        </tr>
-        <tr id="catRow">
-          <td id="catFn">ssw.structure("category","")</td>
-          <td id="catOut"></td>
-        </tr>
-        <tr id="grpRow">
-          <td id="grpFn">ssw.structure("group","")</td>
-          <td id="grpOut"></td>
-        </tr>
-        <tr id="clzRow">
-          <td id="clzFn">ssw.colorize("")</td>
-          <td id="clzOut"></td>
-        </tr>
-        <tr id="viewRow">
-          <td id="viewFn">ssw.view("")</td>
-          <td id="viewOut"></td>
-        </tr>
-        <tr id="viewTRow">
-          <td id="viewTFn">ssw.view("",true)</td>
-          <td id="viewTOut"></td>
-        </tr>
-        <tr id="svgRow">
-          <td id="svgFn">ssw.svg("")</td>
-          <td id="svgOut"></td>
-        </tr>
-        <tr id="canvasRow">
-          <td id="canvasFn">ssw.canvas("")</td>
-          <td id="canvasOut"></td>
-        </tr>
-        <tr id="pngRow">
-          <td id="pngFn">ssw.png("")</td>
-          <td id="pngOut"></td>
-        </tr>
-        <tr id="uni1Row">
-          <td id="uni1Fn">ssw.uni("")</td>
-          <td id="uni1Out"></td>
-        </tr>
-        <tr id="uni2Row">
-          <td id="uni2Fn">ssw.uni("")</td>
-          <td id="uni2Out"></td>
-        </tr>
-        <tr id="uni3Row">
-          <td id="uni3Fn">ssw.uni("")</td>
-          <td id="uni3Out"></td>
-        </tr>
-        <tr id="uni8Row">
-          <td id="uni8Fn">ssw.uni8("")</td>
-          <td id="uni8Out"></td>
-        </tr>
-        <tr id="uni8inherentRow">
-          <td id="uni8inherentFn">ssw.uni8inherent("")</td>
-          <td id="uni8inherentOut"></td>
-        </tr>
-        <tr id="isRow">
-          <td id="isFn">ssw.is("")</td>
-          <td id="isOut"></td>
-        </tr>
-        <tr id="iswritingRow">
-          <td id="iswritingFn">ssw.is("","writing")</td>
-          <td id="iswritingOut"></td>
-        </tr>
-
-        <tr id="ishandRow">
-          <td id="ishandFn">ssw.is("","hand")</td>
-          <td id="ishandOut"></td>
-        </tr>
-
-        <tr id="ismovementRow">
-          <td id="ismovementFn">ssw.is("","movement")</td>
-          <td id="ismovementOut"></td>
-        </tr>
-
-        <tr id="isdynamicRow">
-          <td id="isdynamicFn">ssw.is("","dynamic")</td>
-          <td id="isdynamicOut"></td>
-        </tr>
-
-        <tr id="isheadRow">
-          <td id="isheadFn">ssw.is("","head")</td>
-          <td id="isheadOut"></td>
-        </tr>
-
-        <tr id="ishcenterRow">
-          <td id="ishcenterFn">ssw.is("","hcenter")</td>
-          <td id="ishcenterOut"></td>
-        </tr>
-
-        <tr id="isvcenterRow">
-          <td id="isvcenterFn">ssw.is("","vcenter")</td>
-          <td id="isvcenterOut"></td>
-        </tr>
-
-        <tr id="istrunkRow">
-          <td id="istrunkFn">ssw.is("","trunk")</td>
-          <td id="istrunkOut"></td>
-        </tr>
-
-        <tr id="islimbRow">
-          <td id="islimbFn">ssw.is("","limb")</td>
-          <td id="islimbOut"></td>
-        </tr>
-
-        <tr id="islocationRow">
-          <td id="islocationFn">ssw.is("","location")</td>
-          <td id="islocationOut"></td>
-        </tr>
-
-        <tr id="ispunctuationRow">
-          <td id="ispunctuationFn">ssw.is("","punctuation")</td>
-          <td id="ispunctuationOut"></td>
-        </tr>
-
-
-      </tbody>
-    </table>
-
-             <hr>
-
-              <h2 id="sign">Sign Functions</h2>
-              <p>The sign functions are based on Formal SignWriting strings.</p>
-              <div>
-                <form class="form-horizontal" role="form">
-                  <div class="form-group">
-                    <label for="fsw" class="col-sm-3 control-label">Formal SignWriting</label>
-                    <div class="col-sm-9">
-                      <input type="fsw" class="form-control" id="fsw" placeholder="enter Formal SignWriting string" oninput="fswChange();">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Signs</label>
-                    <div class="col-sm-9">
-                      <button class="btn btn-default" onClick="setFSW('AS14c20S27106M518x529S14c20481x471S27106503x489'); fswChange();return false;">Hello</button>
-                      <button class="btn btn-default" onClick="setFSW('M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468'); fswChange();return false;">World</button>
-                      <button class="btn btn-default" onClick="setFSW('MS10200480x480S20500500x490'); fswChange();return false;">Partial</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th width="20%">Function Call</th>
-          <th width="80%">Output</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="fswRow">
-          <td id="fswFn">ssw.fsw("")</td>
-          <td id="fswOut"></td>
-        </tr>
-        <tr id="sfswRow">
-          <td id="sfswFn">ssw.styling("")</td>
-          <td id="sfswOut"></td>
-        </tr>
-        <tr id="fswTRow">
-          <td id="fswTFn">ssw.fsw("",true)</td>
-          <td id="fswTOut"></td>
-        </tr>
-        <tr id="sfswsvgRow">
-          <td id="sfswsvgFn">ssw.svg("")</td>
-          <td id="sfswsvgOut"></td>
-        </tr>
-        <tr id="sfswpngRow">
-          <td id="sfswpngFn">ssw.png("")</td>
-          <td id="sfswpngOut"></td>
-        </tr>
-        <tr id="fswfilterRow">
-          <td id="fswfilterFn">ssw.filter("","hand")</td>
-          <td id="fswfilterOut"></td>
-        </tr>
-        <tr id="fswmaxRow">
-          <td id="fswmaxFn">ssw.max("")</td>
-          <td id="fswmaxOut"></td>
-        </tr>
-        <tr id="fswnormRow">
-          <td id="fswnormFn">ssw.norm("")</td>
-          <td id="fswnormOut"></td>
-        </tr>
-        <tr id="fswbboxRow">
-          <td id="fswbboxFn">ssw.bbox("")</td>
-          <td id="fswbboxOut"></td>
-        </tr>
-        <tr id="fswsizeRow">
-          <td id="fswsizeFn">ssw.size("")</td>
-          <td id="fswsizeOut"></td>
-        </tr>
-        <tr id="fswsvgRow">
-          <td id="fswsvgFn">ssw.svg("")</td>
-          <td id="fswsvgOut"></td>
-        </tr>
-        <tr id="fswcanvasRow">
-          <td id="fswcanvasFn">ssw.canvas("")</td>
-          <td id="fswcanvasOut"></td>
-        </tr>
-        <tr id="fswpngRow">
-          <td id="fswpngFn">ssw.png("")</td>
-          <td id="fswpngOut"></td>
-        </tr>
-        <tr id="fswuni1Row">
-          <td id="fswuni1Fn">ssw.uni("")</td>
-          <td id="fswuni1Out"></td>
-        </tr>
-        <tr id="fswoptRow">
-          <td id="fswoptFn">ssw.opt("")</td>
-          <td id="fswoptOut"></td>
-        </tr>
-        <tr id="fswunicodeRow">
-          <td id="fswunicodeFn">ssw.unicode("")</td>
-          <td id="fswunicodeOut"></td>
-        </tr>
-        <tr id="converteRow">
-          <td id="converteFn">ssw.convert("","A")</td>
-          <td id="converteOut"></td>
-        </tr>
-        <tr id="convertgRow">
-          <td id="convertgFn">ssw.convert("","a")</td>
-          <td id="convertgOut"></td>
-        </tr>
-        <tr id="convertERow">
-          <td id="convertEFn">ssw.convert("","S")</td>
-          <td id="convertEOut"></td>
-        </tr>
-        <tr id="convertELRow">
-          <td id="convertELFn">ssw.convert("","SL")</td>
-          <td id="convertELOut"></td>
-        </tr>
-        <tr id="convertGRow">
-          <td id="convertGFn">ssw.convert("","s")</td>
-          <td id="convertGOut"></td>
-        </tr>
-        <tr id="convertGLRow">
-          <td id="convertGLFn">ssw.convert("","sL")</td>
-          <td id="convertGLOut"></td>
-        </tr>
-
-
-      </tbody>
-    </table>
-
-             <hr>
-
-              <h2 id="sign">Query Functions</h2>
-              <p>The query functions are based on query language of Formal SignWriting.</p>
-              <div>
-                <form class="form-horizontal" role="form">
-                  <div class="form-group">
-                    <label for="query" class="col-sm-3 control-label">Query string</label>
-                    <div class="col-sm-9">
-                      <input type="query" class="form-control" id="query" placeholder="enter query string" oninput="queryChange();">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Queries</label>
-                    <div class="col-sm-9">
-                      <button class="btn btn-default" onClick="setQuery('Q'); queryChange();return false;">Any sign</button>
-                      <button class="btn btn-default" onClick="setQuery('QT'); queryChange();return false;">Sortable sign</button>
-                      <button class="btn btn-default" onClick="setQuery('QAR100t110TS189uuS20500'); queryChange();return false;">Complex example</button>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="text" class="col-sm-3 control-label">FSW Text</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="text" placeholder="enter FSW text for searching" oninput="queryChange();">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="col-sm-3 control-label">Signs</label>
-                    <div class="col-sm-9">
-                      <button class="btn btn-default" onClick="setText('M518x529S14c20481x471S27106503x489'); queryChange();return false;">Hello</button>
-                      <button class="btn btn-default" onClick="setText('M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468'); queryChange();return false;">World</button>
-                      <button class="btn btn-default" onClick="setText('AS14c20S27106M518x529S14c20481x471S27106503x489 AS18701S1870aS2e734S20500M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468 S38800464x496'); queryChange();return false;">Hello world.</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th width="20%">Function Call</th>
-          <th width="80%">Output</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr id="queryRow">
-          <td id="queryFn">ssw.query("")</td>
-          <td id="queryOut"></td>
-        </tr>
-        <tr id="regexRow">
-          <td id="regexFn">ssw.regex("")</td>
-          <td id="regexOut"></td>
-        </tr>
-        <tr id="resultsRow">
-          <td id="resultsFn">ssw.results("","")</td>
-          <td id="resultsOut"></td>
-        </tr>
-        <tr id="signtextRow">
-          <td id="signtextFn">ssw.signtext("","")</td>
-          <td id="signtextOut"></td>
-        </tr>
-
-      </tbody>
-    </table>
-
-             <hr>
-
-            </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>JavaScript API</h1>
+          <h2>functional reference</h2>
+          <textarea rows="5" style="width:100%;cellpadding:2%;" class="ssw-one-d form-control" id="raw" placeholder="text for analysis"  oninput="rawChange();"></textarea>
+          <table class="table table-hover" width="100%">
+            <thead>
+              <tr>
+                <th width="20%">Function Call</th>
+                <th width="80%">Output</th>
+              </tr>
+            </thead>
+            <tbody id="fnBody">
+            </tbody>
+          </table>
         </div>
+      </div>
     </div>
 
+    <script>
+      var fns = [
+        {
+          id: "chars"
+        },
+        {
+          id: "parse"
+        },
+        {
+          id: "parse2",
+          name: "parse",
+          args: function(value){
+            return [value,"fsw"];
+          }
+        },
+        {
+          id: "parse3",
+          name: "parse",
+          args: function(value){
+            return [value,"fsw",true];
+          }
+        },
+        {
+          id: "parse4",
+          name: "parse",
+          args: function(value){
+            return [value,"swu"];
+          }
+        },
+        {
+          id: "parse5",
+          name: "parse",
+          args: function(value){
+            return [value,"swu",true];
+          }
+        },
+        {
+          id: "fsw2swu"
+        },
+        {
+          id: "swu2fsw"
+        },
+        {
+          id: "symbol"
+        },
+        {
+          id: "symbol2",
+          name: "symbol",
+          args: function(value){
+            return [value,true];
+          }
+        },
+        {
+          id: "sign"
+        },
+        {
+          id: "sign2",
+          name: "sign",
+          args: function(value){
+            return [value,true];
+          }
+        },
+        {
+          id: "mirror"
+        },
+        {
+          id: "fill"
+        },
+        {
+          id: "fill2",
+          name: "fill",
+          args: function(value){
+            return [value,-1];
+          }
+        },
+        {
+          id: "rotate"
+        },
+        {
+          id: "rotate2",
+          name: "rotate",
+          args: function(value){
+            return [value,-1];
+          }
+        },
+        {
+          id: "scroll"
+        },
+        {
+          id: "scroll2",
+          name: "scroll",
+          args: function(value){
+            return [value,-1];
+          }
+        },
+        {
+          id: "structure1",
+          name: "structure",
+          args: function(value){
+            return ["kind",value];
+          }
+        },
+        {
+          id: "structure2",
+          name: "structure",
+          args: function(value){
+            return ["category",value];
+          }
+        },
+        {
+          id: "structure3",
+          name: "structure",
+          args: function(value){
+            return ["group",value];
+          }
+        },
+        {
+          id: "is"
+        },
+        {
+          id: "is2",
+          name: "is",
+          args: function(value){
+            return [value,"writing"];
+          }
+        },
+        {
+          id: "is3",
+          name: "is",
+          args: function(value){
+            return [value,"hand"];
+          }
+        },
+        {
+          id: "is4",
+          name: "is",
+          args: function(value){
+            return [value,"movement"];
+          }
+        },
+        {
+          id: "is5",
+          name: "is",
+          args: function(value){
+            return [value,"dynamic"];
+          }
+        },
+        {
+          id: "is6",
+          name: "is",
+          args: function(value){
+            return [value,"head"];
+          }
+        },
+        {
+          id: "is7",
+          name: "is",
+          args: function(value){
+            return [value,"hcenter"];
+          }
+        },
+        {
+          id: "is8",
+          name: "is",
+          args: function(value){
+            return [value,"vcenter"];
+          }
+        },
+        {
+          id: "is9",
+          name: "is",
+          args: function(value){
+            return [value,"trunk"];
+          }
+        },
+        {
+          id: "is10",
+          name: "is",
+          args: function(value){
+            return [value,"limb"];
+          }
+        },
+        {
+          id: "is11",
+          name: "is",
+          args: function(value){
+            return [value,"location"];
+          }
+        },
+        {
+          id: "is12",
+          name: "is",
+          args: function(value){
+            return [value,"punctuation"];
+          }
+        },
+        {
+          id: "filter1",
+          name: "filter",
+          args: function(value){
+            return [value,"hand"];
+          }
+        },
+        {
+          id: "filter2",
+          name: "filter",
+          args: function(value){
+            return [value,"movement"];
+          }
+        },
+        {
+          id: "filter3",
+          name: "filter",
+          args: function(value){
+            return [value,"hcenter"];
+          }
+        },
+        {
+          id: "filter4",
+          name: "filter",
+          args: function(value){
+            return [value,"vcenter"];
+          }
+        },
+        {
+          id: "colorize",
+        },
+        {
+          id: "view"
+        },
+        {
+          id: "view2",
+          name: "view",
+          args: function(value){
+            return [value,true];
+          }
+        },
+        {
+          id: "uni1",
+          name: "uni",
+          args: function(value){
+            return [value,"4"];
+          }
+        },
+        {
+          id: "uni2",
+          name: "uni",
+          args: function(value){
+            return [value,"F"];
+          }
+        },
+        {
+          id: "uni3",
+          name: "uni",
+          args: function(value){
+            return [value,"10"];
+          }
+        },
+        {
+          id: "bbox",
+        },
+        {
+          id: "displace",
+          args: function(value){
+            return [value,10,10];
+          }
+        },
+        {
+          id: "size",
+        },
+        {
+          id: "max"
+        },
+        {
+          id: "max2",
+          name: "max",
+          args: function(value){
+            return [value,"hcenter"];
+          }
+        },
+        {
+          id: "max3",
+          name: "max",
+          args: function(value){
+            return [value,"vcenter"];
+          }
+        },
+        {
+          id: "norm",
+        },
+        {
+          id: "svg",
+        },
+        {
+          id: "png",
+        },
+        {
+          id: "query",
+        },
+        {
+          id: "queryu",
+        },
+        {
+          id: "query2swu",
+        },
+        {
+          id: "query2fsw",
+        },
+        {
+          id: "regex",
+        },
+        {
+          id: "regexu",
+        },
+        {
+          id: "convert1",
+          name: "convert",
+          args: function(value){
+            return [value,"a"];
+          }
+        },
+        {
+          id: "convert2",
+          name: "convert",
+          args: function(value){
+            return [value,"A"];
+          }
+        },
+        {
+          id: "convert3",
+          name: "convert",
+          args: function(value){
+            return [value,"s"];
+          }
+        },
+        {
+          id: "convert4",
+          name: "convert",
+          args: function(value){
+            return [value,"SL"];
+          }
+        },
+        {
+          id: "convertu1",
+          name: "convertu",
+          args: function(value){
+            return [value,"a"];
+          }
+        },
+        {
+          id: "convertu2",
+          name: "convertu",
+          args: function(value){
+            return [value,"A"];
+          }
+        },
+        {
+          id: "convertu3",
+          name: "convertu",
+          args: function(value){
+            return [value,"s"];
+          }
+        },
+        {
+          id: "convertu4",
+          name: "convertu",
+          args: function(value){
+            return [value,"SL"];
+          }
+        },
+        {
+          id: "paragraph",
+        }
+      ];
+
+      var wrap = {
+        "parse":['<pre>','</pre>'],
+        "png":['<img src="','">'],
+        "paragraph":['<div class="signtext">','</div>']
+      }
+      var process = {
+        "parse":function(value){return JSON.stringify(value,null,2)}
+      }
+      var uses = {
+        "fsw2swu": ['fsw'],
+        "symbol": ['fsw','swu'],
+        "sign": ['fsw','swu']
+      }
+      var html = fns.map(function(fn){
+        var id = fn.id;
+        var name = fn.name || fn.id;
+        return '<tr id="' + id + 'Row"><td id="' + id + 'Fn">ssw.' + name + '()</td><td id="' + id + 'Out"></td></tr>';
+      })
+      document.getElementById("fnBody").innerHTML = html.join("\n");
+    
+    function setRaw(text){
+      document.getElementById("raw").value = text;
+    }
+    function rawChange(){
+      var text = document.getElementById("raw").value;
+      fns.map(function(fn){
+        var id = fn.id;
+        var name = fn.name || fn.id;
+        var out,args;
+        if (fn.args){
+          args = fn.args(text);
+          out = ssw[name].apply(null,args);
+          document.getElementById(id + "Fn").innerHTML = "ssw." + name + '(' + args.map(function(arg){if (typeof(arg)=="string"){return '"' + arg + '"';}else{return arg;}}).join(',') + ')';
+        } else {
+          out = ssw[name](text);
+          document.getElementById(id + "Fn").innerHTML = "ssw." + name + '("' + text + '")';
+        }
+        if (name in process){
+          out = process[name](out)
+        }
+        if (name in wrap){
+          document.getElementById(id + "Out").innerHTML = wrap[name][0] + out + wrap[name][1];
+        } else {
+          document.getElementById(id + "Out").innerHTML = out;
+        }
+      })
+    }
+    </script>
 
   </body>
 
