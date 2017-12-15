@@ -1,5 +1,5 @@
 /**
-* Sutton SignWriting JavaScript Library v2.1.0
+* Sutton SignWriting JavaScript Library v2.1.1
 * https://github.com/Slevinski/SuttonSignWriting
 * Copyright (c) 2007-2017, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MaIT License.
@@ -266,13 +266,13 @@ var ssw = {
   fsw2swu: function(text){
     if (!text) return '';
     var code = parseInt('1D800',16);
-    var fsw = text.replace('B','B!');
+    var fsw = text.replace(/B/g,'B!');
     var len,str,coord,key;
-    fsw = fsw.replace('A',String.fromCharCode(0xD800 + (((code) - 0x10000) >> 10), 0xDC00 + (((code) - 0x10000) & 0x3FF)));
-    fsw = fsw.replace('B!',String.fromCharCode(0xD800 + (((code+1) - 0x10000) >> 10), 0xDC00 + (((code+1) - 0x10000) & 0x3FF)));
-    fsw = fsw.replace('L',String.fromCharCode(0xD800 + (((code+2) - 0x10000) >> 10), 0xDC00 + (((code+2) - 0x10000) & 0x3FF)));
-    fsw = fsw.replace('M',String.fromCharCode(0xD800 + (((code+3) - 0x10000) >> 10), 0xDC00 + (((code+3) - 0x10000) & 0x3FF)));
-    fsw = fsw.replace('R',String.fromCharCode(0xD800 + (((code+4) - 0x10000) >> 10), 0xDC00 + (((code+4) - 0x10000) & 0x3FF)));
+    fsw = fsw.replace(/A/g,String.fromCharCode(0xD800 + (((code) - 0x10000) >> 10), 0xDC00 + (((code) - 0x10000) & 0x3FF)));
+    fsw = fsw.replace(/B!/g,String.fromCharCode(0xD800 + (((code+1) - 0x10000) >> 10), 0xDC00 + (((code+1) - 0x10000) & 0x3FF)));
+    fsw = fsw.replace(/L/g,String.fromCharCode(0xD800 + (((code+2) - 0x10000) >> 10), 0xDC00 + (((code+2) - 0x10000) & 0x3FF)));
+    fsw = fsw.replace(/M/g,String.fromCharCode(0xD800 + (((code+3) - 0x10000) >> 10), 0xDC00 + (((code+3) - 0x10000) & 0x3FF)));
+    fsw = fsw.replace(/R/g,String.fromCharCode(0xD800 + (((code+4) - 0x10000) >> 10), 0xDC00 + (((code+4) - 0x10000) & 0x3FF)));
     var matches = fsw.match(new RegExp(ssw.re['fsw']['coord'],'g'));
     len = matches?matches.length:0;
     var i;
@@ -296,7 +296,7 @@ var ssw = {
   },
   swu2fsw: function(text){
     if (!text) return '';
-    var fsw=text.replace("𝠀","A").replace("𝠁","B").replace("𝠂","L").replace("𝠃","M").replace("𝠄","R");
+    var fsw=text.replace(/𝠀/g,"A").replace(/𝠁/g,"B").replace(/𝠂/g,"L").replace(/𝠃/g,"M").replace(/𝠄/g,"R");
     var syms = fsw.match(new RegExp(ssw.re['swu']['symbol'],'g'));
     if (syms) {
       syms.forEach(function(sym){
@@ -346,7 +346,7 @@ var ssw = {
         re = ssw.re["fsw"]["symbol"] + "(" + ssw.re["fsw"]["coord"] + ")?";
         break;
       default:
-        return false;
+        return '';
     }
     if (style){
       re += '(' + ssw.re['style'] + ')?';
@@ -369,7 +369,7 @@ var ssw = {
         re = ssw.re["fsw"]["sign"];
         break;
       default:
-        return false;
+        return '';
     }
     if (style){
       re += '(' + ssw.re['style'] + ')?';
@@ -1069,7 +1069,7 @@ var ssw = {
     if (chars=="swu"){
       fsw = ssw.swu2fsw(fsw);
     }
-    if (!fsw) return;
+    if (!fsw) return '';
     var pos = fsw.indexOf("-");
     var styling;
     if (pos>-1){
@@ -2821,7 +2821,7 @@ var ssw = {
   },
   paragraph: function (signtext){
     var chars = ssw.chars(signtext);
-    var signs = ssw.parse(signtext,chars,true).all.map(function(fsw) {
+    var signs = (ssw.parse(signtext,chars,true).all||[]).map(function(fsw) {
       if (chars == "swu"){
         fsw = ssw.swu2fsw(fsw);
       }

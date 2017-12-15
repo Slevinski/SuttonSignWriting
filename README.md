@@ -1,7 +1,7 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 2.1.0  
-December 14th, 2017
+> Version 2.1.1  
+December 15th, 2017
 
 The Sutton SignWriting project is designed for the internet community and includes TrueType Fonts, Scalar Vector Graphics, HTML, CSS, and JavaScript Functions.
 The Formal SignWriting specification is a faithful encoding of Sutton SignWriting that is documented in an Internet Draft submitted to the IETF.  
@@ -31,6 +31,7 @@ Licensed under the MIT License
 
 
 ### Version History
+* 2.1.1 - Dec 14th, 2017: fix global replace and return empty string
 * 2.1.0 - Dec 14th, 2017: JS library rewrite with improved SWU support
 * 2.0.0 - Aug 26th, 2017: SWU character rewrite with new fonts
 * 1.4.0 - Aug 14th, 2017: SignWriting in Unicode functions
