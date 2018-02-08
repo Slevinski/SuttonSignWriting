@@ -1,7 +1,7 @@
 /**
-* Sutton SignWriting JavaScript Library v2.1.1
+* Sutton SignWriting JavaScript Library v2.2.0
 * https://github.com/Slevinski/SuttonSignWriting
-* Copyright (c) 2007-2017, Stephen E Slevinski Jr
+* Copyright (c) 2007-2018, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MaIT License.
 */
 var ssw = {
@@ -1069,6 +1069,7 @@ var ssw = {
     if (chars=="swu"){
       fsw = ssw.swu2fsw(fsw);
     }
+    console.log(fsw);
     if (!fsw) return '';
     var pos = fsw.indexOf("-");
     var styling;
@@ -1082,7 +1083,7 @@ var ssw = {
     var i;
     var size;
     if (parsed['type'] == "symbol") {
-      var key = ssw.symbol(text);
+      var key = ssw.symbol(fsw);
       keysize = ssw.size(key);
       if (!keysize) {return '';}
       if (key.length==6) {
@@ -1300,7 +1301,7 @@ var ssw = {
     svg += 'viewBox="' + x1 + ' ' + y1 + ' ' + w + ' ' + h + '">';
     svg += '<text style="font-size:0%;">';
     if (options.copy == "swu"){
-      svg += ssw.fsw2swu(text);
+      svg += ssw.fsw2swu(fsw);
     } else {
       svg += text;
     }
@@ -1317,6 +1318,7 @@ var ssw = {
   canvas: function(text,options){
     var canvas = document.createElement("canvas");
     var fsw = ssw.sign(text,true);
+    var parsed = ssw.parse(fsw);
     var chars = ssw.chars(fsw);
     if (chars=="swu"){
       fsw = ssw.swu2fsw(fsw);
@@ -1333,8 +1335,8 @@ var ssw = {
     var size;
     var i;
     var pos;
-    if (!fsw) {
-      var key = ssw.symbol(text);
+    if (parsed['type'] == "symbol") {
+      var key = ssw.symbol(fsw);
       keysize=ssw.size(key);
       if (!key) {return '';}
       if (key.length==6) {
