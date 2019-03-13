@@ -425,17 +425,18 @@
 <link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations">
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations">
 <link href="#rfc.references" rel="Chapter" title="8 References">
+<link href="#rfc.appendix.A" rel="Chapter" title="A For the Future of Sutton SignWriting">
 <link href="#rfc.authors" rel="Chapter">
 
 
-  <meta name="generator" content="xml2rfc version 2.8.5 - https://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.21.1 - https://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Slevinski, S." />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-slevinski-formal-signwriting-04" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-1" />
-  <meta name="dct.abstract" content="Sutton SignWriting is the universal and complete solution for written sign language, ISO 15924 script code &quot;Sgnw&quot;.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
-  <meta name="description" content="Sutton SignWriting is the universal and complete solution for written sign language, ISO 15924 script code &quot;Sgnw&quot;.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  " />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-slevinski-formal-signwriting-06" />
+  <meta name="dct.issued" scheme="ISO8601" content="2019-01-01" />
+  <meta name="dct.abstract" content="Sutton SignWriting is the universal and complete solution for written sign language, ISO 15924 script code &quot;Sgnw&quot;.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  Formal SignWriting is one particular computerized design for Sutton SignWriting that envisions a sign as a two part word.  Each word is written as a string of characters that can be recognized and processed by regular expressions.  The design has been optimized for display, searching, sorting, text flow, and other character processing.  Where as American Sign Language is a natural language, Formal SignWriting is a formal language.  A formal language is useful in mathematics, computer science, and linguistics.  This memo defines a conceptual character encoding map for the Internet community.  It is published for reference, examination, implementation, and evaluation.  Distribution of this memo is unlimited." />
+  <meta name="description" content="Sutton SignWriting is the universal and complete solution for written sign language, ISO 15924 script code &quot;Sgnw&quot;.  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  Formal SignWriting is one particular computerized design for Sutton SignWriting that envisions a sign as a two part word.  Each word is written as a string of characters that can be recognized and processed by regular expressions.  The design has been optimized for display, searching, sorting, text flow, and other character processing.  Where as American Sign Language is a natural language, Formal SignWriting is a formal language.  A formal language is useful in mathematics, computer science, and linguistics.  This memo defines a conceptual character encoding map for the Internet community.  It is published for reference, examination, implementation, and evaluation.  Distribution of this memo is unlimited." />
 
 </head>
 
@@ -454,10 +455,10 @@
 </tr>
 <tr>
 <td class="left">Intended status: Informational</td>
-<td class="right">January 2018</td>
+<td class="right">January 1, 2019</td>
 </tr>
 <tr>
-<td class="left">Expires: July 24, 2018</td>
+<td class="left">Expires: July 5, 2019</td>
 <td class="right"></td>
 </tr>
 
@@ -466,7 +467,7 @@
   </table>
 
   <p class="title">Formal SignWriting<br />
-  <span class="filename">draft-slevinski-formal-signwriting-04</span></p>
+  <span class="filename">draft-slevinski-formal-signwriting-06</span></p>
   
   <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
 <p>Sutton SignWriting is the universal and complete solution for written sign language, ISO 15924 script code "Sgnw".  It has been applied by a wide and deep international community of sign language users.  Sutton SignWriting is an international standard for writing sign languages by hand or with computers.  From education to research, from entertainment to religion, SignWriting has proven useful because people are using it to write signed languages.  </p>
@@ -477,9 +478,9 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at https://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 5, 2018.</p>
+<p>This Internet-Draft will expire on July 5, 2019.</p>
 <h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
-<p>Copyright (c) 2018 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2019 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (https://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -589,6 +590,8 @@
 </li>
 <li>8.   <a href="#rfc.references">References</a>
 </li>
+<li>Appendix A.   <a href="#rfc.appendix.A">For the Future of Sutton SignWriting</a>
+</li>
 <li><a href="#rfc.authors">Author's Address</a>
 </li>
 
@@ -678,7 +681,7 @@
 <a href="#rfc.section.2.2.2">2.2.2.</a> <a href="#swu" id="swu">SignWriting in Unicode (SWU)</a>
 </h1>
 <p id="rfc.section.2.2.2.p.1">SignWriting in Unicode (SWU) was first published in October 2016 and officially submitted to the Unicode Technical Committee in July 2017.  SWU is not part of the Unicode standard.  </p>
-<p id="rfc.section.2.2.2.p.2">SignWriting in Unicode is an experimental Unicode design that is promoted by the Center for Sutton Movement Writing.  This alternate encoding replaces the Sutton SignWriting block in Unicode and uses plane 4 for the SignWriting symbols.  </p>
+<p id="rfc.section.2.2.2.p.2">SignWriting in Unicode is an experimental Unicode design that is promoted by the Center for Sutton Movement Writing.  This alternate encoding overwrites the Sutton SignWriting block in Unicode and uses plane 4 for the SignWriting symbols.  </p>
 <h1 id="rfc.section.2.3">
 <a href="#rfc.section.2.3">2.3.</a> <a href="#building" id="building">Building Blocks</a>
 </h1>
@@ -1175,7 +1178,7 @@ X Axis       |
 <a href="#rfc.section.2.4.1.1">2.4.1.1.</a> <a href="#bounding" id="bounding">Bounding Box</a>
 </h1>
 <p id="rfc.section.2.4.1.1.p.1">The symbols do not have a consistent width or height.  The center of a symbol can be safely assumed to be at half-width and half-height.  A bounding box for a symbol is based on the symbol width and height.  Each symbol has a defined width and height in a text file with 37,811 lines.  Alternately, the symbol width and height can be calculated by analyzing the glyphs in a TTF font file, using JavaScript or other language.  </p>
-<p id="rfc.section.2.4.1.1.p.2">The bounding box of a sign is a tight box around the symbols.  The bounding box is used to determine the width and height of a sign.  The center of a bounding box is coordinate 500,500.  </p>
+<p id="rfc.section.2.4.1.1.p.2">The bounding box of a sign is a tight box around the symbols.  The bounding box is used to determine the width and height of a sign.  </p>
 <p id="rfc.section.2.4.1.1.p.3">The bounding box of a sign consists of four values: Minimum X, Minimum Y, Maximum X and Maximum Y.  The values of the bounding box is taken straight from the coordinates in an Formal SignWriting word.  </p>
 <h1 id="rfc.section.2.4.1.2">
 <a href="#rfc.section.2.4.1.2">2.4.1.2.</a> <a href="#max_coord" id="max_coord">Maximum Coordinate</a>
@@ -1701,7 +1704,7 @@ X Axis       |
 <h1 id="rfc.section.3.1.2">
 <a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#font_ios" id="font_ios">Mac and iOS</a>
 </h1>
-<p id="rfc.section.3.1.2.p.1">Installation is possible for Mac OS X and iOS with a configuration profile.  The Sutton SignWriting Symbol configuration profile includes 2 fonts for SVG: SuttonSignWritingLine and SuttonSignWritingFill.  The Sutton SignWriting One configuration profile includes the font SuttonSignWritingOneD.  With the configuration profile installed, the Unicode Option 1 characters can be used throughout the operating system, even as file and folder names.  </p>
+<p id="rfc.section.3.1.2.p.1">Installation is possible for Mac OS X and iOS with a configuration profile.  The Sutton SignWriting Symbol configuration profile includes 2 fonts for SVG: SuttonSignWritingLine and SuttonSignWritingFill.  The Sutton SignWriting One configuration profile includes the font SuttonSignWritingOneD.  With the configuration profile installed, the SignWriting in Unicode (SWU) characters can be used throughout the operating system, even as file and folder names.  </p>
 
 <dl>
 <dt></dt>
@@ -1857,7 +1860,7 @@ M518x533S1870a489x515S18701482x490S20500508x496S2e734500x468
 <h1 id="rfc.section.3.4">
 <a href="#rfc.section.3.4">3.4.</a> <a href="#html" id="html">HTML and CSS</a>
 </h1>
-<p id="rfc.section.3.4.p.1">Basic HTML structures and CSS rules can be used with Sutton SignWriting for customization and layout.  </p>
+<p id="rfc.section.3.4.p.1">Basic HTML structures and CSS rules can be used with Formal SignWriting for customization and layout.  </p>
 <h1 id="rfc.section.3.4.1">
 <a href="#rfc.section.3.4.1">3.4.1.</a> <a href="#size" id="size">Centering and Sizing</a>
 </h1>
@@ -2028,7 +2031,8 @@ div.signtext div {
 </h1>
 <p id="rfc.section.5.p.1">In 2015, the Sutton SignWriting block was officially added to the Unicode standard.  This block contains characters for representing the symbols of the ISWA 2010.  Unfortunately, this encoding has several unresolved issues.  The presentation <a href="#Unicode8Issues" class="xref">Issues with SignWriting in Unicode 8</a> details why this encoding is incomplete, broken, and fictional.  </p>
 <p id="rfc.section.5.p.2">Discussions with the Unicode Technical Committee continue.  The latest document submission is <a href="#SuttonSignWritingOptions" class="xref">Design Options for Sutton SignWriting with examples and fonts</a>.  </p>
-<p id="rfc.section.5.p.3">The Center for Sutton Movement Writing discourages the use of these characters as defined in the Unicode standard.  This information is included for informational purposes only.  </p>
+<p id="rfc.section.5.p.3">The Center for Sutton Movement Writing discourages the use of these characters as defined in the Unicode standard.  Alternatively, the Center for Sutton Movement Writing encourages the <a href="#characters" class="xref">character sets</a> of Formal SignWriting in ASCII (FSW) or SignWriting in Unicode (SWU).  </p>
+<p id="rfc.section.5.p.4">This information is included for informational purposes only.  </p>
 <h1 id="rfc.section.5.1">
 <a href="#rfc.section.5.1">5.1.</a> <a href="#uni_8" id="uni_8">Official Characters</a>
 </h1>
@@ -2043,7 +2047,7 @@ div.signtext div {
 </tr></thead>
 <tbody>
 <tr>
-<td class="left">Base Charcters</td>
+<td class="left">Base Characters</td>
 <td class="left">U+1D800 to U+1DA8B</td>
 </tr>
 <tr>
@@ -2056,7 +2060,7 @@ div.signtext div {
 </tr>
 </tbody>
 </table>
-<p id="rfc.section.5.1.p.3">Each symbol key can be rewritten as 3 Unicode characters of a base, a fill, and a rotation.  Given a symbol key as variable "key", in JavaScript the 3 characters can be derived with the following statements: </p>
+<p id="rfc.section.5.1.p.3">Each symbol key can be rewritten using 1 to 3 Unicode characters of a base, optional fill, and optional rotation.  Given a symbol key as variable "key", in JavaScript the 3 characters can be derived with simple formulas.  Both Fill Modifier 1 (U+1DA9A) and Rotation Modifier 1 (U+1DAA0) are inherent characters and should be not be written in the character string.  </p>
 
 <ul class="empty">
 <li>var base = parseInt(key.substr(1,3),16) + parseInt('1D700',16); </li>
@@ -2133,9 +2137,24 @@ div.signtext div {
 <a href="#rfc.references">8.</a> References</h1>
 <table><tbody>
 <tr>
+<td class="reference"><b id="FutureOfSignWriting">[FutureOfSignWriting]</b></td>
+<td class="top">
+<a>Slevinski, S.</a>, "<a href="https://www.slideshare.net/StephenSlevinski/for-the-future-of-sutton-signwriting-101403924">For the Future of Sutton SignWriting</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="PatronsOfSignWriting">[PatronsOfSignWriting]</b></td>
+<td class="top">
+<a>Slevinski, S.</a>, "<a href="https://patreon.com/signwriting">Support SignWriting on Patreon</a>"</td>
+</tr>
+<tr>
 <td class="reference"><b id="SignWritingServer">[SignWritingServer]</b></td>
 <td class="top">
 <a>Slevinski, S.</a>, "<a href="https://signpuddle.net">SignWriting Server</a>"</td>
+</tr>
+<tr>
+<td class="reference"><b id="SteveSlevinskiMe">[SteveSlevinskiMe]</b></td>
+<td class="top">
+<a>Slevinski, S.</a>, "<a href="http://SteveSlevinski.me">Steve Slevinski's Homepage</a>"</td>
 </tr>
 <tr>
 <td class="reference"><b id="SuttonSignWritingFontFill">[SuttonSignWritingFontFill]</b></td>
@@ -2178,6 +2197,20 @@ div.signtext div {
 <a>Slevinski, S.</a>, "<a href="https://www.slideshare.net/StephenSlevinski/sign-writing-in-unicode-8-issues">Issues with SignWriting in Unicode 8</a>"</td>
 </tr>
 </tbody></table>
+<h1 id="rfc.appendix.A">
+<a href="#rfc.appendix.A">Appendix A.</a> <a href="#future" id="future">For the Future of Sutton SignWriting</a>
+</h1>
+<p id="rfc.section.A.p.1">Sign languages are human languages.  Around the world, over 140 sign languages have been identified.  Of those recognized sign languages, I helped create and collect digital SignWriting for 60 of those sign languages.  </p>
+<p id="rfc.section.A.p.2">For the past 14 years, I've been working with Valerie Sutton, the inventor of SignWriting.  Together, we created the Sutton SignWriting standards of 2010, 2012, and 2017.  These standards will be useful far into the future.  </p>
+<p id="rfc.section.A.p.3">SignWriting is free to use.  SignWriting is promoted by the Center for Sutton Movement Writing, a 501c3 educational non-profit (95-3068257).  We've been successful with developing and spreading SignWriting, but we haven't been successful with fundraising.  </p>
+<p id="rfc.section.A.p.4">If I am going to continue full-time with SignWriting starting in 2019, I need an alternative and reliable funding source.  I'm looking for groups and individuals who find my work meaningful to become patrons to fund development and future growth.  </p>
+<p id="rfc.section.A.p.5">I chose Patreon for two reasons.  First, if my work is directly financed by patrons, I will no longer need to burden Valerie Sutton and the non-profit.  Second, everyone who becomes my patron adds to the SignWriting platform.  The size of the platform matters when dealing with educational institutions, government agencies, and international standards.  </p>
+<p id="rfc.section.A.p.6">I am grateful to all of my patrons, especially those who join the team for $1 a month.  For patrons who choose a larger monthly donation, I have created a few perks and incentives for joining.  </p>
+<p id="rfc.section.A.p.7">Thanks for your consideration, </p>
+<p id="rfc.section.A.p.8">-Steve Slevinski</p>
+<p><a href="#SteveSlevinskiMe" class="xref">http://SteveSlevinski.me</a>.  </p>
+<p><a href="#FutureOfSignWriting" class="xref">For the Future of Sutton SignWriting</a>.  </p>
+<p><a href="#PatronsOfSignWriting" class="xref">Support SignWriting on Patreon</a>.  </p>
 <h1 id="rfc.authors"><a href="#rfc.authors">Author's Address</a></h1>
 <div class="avoidbreak">
   <address class="vcard">

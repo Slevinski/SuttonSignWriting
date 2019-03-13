@@ -1,7 +1,10 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 2.2.0  
-February 8th, 2018
+> Version 2.3.0  
+March 13th, 2019
+
+> AUTHOR: https://SteveSlevinski.me  
+> SUPPORT: https://www.patreon.com/signwriting
 
 The Sutton SignWriting project is designed for the internet community and includes TrueType Fonts, Scalar Vector Graphics, HTML, CSS, and JavaScript Functions.
 The Formal SignWriting specification is a faithful encoding of Sutton SignWriting that is documented in an Internet Draft submitted to the IETF.  
@@ -23,14 +26,15 @@ Licensed under the SIL Open Font License v1.1
 The JavaScript libraries leverage the TrueType fonts without any additional requirements.
 Simply include a Sutton SignWriting JavaScript file in any HTML page to access the functions.  
 
-> Sutton SignWriting JavaScript Library 
-Copyright (c) 2007-2018, Stephen E Slevinski Jr  
+> Sutton SignWriting JavaScript Library  
+Copyright (c) 2007-2019, Steve Slevinski  
 Licensed under the MIT License
 
 - - -
 
 
 ### Version History
+* 2.3.0 - Mar 13th, 2019: updated I-D plus fix for SWU regex creation
 * 2.2.0 - Feb 8th, 2018: updated internet draft plus fix for svg and png
 * 2.1.1 - Dec 14th, 2017: fix global replace and return empty string
 * 2.1.0 - Dec 14th, 2017: JS library rewrite with improved SWU support

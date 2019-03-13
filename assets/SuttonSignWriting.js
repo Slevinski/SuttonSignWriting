@@ -1069,7 +1069,6 @@ var ssw = {
     if (chars=="swu"){
       fsw = ssw.swu2fsw(fsw);
     }
-    console.log(fsw);
     if (!fsw) return '';
     var pos = fsw.indexOf("-");
     var styling;
@@ -2207,7 +2206,7 @@ var ssw = {
       var start,end;
       if (match[0].slice(-2) == 'fr'){
         start = ssw.fsw2swu(base + "00");
-        end = ssw.fsw2swu(base + "4f");
+        end = ssw.fsw2swu(base + "5f");
         return ssw.rangeu(start,end);
       } else if (match[0].slice(-1) == 'r') {
         start = ssw.fsw2swu(key.slice(0,5) + '0');
@@ -2502,7 +2501,6 @@ var ssw = {
           segment = ssw.ranges(sym);
           if (sym.length>part.length){
             coord = ssw.swu2fsw(part.slice(-4)).split('x');
-            console.log(coord);
             x = coord[0];
             y = coord[1];
             //now get the x segment range+++
