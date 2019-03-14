@@ -1,7 +1,7 @@
 /**
-* Sutton SignWriting JavaScript Library v2.2.0
+* Sutton SignWriting JavaScript Library v2.3.1
 * https://github.com/Slevinski/SuttonSignWriting
-* Copyright (c) 2007-2018, Stephen E Slevinski Jr
+* Copyright (c) 2007-2019, Stephen E Slevinski Jr
 * SuttonSignWriting.js is released under the MaIT License.
 */
 var ssw = {
@@ -14,6 +14,7 @@ var ssw = {
       "sort": "A",
       "box": "[BLMR]",
       "query": "Q((A(S[123][0-9a-f]{2}[0-5u][0-9a-fu]|R[123][0-9a-f]{2}t[123][0-9a-f]{2})+)?T)?((R[123][0-9a-f]{2}t[123][0-9a-f]{2}([0-9]{3}x[0-9]{3})?)|(S[123][0-9a-f]{2}[0-5u][0-9a-fu]([0-9]{3}x[0-9]{3})?))*(V[0-9]+)?-?"
+                
     },
     "swu": {
       "sign": "(\uD836\uDC00(((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FB][\uDC00-\uDFFF])|(\uD8FC[\uDC00-\uDEA0])))+)?\uD836[\uDC01-\uDC04](\uD836[\uDC0C-\uDDFF]){2}(((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FA][\uDC00-\uDFFF])|(\uD8FB[\uDC00-\uDFA0]))(\uD836[\uDC0C-\uDDFF]){2})*",
@@ -22,7 +23,7 @@ var ssw = {
       "coord": "(\uD836[\uDC0C-\uDDFF]){2}",
       "sort": "\uD836\uDC00",
       "box": "\uD836[\uDC01-\uDC04]",
-      "query": "Q((A(((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?|R((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?)+)?T)?((R((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?(\uD836[\uDC0C-\uDDFF]\uD836[\uDC0C-\uDDFF])?)|(((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?(\uD836[\uDC0C-\uDDFF]\uD836[\uDC0C-\uDDFF])?))*(V[0-9]+)?-?"
+      "query": "Q((A(((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?|R((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80])))+)?T)?((R((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))(\uD836[\uDC0C-\uDDFF]\uD836[\uDC0C-\uDDFF])?)|(((\uD8C0[\uDC01-\uDFFF])|([\uD8C1-\uD8FC][\uDC00-\uDFFF])|(\uD8FD[\uDC00-\uDC80]))f?r?(\uD836[\uDC0C-\uDDFF]\uD836[\uDC0C-\uDDFF])?))*(V[0-9]+)?-?"
     },
     "style": "-C?(P[0-9]{2})?(G_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)_)?(D_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)?(Z([0-9]+(.[0-9]+)?|x))?(-(D[0-9]{2}_([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+)(,([0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-zA-Z]+))?_)*(Z[0-9]{2},[0-9]+(.[0-9]+)?(,[0-9]{3}x[0-9]{3})?)*)?(--?[_a-zA-Z][_a-zA-Z0-9-]{0,100}( -?[_a-zA-Z][_a-zA-Z0-9-]{0,100})*!([a-zA-Z][_a-zA-Z0-9-]{0,100}!)?)?"
   },

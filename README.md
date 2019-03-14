@@ -1,7 +1,7 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 2.3.0  
-March 13th, 2019
+> Version 2.3.1  
+March 14th, 2019
 
 > AUTHOR: https://SteveSlevinski.me  
 > SUPPORT: https://www.patreon.com/signwriting
@@ -34,6 +34,7 @@ Licensed under the MIT License
 
 
 ### Version History
+* 2.3.1 - Mar 14th, 2019: fix for SWU query validation
 * 2.3.0 - Mar 13th, 2019: updated I-D plus fix for SWU regex creation
 * 2.2.0 - Feb 8th, 2018: updated internet draft plus fix for svg and png
 * 2.1.1 - Dec 14th, 2017: fix global replace and return empty string
