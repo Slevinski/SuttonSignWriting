@@ -2,24 +2,17 @@
   font-family: "SuttonSignWritingLine";
   src: 
     local('SuttonSignWritingLine'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingLine.ttf') format('truetype');
+    url('https://unpkg.com/@sutton-signwriting/font-ttf@1.0.0/font/SuttonSignWritingLine.ttf') format('truetype');
 }
 @font-face {
   font-family: "SuttonSignWritingFill";
   src: 
     local('SuttonSignWritingFill'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingFill.ttf') format('truetype');
+    url('https://unpkg.com/@sutton-signwriting/font-ttf@1.0.0/font/SuttonSignWritingFill.ttf') format('truetype');
 }
 @font-face {
   font-family: "SuttonSignWritingOneD";
   src: 
     local('SuttonSignWritingOneD'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingOneD.ttf') format('truetype');
+    url('https://unpkg.com/@sutton-signwriting/font-ttf@1.0.0/font/SuttonSignWritingOneD.ttf') format('truetype');
 }
-@font-face {
-  font-family: "SuttonSignWritingNull";
-  src: 
-    local('SuttonSignWritingNull'),
-    url('https://cdn.rawgit.com/Slevinski/SuttonSignWriting/master/assets/SuttonSignWritingNull.ttf') format('truetype');
-}
-

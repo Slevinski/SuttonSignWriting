@@ -1,7 +1,7 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 2.3.1  
-March 14th, 2019
+> Version 2.4.1  
+February 18th, 2020
 
 > AUTHOR: https://SteveSlevinski.me  
 > SUPPORT: https://www.patreon.com/signwriting
@@ -30,10 +30,19 @@ Simply include a Sutton SignWriting JavaScript file in any HTML page to access t
 Copyright (c) 2007-2019, Steve Slevinski  
 Licensed under the MIT License
 
+### The New Sutton SignWriting Packages for Node and Browser
+The Sutton SignWriting JavaScript library has been rewritten for modular packages.
+These packages are available on GitHub, NPM, and Unpkg.
+* @sutton-signwriting/core for Node and Browser ([source](https://github.com/sutton-signwriting/core), [distribution](https://unpkg.com/browse/@sutton-signwriting/core/), and [documentation](https://sutton-signwriting.github.io/core/))
+* @sutton-signwriting/font-db for Node ([source](https://github.com/sutton-signwriting/font-db), [distribution](https://unpkg.com/browse/@sutton-signwriting/font-db/), and [documentation](https://sutton-signwriting.github.io/font-db/))
+* @sutton-signwriting/font-ttf for Browser ([source](https://github.com/sutton-signwriting/font-ttf), [distribution](https://unpkg.com/browse/@sutton-signwriting/font-ttf/), and [documentation](https://sutton-signwriting.github.io/font-ttf/))
+* @sutton-signwriting/react-components for Browser (coming soon) 
+
 - - -
 
 
 ### Version History
+* 2.4.0 - Fed 18th, 2020: updated cdn for fonts and added information about packages
 * 2.3.1 - Mar 14th, 2019: fix for SWU query validation
 * 2.3.0 - Mar 13th, 2019: updated I-D plus fix for SWU regex creation
 * 2.2.0 - Feb 8th, 2018: updated internet draft plus fix for svg and png
