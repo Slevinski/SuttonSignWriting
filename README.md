@@ -1,6 +1,6 @@
 ## The Sutton SignWriting Project
 - - - 
-> Version 2.4.1  
+> Version 2.4.0  
 February 18th, 2020
 
 > AUTHOR: https://SteveSlevinski.me  
